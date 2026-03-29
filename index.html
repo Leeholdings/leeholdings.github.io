@@ -116,6 +116,11 @@
       box-shadow: var(--shadow-soft);
     }
 
+    .ticker-wrap {
+      border-bottom: 1px solid rgba(19, 34, 24, 0.06);
+      background: #fbfcfb;
+    }
+
     .hero {
       padding: 76px 0 44px;
       background: linear-gradient(180deg, #ffffff 0%, #fcfdfc 100%);
@@ -347,14 +352,6 @@
       overflow: hidden;
     }
 
-    .feature-card::after,
-    .research-card::after,
-    .trust-card::after,
-    .contact-card::after,
-    .mini-card::after {
-      display: none;
-    }
-
     .feature-card h3,
     .research-card h3,
     .trust-card h3,
@@ -508,6 +505,32 @@
       </nav>
     </div>
   </header>
+
+  <!-- LIVE TICKER TAPE -->
+  <div class="ticker-wrap">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          { "description": "DXY", "proName": "TVC:DXY" },
+          { "description": "EURUSD", "proName": "FX:EURUSD" },
+          { "description": "GBPUSD", "proName": "FX:GBPUSD" },
+          { "description": "USDJPY", "proName": "FX:USDJPY" },
+          { "description": "AUDUSD", "proName": "FX:AUDUSD" },
+          { "description": "WTI", "proName": "TVC:USOIL" },
+          { "description": "Brent", "proName": "TVC:UKOIL" },
+          { "description": "Nat Gas", "proName": "NYMEX:NG1!" }
+        ],
+        "showSymbolLogo": false,
+        "isTransparent": true,
+        "displayMode": "compact",
+        "colorTheme": "light",
+        "locale": "en"
+      }
+      </script>
+    </div>
+  </div>
 
   <main id="top">
     <section class="hero">
