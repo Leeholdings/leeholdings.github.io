@@ -259,14 +259,13 @@
 
     .dashboard-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(320px, 0.8fr);
+      grid-template-columns: 1fr;
       gap: 18px;
       margin-top: 16px;
       align-items: start;
     }
 
-    .chart-shell,
-    .analysis-shell {
+    .chart-shell {
       background: #ffffff;
       border: 1px solid rgba(15, 107, 69, 0.08);
       border-radius: 24px;
@@ -274,8 +273,7 @@
       overflow: hidden;
     }
 
-    .chart-shell-top,
-    .analysis-shell-top {
+    .chart-shell-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -285,15 +283,13 @@
       flex-wrap: wrap;
     }
 
-    .chart-shell-title,
-    .analysis-shell-title {
+    .chart-shell-title {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
 
-    .chart-shell-title small,
-    .analysis-shell-title small {
+    .chart-shell-title small {
       color: var(--green);
       text-transform: uppercase;
       font-size: 0.73rem;
@@ -301,24 +297,18 @@
       font-weight: 700;
     }
 
-    .chart-shell-title strong,
-    .analysis-shell-title strong {
+    .chart-shell-title strong {
       font-size: 1.15rem;
     }
 
-    .chart-shell-meta,
-    .analysis-shell-meta {
+    .chart-shell-meta {
       color: var(--muted);
       font-size: 0.88rem;
       font-weight: 600;
     }
 
     .tv-chart {
-      min-height: 560px;
-    }
-
-    .tv-analysis {
-      min-height: 560px;
+      min-height: 620px;
     }
 
     .hero {
@@ -633,12 +623,6 @@
       margin-top: 14px;
     }
 
-    @media (max-width: 1180px) {
-      .dashboard-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 1100px) {
       .hero-grid,
       .feature-grid,
@@ -685,13 +669,11 @@
       }
 
       .chart-shell-top,
-      .analysis-shell-top,
       .market-toolbar-top {
         align-items: flex-start;
       }
 
-      .tv-chart,
-      .tv-analysis {
+      .tv-chart {
         min-height: 460px;
       }
     }
@@ -736,7 +718,6 @@
           { "description": "AUDUSD", "proName": "FX:AUDUSD" },
           { "description": "WTI", "proName": "TVC:USOIL" },
           { "description": "Brent", "proName": "TVC:UKOIL" },
-          { "description": "Nat Gas", "proName": "CAPITALCOM:NATGAS" },
           { "description": "XAU", "proName": "TVC:GOLD" },
           { "description": "XAG", "proName": "TVC:SILVER" },
           { "description": "XPT", "proName": "TVC:PLATINUM" },
@@ -815,9 +796,6 @@
             <button class="asset-tab" data-symbol="TVC:UKOIL" data-label="Brent — Brent Crude Oil">
               Brent <span class="asset-tab-note">Live chart</span>
             </button>
-            <button class="asset-tab" data-symbol="CAPITALCOM:NATGAS" data-label="Nat Gas — Natural Gas">
-              Nat Gas <span class="asset-tab-note">Live chart</span>
-            </button>
           </div>
         </div>
 
@@ -877,17 +855,6 @@
             <div class="chart-shell-meta">Click any tab above to switch the live chart.</div>
           </div>
           <div id="tvChart" class="tv-chart"></div>
-        </div>
-
-        <div class="analysis-shell">
-          <div class="analysis-shell-top">
-            <div class="analysis-shell-title">
-              <small>Automatic Technical Analysis</small>
-              <strong id="analysisTitle">SPX — S&P 500</strong>
-            </div>
-            <div class="analysis-shell-meta">Updates automatically through TradingView.</div>
-          </div>
-          <div id="tvAnalysis" class="tv-analysis"></div>
         </div>
       </div>
     </div>
@@ -1231,9 +1198,7 @@
   <script>
     const tabs = document.querySelectorAll(".asset-tab");
     const chartContainer = document.getElementById("tvChart");
-    const analysisContainer = document.getElementById("tvAnalysis");
     const chartTitle = document.getElementById("chartTitle");
-    const analysisTitle = document.getElementById("analysisTitle");
     const activeSymbolReadout = document.getElementById("activeSymbolReadout");
 
     function renderAdvancedChart(symbol) {
@@ -1241,7 +1206,7 @@
 
       const widgetWrap = document.createElement("div");
       widgetWrap.className = "tradingview-widget-container";
-      widgetWrap.style.height = "560px";
+      widgetWrap.style.height = "620px";
       widgetWrap.style.width = "100%";
 
       const widgetTarget = document.createElement("div");
@@ -1275,50 +1240,14 @@
       chartContainer.appendChild(widgetWrap);
     }
 
-    function renderTechnicalAnalysis(symbol) {
-      analysisContainer.innerHTML = "";
-
-      const widgetWrap = document.createElement("div");
-      widgetWrap.className = "tradingview-widget-container";
-      widgetWrap.style.height = "560px";
-      widgetWrap.style.width = "100%";
-
-      const widgetTarget = document.createElement("div");
-      widgetTarget.className = "tradingview-widget-container__widget";
-      widgetTarget.style.height = "100%";
-      widgetTarget.style.width = "100%";
-
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js";
-      script.async = true;
-      script.innerHTML = JSON.stringify({
-        interval: "1m",
-        width: "100%",
-        isTransparent: true,
-        height: "560",
-        symbol: symbol,
-        showIntervalTabs: true,
-        displayMode: "single",
-        locale: "en",
-        colorTheme: "light"
-      });
-
-      widgetWrap.appendChild(widgetTarget);
-      widgetWrap.appendChild(script);
-      analysisContainer.appendChild(widgetWrap);
-    }
-
     function updateDashboard(symbol, label, clickedTab) {
       tabs.forEach(tab => tab.classList.remove("active"));
       if (clickedTab) clickedTab.classList.add("active");
 
       chartTitle.textContent = label;
-      analysisTitle.textContent = label;
       activeSymbolReadout.textContent = "Selected: " + label;
 
       renderAdvancedChart(symbol);
-      renderTechnicalAnalysis(symbol);
     }
 
     tabs.forEach(tab => {
