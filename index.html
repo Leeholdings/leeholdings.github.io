@@ -134,8 +134,12 @@
       background: #fbfcfb;
     }
 
+    .tradingview-widget-container {
+      min-height: 46px;
+    }
+
     .hero {
-      padding: 84px 0 58px;
+      padding: 72px 0 42px;
       background:
         radial-gradient(circle at top right, rgba(39, 134, 89, 0.08), transparent 28%),
         linear-gradient(180deg, #ffffff 0%, #fcfdfc 100%);
@@ -270,7 +274,10 @@
       margin: 0 0 16px;
     }
 
-    .micro-list {
+    .micro-list,
+    .list,
+    .research-card ul,
+    .contact-card ul {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -278,7 +285,10 @@
       gap: 10px;
     }
 
-    .micro-list li {
+    .micro-list li,
+    .list li,
+    .research-card ul li,
+    .contact-card ul li {
       display: flex;
       gap: 10px;
       align-items: flex-start;
@@ -286,7 +296,10 @@
       font-size: 0.96rem;
     }
 
-    .micro-list li::before {
+    .micro-list li::before,
+    .list li::before,
+    .research-card ul li::before,
+    .contact-card ul li::before {
       content: "•";
       color: var(--green);
       font-weight: 900;
@@ -304,6 +317,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -324,7 +338,7 @@
     }
 
     section {
-      padding: 38px 0;
+      padding: 30px 0;
     }
 
     .section-head {
@@ -381,32 +395,8 @@
     .feature-card p,
     .research-card p,
     .trust-card p,
-    .contact-card p,
-    .contact-card li,
-    .research-card li {
+    .contact-card p {
       color: var(--muted);
-    }
-
-    .list {
-      display: grid;
-      gap: 10px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--muted);
-    }
-
-    .list li::before {
-      content: "•";
-      color: var(--green);
-      font-weight: 900;
-      margin-top: -2px;
     }
 
     .tag-row {
@@ -430,7 +420,7 @@
       color: #67786d;
       font-size: 0.9rem;
       max-width: 72ch;
-      margin-top: 14px;
+      margin-top: 20px;
     }
 
     .footer {
@@ -523,30 +513,30 @@
         src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
         async
       >
-      {
-        "symbols": [
-          { "description": "SPX", "proName": "FOREXCOM:SPXUSD" },
-          { "description": "EURUSD", "proName": "FX:EURUSD" },
-          { "description": "GBPUSD", "proName": "FX:GBPUSD" },
-          { "description": "USDJPY", "proName": "FX:USDJPY" },
-          { "description": "AUDUSD", "proName": "FX:AUDUSD" },
-          { "description": "WTIUSD", "proName": "TVC:USOIL" },
-          { "description": "UKOIL", "proName": "TVC:UKOIL" },
-          { "description": "GOLD", "proName": "TVC:GOLD" },
-          { "description": "SILVER", "proName": "TVC:SILVER" },
-          { "description": "BTCUSD", "proName": "BINANCE:BTCUSDT" },
-          { "description": "ETHUSD", "proName": "BINANCE:ETHUSDT" },
-          { "description": "XRPUSD", "proName": "BINANCE:XRPUSDT" },
-          { "description": "SOLUSD", "proName": "BINANCE:SOLUSDT" },
-          { "description": "TONUSD", "proName": "BINANCE:TONUSDT" },
-          { "description": "BNBUSD", "proName": "BINANCE:BNBUSDT" }
-        ],
-        "showSymbolLogo": false,
-        "isTransparent": true,
-        "displayMode": "adaptive",
-        "colorTheme": "light",
-        "locale": "en"
-      }
+{
+  "symbols": [
+    { "description": "SPX", "proName": "FOREXCOM:SPXUSD" },
+    { "description": "EURUSD", "proName": "FX:EURUSD" },
+    { "description": "GBPUSD", "proName": "FX:GBPUSD" },
+    { "description": "USDJPY", "proName": "FX:USDJPY" },
+    { "description": "AUDUSD", "proName": "FX:AUDUSD" },
+    { "description": "WTIUSD", "proName": "TVC:USOIL" },
+    { "description": "UKOIL", "proName": "TVC:UKOIL" },
+    { "description": "GOLD", "proName": "TVC:GOLD" },
+    { "description": "SILVER", "proName": "TVC:SILVER" },
+    { "description": "BTCUSD", "proName": "BINANCE:BTCUSDT" },
+    { "description": "ETHUSD", "proName": "BINANCE:ETHUSDT" },
+    { "description": "XRPUSD", "proName": "BINANCE:XRPUSDT" },
+    { "description": "SOLUSD", "proName": "BINANCE:SOLUSDT" },
+    { "description": "TONUSD", "proName": "BINANCE:TONUSDT" },
+    { "description": "BNBUSD", "proName": "BINANCE:BNBUSDT" }
+  ],
+  "showSymbolLogo": false,
+  "isTransparent": true,
+  "displayMode": "adaptive",
+  "colorTheme": "light",
+  "locale": "en"
+}
       </script>
     </div>
   </div>
@@ -596,10 +586,8 @@
     <section id="markets">
       <div class="container">
         <div class="section-head">
-          <div>
-            <div class="section-tag">Market Architecture</div>
-            <h2>Core market exposure</h2>
-          </div>
+          <div class="section-tag">Market Architecture</div>
+          <h2>Core market exposure</h2>
         </div>
 
         <div class="feature-grid">
@@ -667,10 +655,8 @@
     <section id="strategy">
       <div class="container">
         <div class="section-head">
-          <div>
-            <div class="section-tag">Strategy</div>
-            <h2>Clear framework. Controlled execution.</h2>
-          </div>
+          <div class="section-tag">Strategy</div>
+          <h2>Clear framework. Controlled execution.</h2>
         </div>
 
         <div class="feature-grid">
@@ -708,10 +694,8 @@
     <section id="research">
       <div class="container">
         <div class="section-head">
-          <div>
-            <div class="section-tag">Research & Insights</div>
-            <h2>Depth that supports positioning.</h2>
-          </div>
+          <div class="section-tag">Research & Insights</div>
+          <h2>Depth that supports positioning.</h2>
         </div>
 
         <div class="research-grid">
@@ -784,10 +768,8 @@
     <section id="about">
       <div class="container">
         <div class="section-head">
-          <div>
-            <div class="section-tag">About</div>
-            <h2>Independent by structure. Disciplined by design.</h2>
-          </div>
+          <div class="section-tag">About</div>
+          <h2>Independent by structure. Disciplined by design.</h2>
         </div>
 
         <div class="trust-grid">
@@ -816,10 +798,8 @@
     <section id="contact">
       <div class="container">
         <div class="section-head">
-          <div>
-            <div class="section-tag">Investor Access</div>
-            <h2>For aligned conversations only.</h2>
-          </div>
+          <div class="section-tag">Investor Access</div>
+          <h2>For aligned conversations only.</h2>
         </div>
 
         <div class="contact-grid">
