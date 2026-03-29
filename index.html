@@ -18,6 +18,7 @@
       --green: #0f6b45;
       --green-2: #278659;
       --green-3: #e8f3ec;
+      --green-4: #edf7f1;
       --max: 1280px;
       --radius: 24px;
       --shadow: 0 18px 50px rgba(17, 31, 22, 0.06);
@@ -47,7 +48,7 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
       backdrop-filter: blur(14px);
       background: rgba(255, 255, 255, 0.92);
       border-bottom: 1px solid rgba(19, 34, 24, 0.06);
@@ -119,6 +120,205 @@
     .ticker-wrap {
       border-bottom: 1px solid rgba(19, 34, 24, 0.06);
       background: #fbfcfb;
+    }
+
+    .market-hub {
+      border-bottom: 1px solid rgba(19, 34, 24, 0.06);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcfb 100%);
+    }
+
+    .market-hub-inner {
+      padding: 14px 0 18px;
+    }
+
+    .market-toolbar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .market-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .market-title .eyebrow-lite {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f5faf7;
+      border: 1px solid rgba(15, 107, 69, 0.08);
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .market-title .eyebrow-lite::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--green-2);
+    }
+
+    .active-symbol-readout {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .market-groups {
+      display: grid;
+      gap: 12px;
+    }
+
+    .market-group {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .market-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .market-group-title {
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .market-group-sub {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .asset-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .asset-tab {
+      appearance: none;
+      border: 1px solid rgba(15, 107, 69, 0.10);
+      background: #ffffff;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font: inherit;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      box-shadow: var(--shadow-soft);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .asset-tab:hover {
+      transform: translateY(-1px);
+      border-color: rgba(15, 107, 69, 0.18);
+    }
+
+    .asset-tab.active {
+      background: linear-gradient(135deg, #f3faf6, #edf7f1);
+      border-color: rgba(15, 107, 69, 0.18);
+      color: var(--green);
+    }
+
+    .asset-tab-note {
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #f8faf9;
+      border: 1px solid rgba(15, 107, 69, 0.06);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(320px, 0.8fr);
+      gap: 18px;
+      margin-top: 16px;
+      align-items: start;
+    }
+
+    .chart-shell,
+    .analysis-shell {
+      background: #ffffff;
+      border: 1px solid rgba(15, 107, 69, 0.08);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .chart-shell-top,
+    .analysis-shell-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(15, 107, 69, 0.08);
+      flex-wrap: wrap;
+    }
+
+    .chart-shell-title,
+    .analysis-shell-title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .chart-shell-title small,
+    .analysis-shell-title small {
+      color: var(--green);
+      text-transform: uppercase;
+      font-size: 0.73rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .chart-shell-title strong,
+    .analysis-shell-title strong {
+      font-size: 1.15rem;
+    }
+
+    .chart-shell-meta,
+    .analysis-shell-meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .tv-chart {
+      min-height: 560px;
+    }
+
+    .tv-analysis {
+      min-height: 560px;
     }
 
     .hero {
@@ -330,10 +530,6 @@
       max-width: 12ch;
     }
 
-    .section-head p {
-      display: none;
-    }
-
     .feature-grid,
     .research-grid,
     .trust-grid,
@@ -437,9 +633,14 @@
       margin-top: 14px;
     }
 
+    @media (max-width: 1180px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 1100px) {
       .hero-grid,
-      .section-head,
       .feature-grid,
       .research-grid,
       .trust-grid,
@@ -482,6 +683,17 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .chart-shell-top,
+      .analysis-shell-top,
+      .market-toolbar-top {
+        align-items: flex-start;
+      }
+
+      .tv-chart,
+      .tv-analysis {
+        min-height: 460px;
+      }
     }
   </style>
 </head>
@@ -506,29 +718,178 @@
     </div>
   </header>
 
-  <!-- LIVE TICKER TAPE -->
   <div class="ticker-wrap">
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        async
+      >
       {
         "symbols": [
-          { "description": "DXY", "proName": "TVC:DXY" },
+          { "description": "SPX", "proName": "FOREXCOM:SPXUSD" },
+          { "description": "DXY", "proName": "ICEUS:DX1!" },
           { "description": "EURUSD", "proName": "FX:EURUSD" },
           { "description": "GBPUSD", "proName": "FX:GBPUSD" },
           { "description": "USDJPY", "proName": "FX:USDJPY" },
           { "description": "AUDUSD", "proName": "FX:AUDUSD" },
           { "description": "WTI", "proName": "TVC:USOIL" },
           { "description": "Brent", "proName": "TVC:UKOIL" },
-          { "description": "Nat Gas", "proName": "NYMEX:NG1!" }
+          { "description": "Nat Gas", "proName": "CAPITALCOM:NATGAS" },
+          { "description": "XAU", "proName": "TVC:GOLD" },
+          { "description": "XAG", "proName": "TVC:SILVER" },
+          { "description": "XPT", "proName": "TVC:PLATINUM" },
+          { "description": "BTC", "proName": "BINANCE:BTCUSDT" },
+          { "description": "ETH", "proName": "BINANCE:ETHUSDT" },
+          { "description": "XRP", "proName": "BINANCE:XRPUSDT" },
+          { "description": "SOL", "proName": "BINANCE:SOLUSDT" },
+          { "description": "TON", "proName": "BINANCE:TONUSDT" },
+          { "description": "BNB", "proName": "BINANCE:BNBUSDT" }
         ],
         "showSymbolLogo": false,
         "isTransparent": true,
-        "displayMode": "compact",
+        "displayMode": "adaptive",
         "colorTheme": "light",
         "locale": "en"
       }
       </script>
+    </div>
+  </div>
+
+  <div class="market-hub">
+    <div class="container market-hub-inner">
+      <div class="market-toolbar-top">
+        <div class="market-title">
+          <span class="eyebrow-lite">Live Market Interface</span>
+          <span class="active-symbol-readout" id="activeSymbolReadout">Selected: SPX — S&amp;P 500</span>
+        </div>
+      </div>
+
+      <div class="market-groups">
+        <div class="market-group">
+          <div class="market-group-header">
+            <div class="market-group-title">Macro</div>
+            <div class="market-group-sub">Risk sentiment and dollar regime</div>
+          </div>
+          <div class="asset-tabs">
+            <button class="asset-tab active" data-symbol="FOREXCOM:SPXUSD" data-label="SPX — S&P 500">
+              SPX <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="ICEUS:DX1!" data-label="DXY — U.S. Dollar Index">
+              DXY <span class="asset-tab-note">Live chart</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="market-group">
+          <div class="market-group-header">
+            <div class="market-group-title">FX</div>
+            <div class="market-group-sub">Major currency flows and relative strength</div>
+          </div>
+          <div class="asset-tabs">
+            <button class="asset-tab" data-symbol="FX:EURUSD" data-label="EURUSD — Euro / U.S. Dollar">
+              EURUSD <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="FX:GBPUSD" data-label="GBPUSD — British Pound / U.S. Dollar">
+              GBPUSD <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="FX:USDJPY" data-label="USDJPY — U.S. Dollar / Japanese Yen">
+              USDJPY <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="FX:AUDUSD" data-label="AUDUSD — Australian Dollar / U.S. Dollar">
+              AUDUSD <span class="asset-tab-note">Live chart</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="market-group">
+          <div class="market-group-header">
+            <div class="market-group-title">Energy</div>
+            <div class="market-group-sub">Inflation pressure and geopolitical transmission</div>
+          </div>
+          <div class="asset-tabs">
+            <button class="asset-tab" data-symbol="TVC:USOIL" data-label="WTI — U.S. Crude Oil">
+              WTI <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="TVC:UKOIL" data-label="Brent — Brent Crude Oil">
+              Brent <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="CAPITALCOM:NATGAS" data-label="Nat Gas — Natural Gas">
+              Nat Gas <span class="asset-tab-note">Live chart</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="market-group">
+          <div class="market-group-header">
+            <div class="market-group-title">Metals</div>
+            <div class="market-group-sub">Real assets, hedges, and industrial signal</div>
+          </div>
+          <div class="asset-tabs">
+            <button class="asset-tab" data-symbol="TVC:GOLD" data-label="XAU — Gold">
+              XAU <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="TVC:SILVER" data-label="XAG — Silver">
+              XAG <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="TVC:PLATINUM" data-label="XPT — Platinum">
+              XPT <span class="asset-tab-note">Live chart</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="market-group">
+          <div class="market-group-header">
+            <div class="market-group-title">Digital Assets</div>
+            <div class="market-group-sub">Modern liquidity, infrastructure, and beta</div>
+          </div>
+          <div class="asset-tabs">
+            <button class="asset-tab" data-symbol="BINANCE:BTCUSDT" data-label="BTC — Bitcoin">
+              BTC <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="BINANCE:ETHUSDT" data-label="ETH — Ethereum">
+              ETH <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="BINANCE:XRPUSDT" data-label="XRP — XRP">
+              XRP <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="BINANCE:SOLUSDT" data-label="SOL — Solana">
+              SOL <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="BINANCE:TONUSDT" data-label="TON — Toncoin">
+              TON <span class="asset-tab-note">Live chart</span>
+            </button>
+            <button class="asset-tab" data-symbol="BINANCE:BNBUSDT" data-label="BNB — BNB">
+              BNB <span class="asset-tab-note">Live chart</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="chart-shell">
+          <div class="chart-shell-top">
+            <div class="chart-shell-title">
+              <small>TradingView Chart</small>
+              <strong id="chartTitle">SPX — S&P 500</strong>
+            </div>
+            <div class="chart-shell-meta">Click any tab above to switch the live chart.</div>
+          </div>
+          <div id="tvChart" class="tv-chart"></div>
+        </div>
+
+        <div class="analysis-shell">
+          <div class="analysis-shell-top">
+            <div class="analysis-shell-title">
+              <small>Automatic Technical Analysis</small>
+              <strong id="analysisTitle">SPX — S&P 500</strong>
+            </div>
+            <div class="analysis-shell-meta">Updates automatically through TradingView.</div>
+          </div>
+          <div id="tvAnalysis" class="tv-analysis"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -866,5 +1227,107 @@
       <div>© 2026 Lee Holdings Group. All rights reserved.</div>
     </div>
   </footer>
+
+  <script>
+    const tabs = document.querySelectorAll(".asset-tab");
+    const chartContainer = document.getElementById("tvChart");
+    const analysisContainer = document.getElementById("tvAnalysis");
+    const chartTitle = document.getElementById("chartTitle");
+    const analysisTitle = document.getElementById("analysisTitle");
+    const activeSymbolReadout = document.getElementById("activeSymbolReadout");
+
+    function renderAdvancedChart(symbol) {
+      chartContainer.innerHTML = "";
+
+      const widgetWrap = document.createElement("div");
+      widgetWrap.className = "tradingview-widget-container";
+      widgetWrap.style.height = "560px";
+      widgetWrap.style.width = "100%";
+
+      const widgetTarget = document.createElement("div");
+      widgetTarget.className = "tradingview-widget-container__widget";
+      widgetTarget.style.height = "100%";
+      widgetTarget.style.width = "100%";
+
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        autosize: true,
+        symbol: symbol,
+        interval: "240",
+        timezone: "America/New_York",
+        theme: "light",
+        style: "1",
+        locale: "en",
+        enable_publishing: false,
+        allow_symbol_change: true,
+        hide_top_toolbar: false,
+        hide_legend: false,
+        save_image: false,
+        calendar: false,
+        support_host: "https://www.tradingview.com"
+      });
+
+      widgetWrap.appendChild(widgetTarget);
+      widgetWrap.appendChild(script);
+      chartContainer.appendChild(widgetWrap);
+    }
+
+    function renderTechnicalAnalysis(symbol) {
+      analysisContainer.innerHTML = "";
+
+      const widgetWrap = document.createElement("div");
+      widgetWrap.className = "tradingview-widget-container";
+      widgetWrap.style.height = "560px";
+      widgetWrap.style.width = "100%";
+
+      const widgetTarget = document.createElement("div");
+      widgetTarget.className = "tradingview-widget-container__widget";
+      widgetTarget.style.height = "100%";
+      widgetTarget.style.width = "100%";
+
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js";
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        interval: "1m",
+        width: "100%",
+        isTransparent: true,
+        height: "560",
+        symbol: symbol,
+        showIntervalTabs: true,
+        displayMode: "single",
+        locale: "en",
+        colorTheme: "light"
+      });
+
+      widgetWrap.appendChild(widgetTarget);
+      widgetWrap.appendChild(script);
+      analysisContainer.appendChild(widgetWrap);
+    }
+
+    function updateDashboard(symbol, label, clickedTab) {
+      tabs.forEach(tab => tab.classList.remove("active"));
+      if (clickedTab) clickedTab.classList.add("active");
+
+      chartTitle.textContent = label;
+      analysisTitle.textContent = label;
+      activeSymbolReadout.textContent = "Selected: " + label;
+
+      renderAdvancedChart(symbol);
+      renderTechnicalAnalysis(symbol);
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        updateDashboard(tab.dataset.symbol, tab.dataset.label, tab);
+      });
+    });
+
+    updateDashboard("FOREXCOM:SPXUSD", "SPX — S&P 500", document.querySelector('.asset-tab.active'));
+  </script>
 </body>
 </html>
