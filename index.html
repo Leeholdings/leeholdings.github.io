@@ -4,162 +4,965 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lee Holdings Group</title>
-
+  <meta name="description" content="Lee Holdings Group — Institutional Strategy. Independent Execution. A structured capital approach across WTI, AI, metals, and digital markets." />
   <style>
     :root {
-      --bg: #0a0f1c;
-      --panel: rgba(255,255,255,0.05);
-      --panel-border: rgba(255,255,255,0.12);
-      --text: #f4f7fb;
-      --muted: #b7c2d0;
-      --accent: #1F7A5A;
-      --accent-2: #4CAF7D;
-      --glow: rgba(31,122,90,0.35);
+      --bg: #07150f;
+      --bg-soft: #0c1f17;
+      --panel: rgba(12, 31, 23, 0.82);
+      --panel-strong: rgba(10, 24, 18, 0.96);
+      --line: rgba(132, 255, 192, 0.16);
+      --line-strong: rgba(132, 255, 192, 0.32);
+      --text: #eef8f2;
+      --muted: #b6c8be;
+      --green: #6cff9c;
+      --green-2: #2dd37a;
+      --gold: #b9ffcf;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --max: 1280px;
+      --radius: 24px;
     }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(45, 211, 122, 0.10), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(108, 255, 156, 0.11), transparent 22%),
+        linear-gradient(180deg, #05100c 0%, #081711 50%, #050d09 100%);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 14, 10, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(108,255,156,0.28), rgba(45,211,122,0.07));
+      border: 1px solid rgba(132,255,192,0.18);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+      font-size: 20px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(108,255,156,0.18), rgba(45,211,122,0.12));
+      border: 1px solid rgba(132,255,192,0.24);
+      font-weight: 700;
       color: var(--text);
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
     .hero {
-      padding: 80px 20px;
+      padding: 96px 0 56px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
       align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(108,255,156,0.07);
+      border: 1px solid rgba(132,255,192,0.15);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .hero-copy h1 {
-      font-size: 42px;
-      margin: 10px 0;
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
     }
 
-    .accent {
-      color: var(--accent-2);
+    h1 {
+      margin: 22px 0 18px;
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 11ch;
     }
 
-    .hero-copy p {
+    .hero-copy {
       color: var(--muted);
-      line-height: 1.6;
+      font-size: 1.1rem;
+      max-width: 62ch;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
     }
 
     .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      margin-right: 10px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
+    .btn:hover { transform: translateY(-1px); }
+
     .btn-primary {
-      background: var(--accent);
-      color: white;
+      color: #031008;
+      background: linear-gradient(135deg, var(--green), #9dffbd);
+      box-shadow: 0 14px 34px rgba(108, 255, 156, 0.18);
     }
 
     .btn-secondary {
-      border: 1px solid var(--panel-border);
+      border-color: rgba(132,255,192,0.20);
+      background: rgba(255,255,255,0.02);
       color: var(--text);
     }
 
-    .hero-card {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      padding: 20px;
-      border-radius: 10px;
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
 
-    .card-item {
-      margin-bottom: 15px;
+    .stat-card, .panel {
+      background: linear-gradient(180deg, rgba(16, 33, 24, 0.78), rgba(8, 19, 14, 0.9));
+      border: 1px solid rgba(132,255,192,0.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
-    .section {
-      padding: 60px 20px;
+    .stat-card {
+      padding: 18px;
     }
 
-    .section h2 {
-      margin-bottom: 10px;
-    }
-
-    .section p {
+    .stat-card small {
+      display: block;
       color: var(--muted);
-      max-width: 700px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      margin-bottom: 8px;
     }
 
-    @media (max-width: 768px) {
-      .hero-grid {
+    .stat-card strong {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-right {
+      display: grid;
+      gap: 18px;
+    }
+
+    .market-terminal {
+      padding: 20px;
+      min-height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .terminal-label small,
+    .section-tag {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 0.73rem;
+      letter-spacing: 0.08em;
+    }
+
+    .terminal-label strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-top: 4px;
+    }
+
+    .terminal-pill {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(108,255,156,0.08);
+      border: 1px solid rgba(132,255,192,0.16);
+      font-weight: 700;
+      color: var(--green);
+      font-size: 0.82rem;
+    }
+
+    .chart-frame {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(132,255,192,0.12);
+      background: linear-gradient(180deg, rgba(11, 22, 17, 0.95), rgba(7, 13, 10, 0.98));
+    }
+
+    .chart-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-top: 1px solid rgba(132,255,192,0.09);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .mini-card {
+      padding: 20px;
+      min-height: 170px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mini-card h3 {
+      margin: 10px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 30ch;
+    }
+
+    section {
+      padding: 28px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+      max-width: 62ch;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .pillar-card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card::after,
+    .mini-card::after,
+    .research-card::after,
+    .trust-card::after,
+    .contact-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -45% auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(108,255,156,0.15), transparent 65%);
+      pointer-events: none;
+    }
+
+    .pillar-number {
+      color: var(--green);
+      font-weight: 800;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.3rem;
+      margin: 12px 0 10px;
+    }
+
+    .pillar-card p {
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 34ch;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      color: var(--text);
+    }
+
+    .list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .list li::before {
+      content: "•";
+      color: var(--green);
+      font-weight: 900;
+      margin-top: -2px;
+    }
+
+    .strategy-grid,
+    .research-grid,
+    .trust-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .strategy-card,
+    .research-card,
+    .trust-card,
+    .contact-card {
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .strategy-card h3,
+    .research-card h3,
+    .trust-card h3,
+    .contact-card h3 {
+      margin: 10px 0 10px;
+      font-size: 1.25rem;
+    }
+
+    .strategy-card p,
+    .research-card p,
+    .trust-card p,
+    .contact-card p,
+    .contact-card li,
+    .research-card li {
+      color: var(--muted);
+    }
+
+    .research-card .chart-frame {
+      margin-top: 18px;
+    }
+
+    .contact-card ul {
+      padding-left: 18px;
+      margin: 14px 0 0;
+    }
+
+    .footer {
+      padding: 42px 0 60px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 22px;
+      font-size: 0.92rem;
+    }
+
+    .disclaimer {
+      color: #90a498;
+      font-size: 0.9rem;
+      max-width: 72ch;
+      margin-top: 14px;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(108,255,156,0.06);
+      border: 1px solid rgba(132,255,192,0.12);
+      color: #d6fbe1;
+      font-size: 0.85rem;
+    }
+
+    .glow-line {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, rgba(108,255,156,0.5), transparent);
+      margin: 12px 0 22px;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .section-head,
+      .strategy-grid,
+      .research-grid,
+      .trust-grid,
+      .contact-grid,
+      .pillars {
         grid-template-columns: 1fr;
+      }
+
+      .hero-stats,
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        flex-wrap: wrap;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        gap: 18px;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="brand-mark">♞</div>
+        <div class="brand-text">
+          <strong>LEE HOLDINGS GROUP</strong>
+          <span>Institutional Strategy. Independent Execution.</span>
+        </div>
+      </a>
 
-  <section class="hero">
-    <div class="container hero-grid">
+      <nav class="nav-links">
+        <a href="#strategy">Strategy</a>
+        <a href="#markets">Markets</a>
+        <a href="#research">Research</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Investor Access</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="hero-copy">
-        <span>Lee Holdings Group</span>
-
-        <h1>
-          Private Capital.<br>
-          <span class="accent">Built With Discipline.</span>
-        </h1>
-
-        <p>
-          Lee Holdings Group is a private capital platform focused on long-term asset accumulation,
-          strategic positioning, and disciplined execution across digital and emerging markets.
-        </p>
-
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
         <div>
-<a class="btn btn-secondary" href="mailto:justine@leeholdingsgroup.com?subject=Inquiry%20-%20Lee%20Holdings%20Group">Contact</a>
+          <div class="eyebrow">Global Markets • WTI • AI • Digital Assets</div>
+          <h1>Capital With Discipline. Strategy With Teeth.</h1>
+          <p class="hero-copy">
+            Lee Holdings Group is a high-conviction investment platform built around structured capital allocation, macro awareness, energy intelligence, and disciplined execution across traditional and digital markets.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request Investor Access</a>
+            <a class="btn btn-secondary" href="#research">View Research Architecture</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <small>Core Focus</small>
+              <strong>WTI + Macro</strong>
+              <span>Energy-first market intelligence with disciplined risk framing.</span>
+            </div>
+            <div class="stat-card">
+              <small>Expansion Layer</small>
+              <strong>AI Markets</strong>
+              <span>Positioning around infrastructure, adoption, and global platform dominance.</span>
+            </div>
+            <div class="stat-card">
+              <small>Execution Bias</small>
+              <strong>Asymmetric</strong>
+              <span>Measured exposure where downside is defined and opportunity is real.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="panel market-terminal">
+            <div class="terminal-top">
+              <div class="terminal-label">
+                <small>Energy Market Monitor</small>
+                <strong>WTIUSD Structural Dashboard</strong>
+              </div>
+              <div class="terminal-pill">Live Thesis View</div>
+            </div>
+
+            <div class="chart-frame" aria-label="WTIUSD stylized chart">
+              <svg viewBox="0 0 720 360" role="img" aria-label="WTIUSD chart illustration" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0d2419"/>
+                    <stop offset="100%" stop-color="#08130d"/>
+                  </linearGradient>
+                  <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#3ce483"/>
+                    <stop offset="100%" stop-color="#aeffcb"/>
+                  </linearGradient>
+                  <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(108,255,156,0.32)"/>
+                    <stop offset="100%" stop-color="rgba(108,255,156,0.02)"/>
+                  </linearGradient>
+                </defs>
+                <rect width="720" height="360" fill="url(#bgGrad)"/>
+                <g opacity="0.18" stroke="#98ffbc" stroke-width="1">
+                  <line x1="40" y1="50" x2="680" y2="50"/>
+                  <line x1="40" y1="110" x2="680" y2="110"/>
+                  <line x1="40" y1="170" x2="680" y2="170"/>
+                  <line x1="40" y1="230" x2="680" y2="230"/>
+                  <line x1="40" y1="290" x2="680" y2="290"/>
+                  <line x1="100" y1="30" x2="100" y2="330"/>
+                  <line x1="200" y1="30" x2="200" y2="330"/>
+                  <line x1="300" y1="30" x2="300" y2="330"/>
+                  <line x1="400" y1="30" x2="400" y2="330"/>
+                  <line x1="500" y1="30" x2="500" y2="330"/>
+                  <line x1="600" y1="30" x2="600" y2="330"/>
+                </g>
+                <path d="M55 282 L120 270 L160 248 L210 258 L260 214 L310 225 L360 176 L410 162 L460 184 L520 126 L575 136 L635 98 L680 68 L680 330 L55 330 Z" fill="url(#fillGrad)" opacity="0.85"/>
+                <path d="M55 282 L120 270 L160 248 L210 258 L260 214 L310 225 L360 176 L410 162 L460 184 L520 126 L575 136 L635 98 L680 68" fill="none" stroke="url(#lineGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <g>
+                  <line x1="40" y1="130" x2="680" y2="130" stroke="#7dffae" stroke-dasharray="8 8" opacity="0.35"/>
+                  <rect x="548" y="113" rx="10" ry="10" width="110" height="28" fill="#0f2a1e" stroke="#89ffb6" opacity="0.9"/>
+                  <text x="565" y="132" fill="#dfffe9" font-size="14" font-family="Inter, sans-serif">Breakout Zone</text>
+                </g>
+                <g>
+                  <circle cx="520" cy="126" r="6" fill="#07150f" stroke="#b9ffd0" stroke-width="3"/>
+                  <circle cx="635" cy="98" r="6" fill="#07150f" stroke="#b9ffd0" stroke-width="3"/>
+                  <circle cx="680" cy="68" r="7" fill="#081711" stroke="#6cff9c" stroke-width="3"/>
+                </g>
+                <text x="55" y="26" fill="#9bcab0" font-size="14" font-family="Inter, sans-serif">WTIUSD • Trend Structure</text>
+                <text x="625" y="26" fill="#6cff9c" font-size="14" font-family="Inter, sans-serif">+ Macro Bias</text>
+              </svg>
+            </div>
+
+            <div class="chart-meta">
+              <span>Primary lens: energy dislocation, geopolitical transmission, and price response.</span>
+              <strong style="color: var(--green);">WTI • Macro • Risk</strong>
+            </div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="panel mini-card">
+              <div class="section-tag">AI Global Markets</div>
+              <h3>Infrastructure Before Hype</h3>
+              <p>We focus on where AI monetizes through chips, compute, data pipelines, and dominant platform ecosystems.</p>
+            </div>
+            <div class="panel mini-card">
+              <div class="section-tag">Capital Model</div>
+              <h3>Compound the Engine</h3>
+              <p>Fees and profits are treated as growth fuel, recycled back into research, infrastructure, and strategic exposure.</p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <aside class="hero-card">
-        <h2>Core Focus</h2>
-
-        <div class="card-item">
-          <strong>Capital Allocation</strong><br>
-          Precision deployment into asymmetric opportunities.
+    <section id="markets">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-tag">Market Architecture</div>
+            <h2>Built for serious capital, not casual attention.</h2>
+          </div>
+          <p>
+            This platform is designed to feel like a firm because it is being built like one — with sector focus, internal logic, and a clear framework for how conviction, timing, and exposure fit together.
+          </p>
         </div>
 
-        <div class="card-item">
-          <strong>Digital Infrastructure</strong><br>
-          Building scalable systems and long-term leverage.
+        <div class="pillars">
+          <article class="panel pillar-card">
+            <div class="pillar-number">01 • Energy</div>
+            <h3>WTI as a lead signal</h3>
+            <p>Oil is not just a commodity. It is an inflation transmitter, a geopolitical pressure gauge, and a macro timing instrument.</p>
+            <ul class="list">
+              <li>Structural monitoring of WTIUSD and downstream market effects</li>
+              <li>Scenario mapping around supply shocks and volatility expansion</li>
+              <li>Positioning around sentiment, technical breaks, and macro stress</li>
+            </ul>
+          </article>
+
+          <article class="panel pillar-card">
+            <div class="pillar-number">02 • AI</div>
+            <h3>Global AI market exposure</h3>
+            <p>We are interested in AI where capital scales — semiconductors, model infrastructure, distribution power, and durable platform economics.</p>
+            <ul class="list">
+              <li>Infrastructure-first mindset rather than headline chasing</li>
+              <li>Global platform observation with emphasis on dominant winners</li>
+              <li>Focus on enterprise value, not just narrative momentum</li>
+            </ul>
+          </article>
+
+          <article class="panel pillar-card">
+            <div class="pillar-number">03 • Digital Assets</div>
+            <h3>Selective asymmetric positioning</h3>
+            <p>Digital markets are approached as a strategic arena — not a casino. Risk is defined, timing matters, and size follows clarity.</p>
+            <ul class="list">
+              <li>Selective participation in structurally attractive opportunities</li>
+              <li>Hybrid lens combining macro, liquidity, and execution</li>
+              <li>Capital preservation before capital aggression</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategy">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-tag">Strategy</div>
+            <h2>Institutional discipline. Alpha underneath.</h2>
+          </div>
+          <p>
+            Lee Holdings Group is being built around a simple principle: capital should move with intent. That means macro awareness, technical alignment, controlled risk, and the patience to act only when the opportunity deserves it.
+          </p>
         </div>
 
-        <div class="card-item">
-          <strong>Risk Discipline</strong><br>
-          Protecting capital while positioning for expansion.
-        </div>
-      </aside>
+        <div class="strategy-grid">
+          <article class="panel strategy-card">
+            <div class="section-tag">Allocation Framework</div>
+            <h3>Capital is deployed in layers</h3>
+            <p>
+              Exposure is not treated as a binary decision. The model is designed around staged conviction — defensive when conditions deteriorate, assertive when asymmetry improves.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Risk-first allocation</span>
+              <span class="tag">Layered exposure</span>
+              <span class="tag">Capital preservation</span>
+            </div>
+          </article>
 
+          <article class="panel strategy-card">
+            <div class="section-tag">Research Stack</div>
+            <h3>Macro, charts, and market psychology</h3>
+            <p>
+              We blend geopolitical awareness, energy transmission logic, sector leadership, and technical execution into a unified decision process rather than relying on a single market narrative.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Geopolitical context</span>
+              <span class="tag">Technical execution</span>
+              <span class="tag">Cross-market linkage</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-tag">Research & Insights</div>
+            <h2>The part that makes people ask who you are.</h2>
+          </div>
+          <p>
+            Authority is earned when the site stops sounding promotional and starts looking informed. These sections are designed to signal depth, restraint, and a serious command of what actually moves capital.
+          </p>
+        </div>
+
+        <div class="research-grid">
+          <article class="panel research-card">
+            <div class="section-tag">Energy Intelligence</div>
+            <h3>WTI transmission model</h3>
+            <p>
+              Oil is monitored as both a trade and a message. When energy re-prices, inflation, rates, sentiment, and broad asset performance can all shift with it.
+            </p>
+            <ul>
+              <li>Key level awareness and volatility zones</li>
+              <li>Supply shock and shipping-risk framing</li>
+              <li>Macro translation for broader portfolio positioning</li>
+            </ul>
+            <div class="chart-frame">
+              <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" aria-label="WTI market structure illustration">
+                <rect width="700" height="280" fill="#09150f"/>
+                <g opacity="0.18" stroke="#9fffbe">
+                  <line x1="40" y1="45" x2="660" y2="45"/>
+                  <line x1="40" y1="95" x2="660" y2="95"/>
+                  <line x1="40" y1="145" x2="660" y2="145"/>
+                  <line x1="40" y1="195" x2="660" y2="195"/>
+                  <line x1="40" y1="245" x2="660" y2="245"/>
+                </g>
+                <path d="M50 220 C110 180, 160 210, 210 185 S310 120, 355 132 S430 118, 470 92 S560 70, 650 52" fill="none" stroke="#75ffab" stroke-width="5" stroke-linecap="round"/>
+                <path d="M50 220 C110 180, 160 210, 210 185 S310 120, 355 132 S430 118, 470 92 S560 70, 650 52 L650 260 L50 260 Z" fill="rgba(108,255,156,0.10)"/>
+                <line x1="40" y1="120" x2="660" y2="120" stroke="#b5ffd0" stroke-dasharray="10 8" opacity="0.35"/>
+                <text x="56" y="28" fill="#d8ffe7" font-size="15" font-family="Inter, sans-serif">WTIUSD • Pressure Escalation Map</text>
+                <text x="510" y="112" fill="#d8ffe7" font-size="13" font-family="Inter, sans-serif">Macro acceleration</text>
+              </svg>
+            </div>
+          </article>
+
+          <article class="panel research-card">
+            <div class="section-tag">AI Market Thesis</div>
+            <h3>Global AI winners will not be random</h3>
+            <p>
+              AI is treated as a global capital cycle, not just a technology trend. We care about the companies and ecosystems that capture durable value from infrastructure, deployment, and distribution.
+            </p>
+            <ul>
+              <li>Semiconductors, compute, and cloud infrastructure</li>
+              <li>Global platform concentration and strategic moats</li>
+              <li>Real monetization over speculative enthusiasm</li>
+            </ul>
+            <div class="glow-line"></div>
+            <div class="tag-row">
+              <span class="tag">Compute</span>
+              <span class="tag">Platforms</span>
+              <span class="tag">Monetization</span>
+              <span class="tag">Global leadership</span>
+            </div>
+          </article>
+
+          <article class="panel research-card">
+            <div class="section-tag">Cross-Market Framework</div>
+            <h3>Read the chain reaction</h3>
+            <p>
+              The edge is not just seeing one move. It is understanding how energy, inflation, rates, AI leadership, and digital liquidity interact — and positioning capital before the crowd understands the full transmission.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Oil → Inflation</span>
+              <span class="tag">Inflation → Rates</span>
+              <span class="tag">Rates → Risk Assets</span>
+              <span class="tag">AI → Platform Value</span>
+            </div>
+          </article>
+
+          <article class="panel research-card">
+            <div class="section-tag">Future Access</div>
+            <h3>Private briefings and strategic commentary</h3>
+            <p>
+              This site is the beginning of a larger infrastructure stack — research notes, investor updates, sector views, and eventually a deeper interface for those aligned with the firm’s direction.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Investor notes</span>
+              <span class="tag">Sector views</span>
+              <span class="tag">Strategic briefings</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-tag">About</div>
+            <h2>Independent by structure. Serious by design.</h2>
+          </div>
+          <p>
+            Lee Holdings Group is being built with institutional standards in mind: controlled messaging, durable architecture, and a clear preference for trust, systems, and long-horizon execution over noise.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <article class="panel trust-card">
+            <div class="section-tag">Principles</div>
+            <h3>Restraint is a signal</h3>
+            <p>
+              The brand is intentionally measured. Real firms do not need to shout. They show structure, clarity, and consistency — then let the work speak.
+            </p>
+          </article>
+
+          <article class="panel trust-card">
+            <div class="section-tag">Vision</div>
+            <h3>A long-term capital platform</h3>
+            <p>
+              The destination is bigger than a website. This is the front-end of a larger system designed for research depth, strategic capital allocation, and a professional market presence that compounds over time.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-tag">Investor Access</div>
+            <h2>For aligned conversations only.</h2>
+          </div>
+          <p>
+            The correct tone here is not “sign up now.” It is controlled access. If the right people land here, they should feel they discovered something early.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="panel contact-card">
+            <div class="section-tag">Contact</div>
+            <h3>Start the conversation</h3>
+            <p>
+              Reach out directly for investor inquiries, strategic discussions, or partnership conversations.
+            </p>
+            <div class="glow-line"></div>
+            <p><strong>Email:</strong> <a href="mailto:justine@leeholdingsgroup.com">justine@leeholdingsgroup.com</a></p>
+            <p><strong>Subject line suggestion:</strong> Investor Access Inquiry</p>
+            <a class="btn btn-primary" href="mailto:justine@leeholdingsgroup.com?subject=Investor%20Access%20Inquiry">Request Access</a>
+          </article>
+
+          <article class="panel contact-card">
+            <div class="section-tag">Positioning</div>
+            <h3>Make them lean in</h3>
+            <p>
+              The purpose of this page is to create gravity. It should feel selective, informed, and strategically ahead of the average financial brand.
+            </p>
+            <ul>
+              <li>Institutional visual language</li>
+              <li>Energy + AI + macro differentiation</li>
+              <li>Clear signal of larger ambitions</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="disclaimer">
+          Disclaimer: Information presented on this website is for informational and branding purposes only and does not constitute an offer to sell, a solicitation to buy, or investment, legal, or tax advice. Any future offerings, advisory relationships, or investment activities would be subject to applicable laws, documentation, and formal review.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>LEE HOLDINGS GROUP</strong><br />
+        <span>Institutional Strategy. Independent Execution.</span>
+      </div>
+      <div>© 2026 Lee Holdings Group. All rights reserved.</div>
     </div>
-  </section>
-
-  <section class="section" id="strategy">
-    <div class="container">
-      <h2>Strategy</h2>
-      <p>
-        Our approach is grounded in capital protection, selective aggression, and a willingness
-        to build through cycles rather than chase short-term noise.
-      </p>
-    </div>
-  </section>
-
+  </footer>
 </body>
 </html>
