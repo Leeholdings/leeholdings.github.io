@@ -12,13 +12,10 @@
       --surface: #ffffff;
       --surface-soft: #fbfcfb;
       --line: rgba(14, 52, 34, 0.08);
-      --line-strong: rgba(14, 52, 34, 0.14);
       --text: #132218;
       --muted: #5a6a61;
       --green: #0f6b45;
       --green-2: #278659;
-      --green-3: #e8f3ec;
-      --green-4: #edf7f1;
       --max: 1280px;
       --radius: 24px;
       --shadow: 0 18px 50px rgba(17, 31, 22, 0.06);
@@ -122,195 +119,6 @@
       background: #fbfcfb;
     }
 
-    .market-hub {
-      border-bottom: 1px solid rgba(19, 34, 24, 0.06);
-      background: linear-gradient(180deg, #ffffff 0%, #fbfcfb 100%);
-    }
-
-    .market-hub-inner {
-      padding: 14px 0 18px;
-    }
-
-    .market-toolbar-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
-    .market-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .market-title .eyebrow-lite {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #f5faf7;
-      border: 1px solid rgba(15, 107, 69, 0.08);
-      color: var(--green);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .market-title .eyebrow-lite::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--green-2);
-    }
-
-    .active-symbol-readout {
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .market-groups {
-      display: grid;
-      gap: 12px;
-    }
-
-    .market-group {
-      display: grid;
-      gap: 10px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: #ffffff;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .market-group-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .market-group-title {
-      color: var(--green);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .market-group-sub {
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
-
-    .asset-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .asset-tab {
-      appearance: none;
-      border: 1px solid rgba(15, 107, 69, 0.10);
-      background: #ffffff;
-      color: var(--text);
-      border-radius: 999px;
-      padding: 10px 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font: inherit;
-      cursor: pointer;
-      transition: all 0.18s ease;
-      box-shadow: var(--shadow-soft);
-      font-weight: 800;
-      letter-spacing: 0.01em;
-    }
-
-    .asset-tab:hover {
-      transform: translateY(-1px);
-      border-color: rgba(15, 107, 69, 0.18);
-    }
-
-    .asset-tab.active {
-      background: linear-gradient(135deg, #f3faf6, #edf7f1);
-      border-color: rgba(15, 107, 69, 0.18);
-      color: var(--green);
-    }
-
-    .asset-tab-note {
-      font-size: 0.73rem;
-      font-weight: 700;
-      color: var(--muted);
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: #f8faf9;
-      border: 1px solid rgba(15, 107, 69, 0.06);
-    }
-
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      margin-top: 16px;
-      align-items: start;
-    }
-
-    .chart-shell {
-      background: #ffffff;
-      border: 1px solid rgba(15, 107, 69, 0.08);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .chart-shell-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 16px 18px;
-      border-bottom: 1px solid rgba(15, 107, 69, 0.08);
-      flex-wrap: wrap;
-    }
-
-    .chart-shell-title {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .chart-shell-title small {
-      color: var(--green);
-      text-transform: uppercase;
-      font-size: 0.73rem;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-    }
-
-    .chart-shell-title strong {
-      font-size: 1.15rem;
-    }
-
-    .chart-shell-meta {
-      color: var(--muted);
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-
-    .tv-chart {
-      min-height: 620px;
-    }
-
     .hero {
       padding: 76px 0 44px;
       background: linear-gradient(180deg, #ffffff 0%, #fcfdfc 100%);
@@ -393,22 +201,6 @@
       border-color: rgba(15, 107, 69, 0.10);
       background: #ffffff;
       color: var(--text);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .proof-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .proof-pill {
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid rgba(15, 107, 69, 0.08);
-      color: var(--muted);
-      font-size: 0.88rem;
       box-shadow: var(--shadow-soft);
     }
 
@@ -667,15 +459,6 @@
         flex-direction: column;
         align-items: flex-start;
       }
-
-      .chart-shell-top,
-      .market-toolbar-top {
-        align-items: flex-start;
-      }
-
-      .tv-chart {
-        min-height: 460px;
-      }
     }
   </style>
 </head>
@@ -711,7 +494,7 @@
       {
         "symbols": [
           { "description": "SPX", "proName": "FOREXCOM:SPXUSD" },
-          { "description": "DXY", "proName": "ICEUS:DX1!" },
+          { "description": "DXY", "proName": "TVC:DXY" },
           { "description": "EURUSD", "proName": "FX:EURUSD" },
           { "description": "GBPUSD", "proName": "FX:GBPUSD" },
           { "description": "USDJPY", "proName": "FX:USDJPY" },
@@ -720,13 +503,16 @@
           { "description": "Brent", "proName": "TVC:UKOIL" },
           { "description": "XAU", "proName": "TVC:GOLD" },
           { "description": "XAG", "proName": "TVC:SILVER" },
-          { "description": "XPT", "proName": "TVC:PLATINUM" },
           { "description": "BTC", "proName": "BINANCE:BTCUSDT" },
           { "description": "ETH", "proName": "BINANCE:ETHUSDT" },
           { "description": "XRP", "proName": "BINANCE:XRPUSDT" },
           { "description": "SOL", "proName": "BINANCE:SOLUSDT" },
           { "description": "TON", "proName": "BINANCE:TONUSDT" },
-          { "description": "BNB", "proName": "BINANCE:BNBUSDT" }
+          { "description": "BNB", "proName": "BINANCE:BNBUSDT" },
+          { "description": "BABA", "proName": "NYSE:BABA" },
+          { "description": "BIDU", "proName": "NASDAQ:BIDU" },
+          { "description": "TCEHY", "proName": "OTC:TCEHY" },
+          { "description": "KWEB", "proName": "AMEX:KWEB" }
         ],
         "showSymbolLogo": false,
         "isTransparent": true,
@@ -738,128 +524,6 @@
     </div>
   </div>
 
-  <div class="market-hub">
-    <div class="container market-hub-inner">
-      <div class="market-toolbar-top">
-        <div class="market-title">
-          <span class="eyebrow-lite">Live Market Interface</span>
-          <span class="active-symbol-readout" id="activeSymbolReadout">Selected: SPX — S&amp;P 500</span>
-        </div>
-      </div>
-
-      <div class="market-groups">
-        <div class="market-group">
-          <div class="market-group-header">
-            <div class="market-group-title">Macro</div>
-            <div class="market-group-sub">Risk sentiment and dollar regime</div>
-          </div>
-          <div class="asset-tabs">
-            <button class="asset-tab active" data-symbol="FOREXCOM:SPXUSD" data-label="SPX — S&P 500">
-              SPX <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="ICEUS:DX1!" data-label="DXY — U.S. Dollar Index">
-              DXY <span class="asset-tab-note">Live chart</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="market-group">
-          <div class="market-group-header">
-            <div class="market-group-title">FX</div>
-            <div class="market-group-sub">Major currency flows and relative strength</div>
-          </div>
-          <div class="asset-tabs">
-            <button class="asset-tab" data-symbol="FX:EURUSD" data-label="EURUSD — Euro / U.S. Dollar">
-              EURUSD <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="FX:GBPUSD" data-label="GBPUSD — British Pound / U.S. Dollar">
-              GBPUSD <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="FX:USDJPY" data-label="USDJPY — U.S. Dollar / Japanese Yen">
-              USDJPY <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="FX:AUDUSD" data-label="AUDUSD — Australian Dollar / U.S. Dollar">
-              AUDUSD <span class="asset-tab-note">Live chart</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="market-group">
-          <div class="market-group-header">
-            <div class="market-group-title">Energy</div>
-            <div class="market-group-sub">Inflation pressure and geopolitical transmission</div>
-          </div>
-          <div class="asset-tabs">
-            <button class="asset-tab" data-symbol="TVC:USOIL" data-label="WTI — U.S. Crude Oil">
-              WTI <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="TVC:UKOIL" data-label="Brent — Brent Crude Oil">
-              Brent <span class="asset-tab-note">Live chart</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="market-group">
-          <div class="market-group-header">
-            <div class="market-group-title">Metals</div>
-            <div class="market-group-sub">Real assets, hedges, and industrial signal</div>
-          </div>
-          <div class="asset-tabs">
-            <button class="asset-tab" data-symbol="TVC:GOLD" data-label="XAU — Gold">
-              XAU <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="TVC:SILVER" data-label="XAG — Silver">
-              XAG <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="TVC:PLATINUM" data-label="XPT — Platinum">
-              XPT <span class="asset-tab-note">Live chart</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="market-group">
-          <div class="market-group-header">
-            <div class="market-group-title">Digital Assets</div>
-            <div class="market-group-sub">Modern liquidity, infrastructure, and beta</div>
-          </div>
-          <div class="asset-tabs">
-            <button class="asset-tab" data-symbol="BINANCE:BTCUSDT" data-label="BTC — Bitcoin">
-              BTC <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="BINANCE:ETHUSDT" data-label="ETH — Ethereum">
-              ETH <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="BINANCE:XRPUSDT" data-label="XRP — XRP">
-              XRP <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="BINANCE:SOLUSDT" data-label="SOL — Solana">
-              SOL <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="BINANCE:TONUSDT" data-label="TON — Toncoin">
-              TON <span class="asset-tab-note">Live chart</span>
-            </button>
-            <button class="asset-tab" data-symbol="BINANCE:BNBUSDT" data-label="BNB — BNB">
-              BNB <span class="asset-tab-note">Live chart</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="dashboard-grid">
-        <div class="chart-shell">
-          <div class="chart-shell-top">
-            <div class="chart-shell-title">
-              <small>TradingView Chart</small>
-              <strong id="chartTitle">SPX — S&P 500</strong>
-            </div>
-            <div class="chart-shell-meta">Click any tab above to switch the live chart.</div>
-          </div>
-          <div id="tvChart" class="tv-chart"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
@@ -867,16 +531,11 @@
           <div class="eyebrow">Global Markets • Energy • AI • Digital Assets</div>
           <h1>Institutional Capital.<br>Strategic Execution.</h1>
           <p class="hero-copy">
-            Lee Holdings Group is a private capital platform focused on structured allocation, macro awareness, and disciplined execution across energy, artificial intelligence, metals, and digital markets.
+            Lee Holdings Group is a private capital platform focused on structured allocation, macro awareness, and disciplined execution across energy, artificial intelligence, metals, digital markets, and globally important platform equities.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Request Investor Access</a>
             <a class="btn btn-secondary" href="#research">Explore Research</a>
-          </div>
-          <div class="proof-strip">
-            <span class="proof-pill">WTI-centered market intelligence</span>
-            <span class="proof-pill">AI global market positioning</span>
-            <span class="proof-pill">Structured cross-market framework</span>
           </div>
         </div>
 
@@ -885,13 +544,13 @@
             <div class="terminal-top">
               <div class="terminal-label">
                 <small>Market Focus</small>
-                <strong>WTIUSD Structural View</strong>
+                <strong>Global Macro. AI. Platform Leadership.</strong>
               </div>
               <div class="terminal-pill">Research-led</div>
             </div>
 
-            <div class="chart-frame" aria-label="WTIUSD stylized chart">
-              <svg viewBox="0 0 720 360" role="img" aria-label="WTIUSD chart illustration" xmlns="http://www.w3.org/2000/svg">
+            <div class="chart-frame" aria-label="Market structure illustration">
+              <svg viewBox="0 0 720 360" role="img" aria-label="Market illustration" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#fcfefd"/>
@@ -922,32 +581,22 @@
                 </g>
                 <path d="M55 282 L120 270 L160 248 L210 258 L260 214 L310 225 L360 176 L410 162 L460 184 L520 126 L575 136 L635 98 L680 68 L680 330 L55 330 Z" fill="url(#fillGrad)" opacity="0.95"/>
                 <path d="M55 282 L120 270 L160 248 L210 258 L260 214 L310 225 L360 176 L410 162 L460 184 L520 126 L575 136 L635 98 L680 68" fill="none" stroke="url(#lineGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                <g>
-                  <line x1="40" y1="130" x2="680" y2="130" stroke="#4a7f62" stroke-dasharray="8 8" opacity="0.32"/>
-                  <rect x="548" y="113" rx="10" ry="10" width="110" height="28" fill="#f7fbf8" stroke="#6a9b7f" opacity="0.98"/>
-                  <text x="565" y="132" fill="#1f3327" font-size="14" font-family="Inter, sans-serif">Breakout Zone</text>
-                </g>
-                <g>
-                  <circle cx="520" cy="126" r="6" fill="#ffffff" stroke="#85b397" stroke-width="3"/>
-                  <circle cx="635" cy="98" r="6" fill="#ffffff" stroke="#85b397" stroke-width="3"/>
-                  <circle cx="680" cy="68" r="7" fill="#ffffff" stroke="#2f9463" stroke-width="3"/>
-                </g>
-                <text x="55" y="26" fill="#46604f" font-size="14" font-family="Inter, sans-serif">WTIUSD • Trend Structure</text>
-                <text x="612" y="26" fill="#2f9463" font-size="14" font-family="Inter, sans-serif">+ Macro Bias</text>
+                <text x="55" y="26" fill="#46604f" font-size="14" font-family="Inter, sans-serif">Institutional framing • not technical charting</text>
+                <text x="520" y="26" fill="#2f9463" font-size="14" font-family="Inter, sans-serif">Macro alignment</text>
               </svg>
             </div>
 
             <div class="chart-meta">
-              <span>Energy market monitoring with macro translation and structural awareness.</span>
-              <strong style="color: var(--green);">WTI • Inflation • Risk</strong>
+              <span>Focused on capital flows, leadership, and long-duration positioning.</span>
+              <strong style="color: var(--green);">Macro • AI • Platforms</strong>
             </div>
           </div>
 
           <div class="mini-grid">
             <div class="mini-card">
-              <div class="section-tag">AI Global Markets</div>
-              <h3>Infrastructure over hype</h3>
-              <p>Focus stays on the companies, compute layers, and market leaders that capture durable AI value.</p>
+              <div class="section-tag">China AI Exposure</div>
+              <h3>Platform concentration matters</h3>
+              <p>Tracking major Chinese platform and AI-linked names alongside broader multi-asset flows.</p>
             </div>
             <div class="mini-card">
               <div class="section-tag">Capital Model</div>
@@ -999,6 +648,18 @@
               <li>Structured participation</li>
               <li>Macro + liquidity awareness</li>
               <li>Capital preservation first</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <div class="section-tag">China Internet & AI</div>
+            <h3>Strategic platform exposure</h3>
+            <p>Selected Chinese platform names and the KWEB ETF create a cleaner lens on regional AI and internet leadership.</p>
+            <ul class="list">
+              <li>BABA</li>
+              <li>BIDU</li>
+              <li>TCEHY</li>
+              <li>KWEB</li>
             </ul>
           </article>
         </div>
@@ -1059,23 +720,6 @@
               <li>Supply shock framing</li>
               <li>Macro translation across markets</li>
             </ul>
-            <div class="chart-frame">
-              <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" aria-label="WTI market structure illustration">
-                <rect width="700" height="280" fill="#f7fbf8"/>
-                <g opacity="0.14" stroke="#6d8d79">
-                  <line x1="40" y1="45" x2="660" y2="45"/>
-                  <line x1="40" y1="95" x2="660" y2="95"/>
-                  <line x1="40" y1="145" x2="660" y2="145"/>
-                  <line x1="40" y1="195" x2="660" y2="195"/>
-                  <line x1="40" y1="245" x2="660" y2="245"/>
-                </g>
-                <path d="M50 220 C110 180, 160 210, 210 185 S310 120, 355 132 S430 118, 470 92 S560 70, 650 52" fill="none" stroke="#2d9462" stroke-width="5" stroke-linecap="round"/>
-                <path d="M50 220 C110 180, 160 210, 210 185 S310 120, 355 132 S430 118, 470 92 S560 70, 650 52 L650 260 L50 260 Z" fill="#dff0e6"/>
-                <line x1="40" y1="120" x2="660" y2="120" stroke="#5d856c" stroke-dasharray="10 8" opacity="0.32"/>
-                <text x="56" y="28" fill="#46604f" font-size="15" font-family="Inter, sans-serif">WTIUSD • Pressure Escalation Map</text>
-                <text x="510" y="112" fill="#33483b" font-size="13" font-family="Inter, sans-serif">Macro acceleration</text>
-              </svg>
-            </div>
           </article>
 
           <article class="research-card">
@@ -1194,69 +838,5 @@
       <div>© 2026 Lee Holdings Group. All rights reserved.</div>
     </div>
   </footer>
-
-  <script>
-    const tabs = document.querySelectorAll(".asset-tab");
-    const chartContainer = document.getElementById("tvChart");
-    const chartTitle = document.getElementById("chartTitle");
-    const activeSymbolReadout = document.getElementById("activeSymbolReadout");
-
-    function renderAdvancedChart(symbol) {
-      chartContainer.innerHTML = "";
-
-      const widgetWrap = document.createElement("div");
-      widgetWrap.className = "tradingview-widget-container";
-      widgetWrap.style.height = "620px";
-      widgetWrap.style.width = "100%";
-
-      const widgetTarget = document.createElement("div");
-      widgetTarget.className = "tradingview-widget-container__widget";
-      widgetTarget.style.height = "100%";
-      widgetTarget.style.width = "100%";
-
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
-      script.async = true;
-      script.innerHTML = JSON.stringify({
-        autosize: true,
-        symbol: symbol,
-        interval: "240",
-        timezone: "America/New_York",
-        theme: "light",
-        style: "1",
-        locale: "en",
-        enable_publishing: false,
-        allow_symbol_change: true,
-        hide_top_toolbar: false,
-        hide_legend: false,
-        save_image: false,
-        calendar: false,
-        support_host: "https://www.tradingview.com"
-      });
-
-      widgetWrap.appendChild(widgetTarget);
-      widgetWrap.appendChild(script);
-      chartContainer.appendChild(widgetWrap);
-    }
-
-    function updateDashboard(symbol, label, clickedTab) {
-      tabs.forEach(tab => tab.classList.remove("active"));
-      if (clickedTab) clickedTab.classList.add("active");
-
-      chartTitle.textContent = label;
-      activeSymbolReadout.textContent = "Selected: " + label;
-
-      renderAdvancedChart(symbol);
-    }
-
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        updateDashboard(tab.dataset.symbol, tab.dataset.label, tab);
-      });
-    });
-
-    updateDashboard("FOREXCOM:SPXUSD", "SPX — S&P 500", document.querySelector('.asset-tab.active'));
-  </script>
 </body>
 </html>
