@@ -4,13 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lee Holdings Group</title>
-  <meta name="description" content="Lee Holdings Group — Institutional Strategy. Independent Execution. A structured capital approach across energy, AI, metals, and digital markets." />
+  <meta
+    name="description"
+    content="Lee Holdings Group — Institutional Strategy. Independent Execution. A structured capital approach across energy, AI, infrastructure, metals, and digital markets."
+  />
   <style>
     :root {
       --bg: #ffffff;
       --bg-soft: #f7faf8;
       --surface: #ffffff;
-      --surface-soft: #fbfcfb;
       --line: rgba(14, 52, 34, 0.08);
       --text: #132218;
       --muted: #5a6a61;
@@ -22,20 +24,27 @@
       --shadow-soft: 0 10px 26px rgba(17, 31, 22, 0.04);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background: #ffffff;
+      background: var(--bg);
       min-height: 100vh;
       line-height: 1.5;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .container {
       width: min(calc(100% - 32px), var(--max));
@@ -102,7 +111,9 @@
       font-size: 0.95rem;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
     .nav-cta {
       padding: 12px 18px;
@@ -120,15 +131,12 @@
     }
 
     .hero {
-      padding: 76px 0 44px;
+      padding: 84px 0 56px;
       background: linear-gradient(180deg, #ffffff 0%, #fcfdfc 100%);
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.06fr 0.94fr;
-      gap: 32px;
-      align-items: start;
+    .hero-inner {
+      max-width: 860px;
     }
 
     .eyebrow {
@@ -156,24 +164,23 @@
 
     h1 {
       margin: 22px 0 16px;
-      font-size: clamp(3rem, 6vw, 5.4rem);
-      line-height: 0.93;
+      font-size: clamp(3rem, 6vw, 5.2rem);
+      line-height: 0.94;
       letter-spacing: -0.055em;
-      max-width: 10ch;
+      max-width: 11ch;
     }
 
     .hero-copy {
       color: var(--muted);
       font-size: 1.08rem;
-      max-width: 60ch;
-      margin-bottom: 26px;
+      max-width: 62ch;
+      margin-bottom: 28px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 22px;
     }
 
     .btn {
@@ -189,7 +196,9 @@
       gap: 10px;
     }
 
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
     .btn-primary {
       color: #ffffff;
@@ -204,32 +213,15 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .hero-right {
-      display: grid;
-      gap: 16px;
+    section {
+      padding: 36px 0;
     }
 
-    .panel, .feature-card, .research-card, .trust-card, .contact-card, .mini-card {
-      background: #ffffff;
-      border: 1px solid rgba(15, 107, 69, 0.08);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .section-head {
+      display: block;
+      margin-bottom: 24px;
     }
 
-    .market-terminal {
-      padding: 20px;
-      overflow: hidden;
-    }
-
-    .terminal-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .terminal-label small,
     .section-tag {
       color: var(--green);
       text-transform: uppercase;
@@ -238,78 +230,12 @@
       font-weight: 700;
     }
 
-    .terminal-label strong {
-      display: block;
-      font-size: 1.15rem;
-      margin-top: 4px;
-    }
-
-    .terminal-pill {
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: #f5faf7;
-      border: 1px solid rgba(15, 107, 69, 0.08);
-      font-weight: 700;
-      color: var(--green);
-      font-size: 0.82rem;
-    }
-
-    .chart-frame {
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(15, 107, 69, 0.08);
-      background: linear-gradient(180deg, #fbfdfb, #f3f8f5);
-    }
-
-    .chart-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 16px;
-      border-top: 1px solid rgba(15, 107, 69, 0.08);
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .mini-card {
-      padding: 18px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mini-card h3 {
-      margin: 8px 0 10px;
-      font-size: 1.05rem;
-    }
-
-    .mini-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    section {
-      padding: 32px 0;
-    }
-
-    .section-head {
-      display: block;
-      margin-bottom: 24px;
-    }
-
     .section-head h2 {
       margin: 10px 0 0;
-      font-size: clamp(2rem, 4vw, 3.3rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       line-height: 1;
       letter-spacing: -0.045em;
-      max-width: 12ch;
+      max-width: 13ch;
     }
 
     .feature-grid,
@@ -325,6 +251,10 @@
     .research-card,
     .trust-card,
     .contact-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 107, 69, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       padding: 24px;
       position: relative;
       overflow: hidden;
@@ -393,6 +323,13 @@
       margin: 12px 0 22px;
     }
 
+    .disclaimer {
+      color: #67786d;
+      font-size: 0.9rem;
+      max-width: 72ch;
+      margin-top: 14px;
+    }
+
     .footer {
       padding: 42px 0 60px;
       color: var(--muted);
@@ -403,25 +340,16 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      border-top: 1px solid rgba(18,34,24,0.08);
+      border-top: 1px solid rgba(18, 34, 24, 0.08);
       padding-top: 22px;
       font-size: 0.92rem;
     }
 
-    .disclaimer {
-      color: #67786d;
-      font-size: 0.9rem;
-      max-width: 72ch;
-      margin-top: 14px;
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid,
+    @media (max-width: 980px) {
       .feature-grid,
       .research-grid,
       .trust-grid,
-      .contact-grid,
-      .mini-grid {
+      .contact-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -494,25 +422,22 @@
       {
         "symbols": [
           { "description": "SPX", "proName": "FOREXCOM:SPXUSD" },
-          { "description": "DXY", "proName": "TVC:DXY" },
           { "description": "EURUSD", "proName": "FX:EURUSD" },
           { "description": "GBPUSD", "proName": "FX:GBPUSD" },
           { "description": "USDJPY", "proName": "FX:USDJPY" },
           { "description": "AUDUSD", "proName": "FX:AUDUSD" },
           { "description": "WTI", "proName": "TVC:USOIL" },
           { "description": "Brent", "proName": "TVC:UKOIL" },
-          { "description": "XAU", "proName": "TVC:GOLD" },
-          { "description": "XAG", "proName": "TVC:SILVER" },
+          { "description": "Gold", "proName": "TVC:GOLD" },
+          { "description": "Silver", "proName": "TVC:SILVER" },
           { "description": "BTC", "proName": "BINANCE:BTCUSDT" },
           { "description": "ETH", "proName": "BINANCE:ETHUSDT" },
-          { "description": "XRP", "proName": "BINANCE:XRPUSDT" },
-          { "description": "SOL", "proName": "BINANCE:SOLUSDT" },
-          { "description": "TON", "proName": "BINANCE:TONUSDT" },
-          { "description": "BNB", "proName": "BINANCE:BNBUSDT" },
-          { "description": "BABA", "proName": "NYSE:BABA" },
-          { "description": "BIDU", "proName": "NASDAQ:BIDU" },
-          { "description": "TCEHY", "proName": "OTC:TCEHY" },
-          { "description": "KWEB", "proName": "AMEX:KWEB" }
+          { "description": "NVDA", "proName": "NASDAQ:NVDA" },
+          { "description": "MSFT", "proName": "NASDAQ:MSFT" },
+          { "description": "GOOGL", "proName": "NASDAQ:GOOGL" },
+          { "description": "AMZN", "proName": "NASDAQ:AMZN" },
+          { "description": "PWR", "proName": "NYSE:PWR" },
+          { "description": "FIX", "proName": "NYSE:FIX" }
         ],
         "showSymbolLogo": false,
         "isTransparent": true,
@@ -526,83 +451,18 @@
 
   <main id="top">
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Global Markets • Energy • AI • Digital Assets</div>
-          <h1>Institutional Capital.<br>Strategic Execution.</h1>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="eyebrow">Global Markets • Energy • AI • Infrastructure</div>
+          <h1>Institutional Capital.<br />Strategic Execution.</h1>
           <p class="hero-copy">
-            Lee Holdings Group is a private capital platform focused on structured allocation, macro awareness, and disciplined execution across energy, artificial intelligence, metals, digital markets, and globally important platform equities.
+            Lee Holdings Group is a private capital platform focused on structured allocation,
+            macro awareness, and disciplined positioning across energy, artificial intelligence,
+            infrastructure, metals, and digital markets.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Request Investor Access</a>
             <a class="btn btn-secondary" href="#research">Explore Research</a>
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <div class="panel market-terminal">
-            <div class="terminal-top">
-              <div class="terminal-label">
-                <small>Market Focus</small>
-                <strong>Global Macro. AI. Platform Leadership.</strong>
-              </div>
-              <div class="terminal-pill">Research-led</div>
-            </div>
-
-            <div class="chart-frame" aria-label="Market structure illustration">
-              <svg viewBox="0 0 720 360" role="img" aria-label="Market illustration" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#fcfefd"/>
-                    <stop offset="100%" stop-color="#f3f8f5"/>
-                  </linearGradient>
-                  <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#2a8e5e"/>
-                    <stop offset="100%" stop-color="#74b890"/>
-                  </linearGradient>
-                  <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#dcefe3"/>
-                    <stop offset="100%" stop-color="#f8fcf9"/>
-                  </linearGradient>
-                </defs>
-                <rect width="720" height="360" fill="url(#bgGrad)"/>
-                <g opacity="0.14" stroke="#5f8c71" stroke-width="1">
-                  <line x1="40" y1="50" x2="680" y2="50"/>
-                  <line x1="40" y1="110" x2="680" y2="110"/>
-                  <line x1="40" y1="170" x2="680" y2="170"/>
-                  <line x1="40" y1="230" x2="680" y2="230"/>
-                  <line x1="40" y1="290" x2="680" y2="290"/>
-                  <line x1="100" y1="30" x2="100" y2="330"/>
-                  <line x1="200" y1="30" x2="200" y2="330"/>
-                  <line x1="300" y1="30" x2="300" y2="330"/>
-                  <line x1="400" y1="30" x2="400" y2="330"/>
-                  <line x1="500" y1="30" x2="500" y2="330"/>
-                  <line x1="600" y1="30" x2="600" y2="330"/>
-                </g>
-                <path d="M55 282 L120 270 L160 248 L210 258 L260 214 L310 225 L360 176 L410 162 L460 184 L520 126 L575 136 L635 98 L680 68 L680 330 L55 330 Z" fill="url(#fillGrad)" opacity="0.95"/>
-                <path d="M55 282 L120 270 L160 248 L210 258 L260 214 L310 225 L360 176 L410 162 L460 184 L520 126 L575 136 L635 98 L680 68" fill="none" stroke="url(#lineGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="55" y="26" fill="#46604f" font-size="14" font-family="Inter, sans-serif">Institutional framing • not technical charting</text>
-                <text x="520" y="26" fill="#2f9463" font-size="14" font-family="Inter, sans-serif">Macro alignment</text>
-              </svg>
-            </div>
-
-            <div class="chart-meta">
-              <span>Focused on capital flows, leadership, and long-duration positioning.</span>
-              <strong style="color: var(--green);">Macro • AI • Platforms</strong>
-            </div>
-          </div>
-
-          <div class="mini-grid">
-            <div class="mini-card">
-              <div class="section-tag">China AI Exposure</div>
-              <h3>Platform concentration matters</h3>
-              <p>Tracking major Chinese platform and AI-linked names alongside broader multi-asset flows.</p>
-            </div>
-            <div class="mini-card">
-              <div class="section-tag">Capital Model</div>
-              <h3>Compound intelligently</h3>
-              <p>Research, execution, and future expansion are designed to reinforce one another over time.</p>
-            </div>
           </div>
         </div>
       </div>
@@ -621,7 +481,10 @@
           <article class="feature-card">
             <div class="section-tag">Energy</div>
             <h3>WTI as a macro signal</h3>
-            <p>Oil is monitored as a lead indicator for inflation pressure, geopolitical stress, and broader market repricing.</p>
+            <p>
+              Oil is monitored as a lead indicator for inflation pressure,
+              geopolitical stress, and broader market repricing.
+            </p>
             <ul class="list">
               <li>WTIUSD structural monitoring</li>
               <li>Cross-market transmission awareness</li>
@@ -632,18 +495,24 @@
           <article class="feature-card">
             <div class="section-tag">Artificial Intelligence</div>
             <h3>Global AI market exposure</h3>
-            <p>Positioning centers on infrastructure, monetization, dominant platforms, and long-duration winners.</p>
+            <p>
+              Positioning centers on infrastructure, monetization, dominant platforms,
+              and long-duration winners rather than narrative heat.
+            </p>
             <ul class="list">
-              <li>Compute, chips, and cloud infrastructure</li>
-              <li>Platform leadership and durable moats</li>
-              <li>Real enterprise value over narrative heat</li>
+              <li>Compute and semiconductor leadership</li>
+              <li>Platform dominance and distribution</li>
+              <li>Real enterprise value over hype</li>
             </ul>
           </article>
 
           <article class="feature-card">
             <div class="section-tag">Digital Assets</div>
             <h3>Selective asymmetric opportunities</h3>
-            <p>Digital markets are approached with discipline, defined risk, and a preference for timing over impulse.</p>
+            <p>
+              Digital markets are approached with discipline, defined risk,
+              and a preference for timing over impulse.
+            </p>
             <ul class="list">
               <li>Structured participation</li>
               <li>Macro + liquidity awareness</li>
@@ -652,14 +521,18 @@
           </article>
 
           <article class="feature-card">
-            <div class="section-tag">China Internet & AI</div>
-            <h3>Strategic platform exposure</h3>
-            <p>Selected Chinese platform names and the KWEB ETF create a cleaner lens on regional AI and internet leadership.</p>
+            <div class="section-tag">AI Infrastructure</div>
+            <h3>Full stack exposure</h3>
+            <p>
+              Artificial intelligence is not a single trade — it is an ecosystem.
+              Lee Holdings Group positions across compute, cloud distribution,
+              power delivery, and cooling infrastructure.
+            </p>
             <ul class="list">
-              <li>BABA</li>
-              <li>BIDU</li>
-              <li>TCEHY</li>
-              <li>KWEB</li>
+              <li>NVDA — compute</li>
+              <li>MSFT / AMZN / GOOGL — cloud + distribution</li>
+              <li>PWR — power grid expansion</li>
+              <li>FIX — cooling and mechanical systems</li>
             </ul>
           </article>
         </div>
@@ -679,7 +552,10 @@
           <article class="feature-card">
             <div class="section-tag">Allocation Framework</div>
             <h3>Capital is deployed in layers</h3>
-            <p>Exposure is earned through clarity, not rushed through emotion. The system is designed to scale with conviction.</p>
+            <p>
+              Exposure is earned through clarity, not rushed through emotion.
+              The system is designed to scale with conviction.
+            </p>
             <div class="tag-row">
               <span class="tag">Risk-first</span>
               <span class="tag">Layered exposure</span>
@@ -690,11 +566,14 @@
           <article class="feature-card">
             <div class="section-tag">Research Stack</div>
             <h3>Macro, structure, and market behavior</h3>
-            <p>Decision-making blends geopolitical awareness, sector leadership, technical structure, and strategic timing.</p>
+            <p>
+              Decision-making blends geopolitical awareness, sector leadership,
+              capital flow, and strategic timing across asset classes.
+            </p>
             <div class="tag-row">
               <span class="tag">Macro context</span>
-              <span class="tag">Technical structure</span>
               <span class="tag">Cross-market linkage</span>
+              <span class="tag">Execution discipline</span>
             </div>
           </article>
         </div>
@@ -714,7 +593,10 @@
           <article class="research-card">
             <div class="section-tag">Energy Intelligence</div>
             <h3>WTI transmission model</h3>
-            <p>Oil is tracked as both a market and a message, influencing inflation, rates, sentiment, and portfolio conditions.</p>
+            <p>
+              Oil is tracked as both a market and a message, influencing inflation,
+              rates, sentiment, and portfolio conditions.
+            </p>
             <ul>
               <li>Key level awareness</li>
               <li>Supply shock framing</li>
@@ -725,7 +607,10 @@
           <article class="research-card">
             <div class="section-tag">AI Market Thesis</div>
             <h3>Global AI winners will be concentrated</h3>
-            <p>AI is approached as a capital cycle where infrastructure, distribution, and monetization create outsized long-term value.</p>
+            <p>
+              AI is approached as a capital cycle where infrastructure,
+              distribution, and monetization create outsized long-term value.
+            </p>
             <ul>
               <li>Semiconductors and compute</li>
               <li>Platform concentration and strategic moats</li>
@@ -740,21 +625,27 @@
           </article>
 
           <article class="research-card">
-            <div class="section-tag">Cross-Market Framework</div>
-            <h3>Read the chain reaction</h3>
-            <p>The edge is in understanding how energy, inflation, rates, AI leadership, and digital liquidity influence one another.</p>
+            <div class="section-tag">Infrastructure Layer</div>
+            <h3>Power and cooling are part of the thesis</h3>
+            <p>
+              AI expansion is constrained by electricity delivery and thermal management.
+              That makes infrastructure exposure part of the same strategic stack.
+            </p>
             <div class="tag-row">
-              <span class="tag">Oil → Inflation</span>
-              <span class="tag">Inflation → Rates</span>
-              <span class="tag">Rates → Risk Assets</span>
-              <span class="tag">AI → Platform Value</span>
+              <span class="tag">PWR</span>
+              <span class="tag">FIX</span>
+              <span class="tag">Grid buildout</span>
+              <span class="tag">Cooling demand</span>
             </div>
           </article>
 
           <article class="research-card">
             <div class="section-tag">Capital Access</div>
             <h3>Direct insight. No noise.</h3>
-            <p>Qualified participants gain access to structured market commentary, allocation frameworks, and real-time positioning insight.</p>
+            <p>
+              Qualified participants gain access to structured market commentary,
+              allocation frameworks, and long-duration positioning logic.
+            </p>
             <div class="tag-row">
               <span class="tag">Positioning updates</span>
               <span class="tag">Market breakdowns</span>
@@ -778,13 +669,20 @@
           <article class="trust-card">
             <div class="section-tag">Principles</div>
             <h3>Discipline over narrative</h3>
-            <p>Capital is deployed based on structure, not emotion. Every decision prioritizes risk control, asymmetric opportunity, and long-term compounding.</p>
+            <p>
+              Capital is deployed based on structure, not emotion.
+              Every decision prioritizes risk control, asymmetric opportunity,
+              and long-term compounding.
+            </p>
           </article>
 
           <article class="trust-card">
             <div class="section-tag">Vision</div>
             <h3>Build a capital engine, not a moment</h3>
-            <p>Lee Holdings Group is structured to evolve into a multi-layer capital platform integrating research, execution, and long-duration asset positioning.</p>
+            <p>
+              Lee Holdings Group is structured to evolve into a multi-layer capital platform
+              integrating research, execution, and durable asset positioning.
+            </p>
           </article>
         </div>
       </div>
@@ -803,7 +701,10 @@
           <article class="contact-card">
             <div class="section-tag">Contact</div>
             <h3>Start the conversation</h3>
-            <p>Reach out directly for investor inquiries, strategic discussions, or partnership conversations.</p>
+            <p>
+              Reach out directly for investor inquiries, strategic discussions,
+              or partnership conversations.
+            </p>
             <div class="glow-line"></div>
             <p><strong>Email:</strong> <a href="mailto:justine@leeholdingsgroup.com">justine@leeholdingsgroup.com</a></p>
             <p><strong>Suggested subject:</strong> Investor Access Inquiry</p>
@@ -813,17 +714,23 @@
           <article class="contact-card">
             <div class="section-tag">Positioning</div>
             <h3>Where macro meets execution</h3>
-            <p>The edge comes from connecting energy, rates, AI, and liquidity into one cohesive framework — then executing with precision.</p>
+            <p>
+              The edge comes from connecting energy, rates, AI, infrastructure,
+              and liquidity into one cohesive framework — then executing with precision.
+            </p>
             <ul>
               <li>Cross-market intelligence</li>
               <li>Energy-led macro awareness</li>
-              <li>Execution driven by structure</li>
+              <li>AI infrastructure framing</li>
             </ul>
           </article>
         </div>
 
         <p class="disclaimer">
-          Disclaimer: Information presented on this website is for informational and branding purposes only and does not constitute an offer to sell, a solicitation to buy, or investment, legal, or tax advice. Any future offerings, advisory relationships, or investment activities would be subject to applicable laws, documentation, and formal review.
+          Disclaimer: Information presented on this website is for informational and branding purposes only
+          and does not constitute an offer to sell, a solicitation to buy, or investment, legal, or tax advice.
+          Any future offerings, advisory relationships, or investment activities would be subject to applicable laws,
+          documentation, and formal review.
         </p>
       </div>
     </section>
