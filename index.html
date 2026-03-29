@@ -13,13 +13,16 @@
       --bg: #ffffff;
       --bg-soft: #f7faf8;
       --surface: #ffffff;
+      --surface-soft: #f4f8f5;
       --line: rgba(14, 52, 34, 0.08);
       --text: #132218;
       --muted: #5a6a61;
       --green: #0f6b45;
       --green-2: #278659;
+      --green-3: #e8f4ed;
       --max: 1280px;
       --radius: 24px;
+      --radius-sm: 18px;
       --shadow: 0 18px 50px rgba(17, 31, 22, 0.06);
       --shadow-soft: 0 10px 26px rgba(17, 31, 22, 0.04);
     }
@@ -76,21 +79,22 @@
     }
 
     .brand-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
       background: linear-gradient(135deg, #f9fcfa, #edf5f0);
       border: 1px solid rgba(15, 107, 69, 0.10);
       box-shadow: var(--shadow-soft);
-      font-size: 20px;
+      font-size: 22px;
       color: var(--green);
+      flex-shrink: 0;
     }
 
     .brand-text strong {
       display: block;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 800;
     }
 
@@ -131,8 +135,17 @@
     }
 
     .hero {
-      padding: 84px 0 56px;
-      background: linear-gradient(180deg, #ffffff 0%, #fcfdfc 100%);
+      padding: 84px 0 58px;
+      background:
+        radial-gradient(circle at top right, rgba(39, 134, 89, 0.08), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #fcfdfc 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 28px;
+      align-items: stretch;
     }
 
     .hero-inner {
@@ -162,6 +175,51 @@
       background: var(--green-2);
     }
 
+    .hero-signage {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid rgba(15, 107, 69, 0.10);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-signage .hero-mark {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f7fbf8, #ebf4ee);
+      border: 1px solid rgba(15, 107, 69, 0.10);
+      color: var(--green);
+      font-size: 24px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .hero-signage .hero-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-signage .hero-brand strong {
+      font-size: 0.98rem;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .hero-signage .hero-brand span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     h1 {
       margin: 22px 0 16px;
       font-size: clamp(3rem, 6vw, 5.2rem);
@@ -181,6 +239,58 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
+    }
+
+    .hero-panel {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%);
+      border: 1px solid rgba(15, 107, 69, 0.10);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+      align-self: stretch;
+    }
+
+    .panel-tag {
+      color: var(--green);
+      text-transform: uppercase;
+      font-size: 0.73rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-panel h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      line-height: 1.1;
+    }
+
+    .hero-panel p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .micro-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .micro-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .micro-list li::before {
+      content: "•";
+      color: var(--green);
+      font-weight: 900;
+      margin-top: -2px;
     }
 
     .btn {
@@ -214,7 +324,7 @@
     }
 
     section {
-      padding: 36px 0;
+      padding: 38px 0;
     }
 
     .section-head {
@@ -316,13 +426,6 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .glow-line {
-      height: 1px;
-      width: 100%;
-      background: linear-gradient(90deg, transparent, rgba(15, 107, 69, 0.18), transparent);
-      margin: 12px 0 22px;
-    }
-
     .disclaimer {
       color: #67786d;
       font-size: 0.9rem;
@@ -346,6 +449,7 @@
     }
 
     @media (max-width: 980px) {
+      .hero-grid,
       .feature-grid,
       .research-grid,
       .trust-grid,
@@ -426,18 +530,16 @@
           { "description": "GBPUSD", "proName": "FX:GBPUSD" },
           { "description": "USDJPY", "proName": "FX:USDJPY" },
           { "description": "AUDUSD", "proName": "FX:AUDUSD" },
-          { "description": "WTI", "proName": "TVC:USOIL" },
-          { "description": "Brent", "proName": "TVC:UKOIL" },
-          { "description": "Gold", "proName": "TVC:GOLD" },
-          { "description": "Silver", "proName": "TVC:SILVER" },
-          { "description": "BTC", "proName": "BINANCE:BTCUSDT" },
-          { "description": "ETH", "proName": "BINANCE:ETHUSDT" },
-          { "description": "NVDA", "proName": "NASDAQ:NVDA" },
-          { "description": "MSFT", "proName": "NASDAQ:MSFT" },
-          { "description": "GOOGL", "proName": "NASDAQ:GOOGL" },
-          { "description": "AMZN", "proName": "NASDAQ:AMZN" },
-          { "description": "PWR", "proName": "NYSE:PWR" },
-          { "description": "FIX", "proName": "NYSE:FIX" }
+          { "description": "WTIUSD", "proName": "TVC:USOIL" },
+          { "description": "UKOIL", "proName": "TVC:UKOIL" },
+          { "description": "GOLD", "proName": "TVC:GOLD" },
+          { "description": "SILVER", "proName": "TVC:SILVER" },
+          { "description": "BTCUSD", "proName": "BINANCE:BTCUSDT" },
+          { "description": "ETHUSD", "proName": "BINANCE:ETHUSDT" },
+          { "description": "XRPUSD", "proName": "BINANCE:XRPUSDT" },
+          { "description": "SOLUSD", "proName": "BINANCE:SOLUSDT" },
+          { "description": "TONUSD", "proName": "BINANCE:TONUSDT" },
+          { "description": "BNBUSD", "proName": "BINANCE:BNBUSDT" }
         ],
         "showSymbolLogo": false,
         "isTransparent": true,
@@ -451,8 +553,16 @@
 
   <main id="top">
     <section class="hero">
-      <div class="container">
+      <div class="container hero-grid">
         <div class="hero-inner">
+          <div class="hero-signage">
+            <div class="hero-mark">♞</div>
+            <div class="hero-brand">
+              <strong>LEE HOLDINGS GROUP</strong>
+              <span>Institutional Strategy. Independent Execution.</span>
+            </div>
+          </div>
+
           <div class="eyebrow">Global Markets • Energy • AI • Infrastructure</div>
           <h1>Institutional Capital.<br />Strategic Execution.</h1>
           <p class="hero-copy">
@@ -465,6 +575,21 @@
             <a class="btn btn-secondary" href="#research">Explore Research</a>
           </div>
         </div>
+
+        <aside class="hero-panel">
+          <div class="panel-tag">AI Infrastructure Focus</div>
+          <h3>The AI buildout is bigger than software.</h3>
+          <p>
+            Our thesis does not stop at chatbots or headlines. Real AI exposure sits across
+            compute, cloud distribution, grid capacity, cooling systems, and physical industrial support.
+          </p>
+          <ul class="micro-list">
+            <li><strong>Compute:</strong> semiconductor and accelerator leadership</li>
+            <li><strong>Cloud:</strong> hyperscale platforms monetizing deployment</li>
+            <li><strong>Power:</strong> grid modernization and electricity demand expansion</li>
+            <li><strong>Cooling:</strong> mechanical and thermal systems supporting data center growth</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
@@ -494,10 +619,10 @@
 
           <article class="feature-card">
             <div class="section-tag">Artificial Intelligence</div>
-            <h3>Global AI market exposure</h3>
+            <h3>AI as an ecosystem, not a headline</h3>
             <p>
               Positioning centers on infrastructure, monetization, dominant platforms,
-              and long-duration winners rather than narrative heat.
+              and durable system-level winners rather than narrative heat.
             </p>
             <ul class="list">
               <li>Compute and semiconductor leadership</li>
@@ -522,17 +647,17 @@
 
           <article class="feature-card">
             <div class="section-tag">AI Infrastructure</div>
-            <h3>Full stack exposure</h3>
+            <h3>Full-stack industrial exposure</h3>
             <p>
-              Artificial intelligence is not a single trade — it is an ecosystem.
-              Lee Holdings Group positions across compute, cloud distribution,
-              power delivery, and cooling infrastructure.
+              Artificial intelligence is a physical buildout as much as a software revolution.
+              That means the winners include compute providers, cloud platforms, power delivery,
+              and cooling infrastructure.
             </p>
             <ul class="list">
-              <li>NVDA — compute</li>
-              <li>MSFT / AMZN / GOOGL — cloud + distribution</li>
-              <li>PWR — power grid expansion</li>
-              <li>FIX — cooling and mechanical systems</li>
+              <li>Compute leadership</li>
+              <li>Cloud-scale deployment</li>
+              <li>Grid and power expansion</li>
+              <li>Mechanical and thermal support systems</li>
             </ul>
           </article>
         </div>
@@ -606,7 +731,7 @@
 
           <article class="research-card">
             <div class="section-tag">AI Market Thesis</div>
-            <h3>Global AI winners will be concentrated</h3>
+            <h3>AI winners will be concentrated</h3>
             <p>
               AI is approached as a capital cycle where infrastructure,
               distribution, and monetization create outsized long-term value.
@@ -632,10 +757,10 @@
               That makes infrastructure exposure part of the same strategic stack.
             </p>
             <div class="tag-row">
-              <span class="tag">PWR</span>
-              <span class="tag">FIX</span>
+              <span class="tag">Power delivery</span>
+              <span class="tag">Cooling systems</span>
               <span class="tag">Grid buildout</span>
-              <span class="tag">Cooling demand</span>
+              <span class="tag">Data center support</span>
             </div>
           </article>
 
@@ -705,7 +830,6 @@
               Reach out directly for investor inquiries, strategic discussions,
               or partnership conversations.
             </p>
-            <div class="glow-line"></div>
             <p><strong>Email:</strong> <a href="mailto:justine@leeholdingsgroup.com">justine@leeholdingsgroup.com</a></p>
             <p><strong>Suggested subject:</strong> Investor Access Inquiry</p>
             <a class="btn btn-primary" href="mailto:justine@leeholdingsgroup.com?subject=Investor%20Access%20Inquiry">Request Access</a>
