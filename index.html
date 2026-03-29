@@ -7,34 +7,31 @@
   <meta name="description" content="Lee Holdings Group — Institutional Strategy. Independent Execution. A structured capital approach across energy, AI, metals, and digital markets." />
   <style>
     :root {
-      --bg: #f6faf7;
-      --bg-soft: #eef5f0;
-      --surface: rgba(255, 255, 255, 0.88);
-      --surface-strong: rgba(255, 255, 255, 0.98);
-      --line: rgba(12, 65, 44, 0.10);
-      --line-strong: rgba(12, 65, 44, 0.18);
-      --text: #122218;
-      --muted: #526458;
+      --bg: #ffffff;
+      --bg-soft: #f7faf8;
+      --surface: #ffffff;
+      --surface-soft: #fbfcfb;
+      --line: rgba(14, 52, 34, 0.08);
+      --line-strong: rgba(14, 52, 34, 0.14);
+      --text: #132218;
+      --muted: #5a6a61;
       --green: #0f6b45;
-      --green-2: #2c9b67;
-      --green-3: #dff1e7;
-      --gold: #46604f;
-      --shadow: 0 24px 70px rgba(18, 34, 24, 0.08);
-      --shadow-soft: 0 16px 40px rgba(18, 34, 24, 0.05);
+      --green-2: #278659;
+      --green-3: #e8f3ec;
       --max: 1280px;
       --radius: 24px;
+      --shadow: 0 18px 50px rgba(17, 31, 22, 0.06);
+      --shadow-soft: 0 10px 26px rgba(17, 31, 22, 0.04);
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(44, 155, 103, 0.10), transparent 22%),
-        radial-gradient(circle at 90% 10%, rgba(15, 107, 69, 0.08), transparent 20%),
-        linear-gradient(180deg, #fbfdfb 0%, #f4faf6 48%, #edf6f0 100%);
+      background: #ffffff;
       min-height: 100vh;
       line-height: 1.5;
     }
@@ -52,12 +49,12 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(14px);
-      background: rgba(248, 252, 249, 0.84);
-      border-bottom: 1px solid rgba(18, 34, 24, 0.06);
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(19, 34, 24, 0.06);
     }
 
     .nav {
-      min-height: 78px;
+      min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -72,12 +69,12 @@
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, #f4fbf7, #deefe5);
+      background: linear-gradient(135deg, #f9fcfa, #edf5f0);
       border: 1px solid rgba(15, 107, 69, 0.10);
       box-shadow: var(--shadow-soft);
       font-size: 20px;
@@ -112,20 +109,22 @@
     .nav-cta {
       padding: 12px 18px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #f0faf4, #e3f3ea);
+      background: #f4faf6;
       border: 1px solid rgba(15, 107, 69, 0.10);
       font-weight: 700;
       color: var(--green);
+      box-shadow: var(--shadow-soft);
     }
 
     .hero {
-      padding: 72px 0 34px;
+      padding: 76px 0 44px;
+      background: linear-gradient(180deg, #ffffff 0%, #fcfdfc 100%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 28px;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 32px;
       align-items: start;
     }
 
@@ -135,7 +134,7 @@
       gap: 10px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(15, 107, 69, 0.06);
+      background: #f5faf7;
       border: 1px solid rgba(15, 107, 69, 0.08);
       color: var(--green);
       font-size: 0.78rem;
@@ -150,29 +149,28 @@
       height: 8px;
       border-radius: 999px;
       background: var(--green-2);
-      box-shadow: 0 0 10px rgba(44, 155, 103, 0.35);
     }
 
     h1 {
       margin: 22px 0 16px;
       font-size: clamp(3rem, 6vw, 5.4rem);
-      line-height: 0.95;
+      line-height: 0.93;
       letter-spacing: -0.055em;
-      max-width: 10.5ch;
+      max-width: 10ch;
     }
 
     .hero-copy {
       color: var(--muted);
       font-size: 1.08rem;
       max-width: 60ch;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 26px;
+      margin-bottom: 22px;
     }
 
     .btn {
@@ -192,14 +190,15 @@
 
     .btn-primary {
       color: #ffffff;
-      background: linear-gradient(135deg, var(--green), #218a5b);
-      box-shadow: 0 14px 30px rgba(15, 107, 69, 0.18);
+      background: linear-gradient(135deg, var(--green), #1f8255);
+      box-shadow: 0 14px 30px rgba(15, 107, 69, 0.15);
     }
 
     .btn-secondary {
-      border-color: rgba(15, 107, 69, 0.12);
-      background: rgba(255,255,255,0.82);
+      border-color: rgba(15, 107, 69, 0.10);
+      background: #ffffff;
       color: var(--text);
+      box-shadow: var(--shadow-soft);
     }
 
     .proof-strip {
@@ -211,7 +210,7 @@
     .proof-pill {
       padding: 10px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.75);
+      background: #ffffff;
       border: 1px solid rgba(15, 107, 69, 0.08);
       color: var(--muted);
       font-size: 0.88rem;
@@ -223,8 +222,8 @@
       gap: 16px;
     }
 
-    .panel, .stat-card, .feature-card, .research-card, .trust-card, .contact-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(252,255,253,0.98));
+    .panel, .feature-card, .research-card, .trust-card, .contact-card, .mini-card {
+      background: #ffffff;
       border: 1px solid rgba(15, 107, 69, 0.08);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -261,7 +260,7 @@
     .terminal-pill {
       padding: 10px 12px;
       border-radius: 999px;
-      background: rgba(15, 107, 69, 0.06);
+      background: #f5faf7;
       border: 1px solid rgba(15, 107, 69, 0.08);
       font-weight: 700;
       color: var(--green);
@@ -271,8 +270,8 @@
     .chart-frame {
       border-radius: 20px;
       overflow: hidden;
-      border: 1px solid rgba(15, 107, 69, 0.09);
-      background: linear-gradient(180deg, #f8fcf9, #edf6f0);
+      border: 1px solid rgba(15, 107, 69, 0.08);
+      background: linear-gradient(180deg, #fbfdfb, #f3f8f5);
     }
 
     .chart-meta {
@@ -294,6 +293,8 @@
 
     .mini-card {
       padding: 18px;
+      position: relative;
+      overflow: hidden;
     }
 
     .mini-card h3 {
@@ -308,15 +309,12 @@
     }
 
     section {
-      padding: 26px 0;
+      padding: 32px 0;
     }
 
     .section-head {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 22px;
+      display: block;
+      margin-bottom: 24px;
     }
 
     .section-head h2 {
@@ -328,10 +326,7 @@
     }
 
     .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.02rem;
-      max-width: 62ch;
+      display: none;
     }
 
     .feature-grid,
@@ -357,14 +352,7 @@
     .trust-card::after,
     .contact-card::after,
     .mini-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -18% -42% auto;
-      width: 170px;
-      height: 170px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(44, 155, 103, 0.10), transparent 66%);
-      pointer-events: none;
+      display: none;
     }
 
     .feature-card h3,
@@ -416,7 +404,7 @@
     .tag {
       padding: 8px 12px;
       border-radius: 999px;
-      background: #f5fbf7;
+      background: #f6faf7;
       border: 1px solid rgba(15, 107, 69, 0.08);
       color: var(--green);
       font-size: 0.85rem;
@@ -426,7 +414,7 @@
     .glow-line {
       height: 1px;
       width: 100%;
-      background: linear-gradient(90deg, transparent, rgba(15, 107, 69, 0.24), transparent);
+      background: linear-gradient(90deg, transparent, rgba(15, 107, 69, 0.18), transparent);
       margin: 12px 0 22px;
     }
 
@@ -478,7 +466,7 @@
       }
 
       .hero {
-        padding-top: 54px;
+        padding-top: 56px;
       }
 
       h1 {
@@ -526,7 +514,7 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">Global Markets • Energy • AI • Digital Assets</div>
-          <h1>Private Capital. Built With Discipline.</h1>
+          <h1>Institutional Capital.<br>Strategic Execution.</h1>
           <p class="hero-copy">
             Lee Holdings Group is a private capital platform focused on structured allocation, macro awareness, and disciplined execution across energy, artificial intelligence, metals, and digital markets.
           </p>
@@ -555,8 +543,8 @@
               <svg viewBox="0 0 720 360" role="img" aria-label="WTIUSD chart illustration" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#fbfefc"/>
-                    <stop offset="100%" stop-color="#edf6f0"/>
+                    <stop offset="0%" stop-color="#fcfefd"/>
+                    <stop offset="100%" stop-color="#f3f8f5"/>
                   </linearGradient>
                   <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0%" stop-color="#2a8e5e"/>
@@ -605,12 +593,12 @@
           </div>
 
           <div class="mini-grid">
-            <div class="panel mini-card">
+            <div class="mini-card">
               <div class="section-tag">AI Global Markets</div>
               <h3>Infrastructure over hype</h3>
               <p>Focus stays on the companies, compute layers, and market leaders that capture durable AI value.</p>
             </div>
-            <div class="panel mini-card">
+            <div class="mini-card">
               <div class="section-tag">Capital Model</div>
               <h3>Compound intelligently</h3>
               <p>Research, execution, and future expansion are designed to reinforce one another over time.</p>
@@ -627,9 +615,6 @@
             <div class="section-tag">Market Architecture</div>
             <h2>Built to feel established from day one.</h2>
           </div>
-          <p>
-            The site should not read like a startup landing page. It should communicate structure, confidence, and a larger long-term platform behind the front-end.
-          </p>
         </div>
 
         <div class="feature-grid">
@@ -687,9 +672,6 @@
             <div class="section-tag">Strategy</div>
             <h2>Clear framework. Controlled execution.</h2>
           </div>
-          <p>
-            Lee Holdings Group is being built around disciplined capital deployment, long-horizon thinking, and selective exposure across markets that matter.
-          </p>
         </div>
 
         <div class="feature-grid">
@@ -725,9 +707,6 @@
             <div class="section-tag">Research & Insights</div>
             <h2>Depth that feels intentional.</h2>
           </div>
-          <p>
-            Authority comes from presenting insight with clarity. These sections signal that the brand is not built on noise, but on real market focus and long-term intention.
-          </p>
         </div>
 
         <div class="research-grid">
@@ -809,9 +788,6 @@
             <div class="section-tag">About</div>
             <h2>Independent by structure. Elite by design.</h2>
           </div>
-          <p>
-            Lee Holdings Group is being developed with the visual standards, communication discipline, and long-term seriousness expected of a larger financial platform.
-          </p>
         </div>
 
         <div class="trust-grid">
@@ -837,9 +813,6 @@
             <div class="section-tag">Investor Access</div>
             <h2>For aligned conversations only.</h2>
           </div>
-          <p>
-            The correct feeling here is selectivity, not urgency. The right people should feel like they discovered something early.
-          </p>
         </div>
 
         <div class="contact-grid">
