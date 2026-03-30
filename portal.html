@@ -4,1230 +4,1298 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lee Holdings Group — Private Access Portal</title>
-  <meta
-    name="description"
-    content="Lee Holdings Group Private Access Portal — account overview, holdings, performance, and manager commentary in a secure institutional-style interface."
-  />
   <style>
-    :root {
-      --bg: #f7faf8;
-      --surface: #ffffff;
-      --surface-soft: #f4f8f5;
-      --line: rgba(16, 44, 31, 0.08);
-      --line-strong: rgba(16, 44, 31, 0.14);
-      --text: #102117;
-      --muted: #5a6b60;
-      --green: #0f6b45;
-      --green-2: #1f8255;
-      --green-3: #e8f4ed;
-      --good: #137a4b;
-      --warn: #8a6a12;
-      --danger: #9a3b34;
-      --shadow: 0 18px 44px rgba(17, 31, 22, 0.06);
-      --shadow-soft: 0 10px 24px rgba(17, 31, 22, 0.04);
-      --radius: 24px;
-      --radius-sm: 18px;
-      --max: 1360px;
+    :root{
+      --bg:#f5f7f4;
+      --bg-soft:#eef2ec;
+      --surface:#ffffff;
+      --surface-2:#f8faf7;
+      --text:#0f1720;
+      --muted:#5f6b63;
+      --line:#d8e1d6;
+      --line-strong:#b9c7b7;
+      --accent:#103b24;
+      --accent-2:#1f6b42;
+      --accent-3:#2f8a57;
+      --gold:#af8d4b;
+      --shadow:0 10px 30px rgba(16, 27, 20, 0.08);
+      --radius:18px;
+      --radius-sm:12px;
+      --max:1240px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
+      color:var(--text);
       background:
-        radial-gradient(circle at top right, rgba(39, 134, 89, 0.05), transparent 24%),
-        linear-gradient(180deg, #fbfdfb 0%, #f4f8f5 100%);
-      min-height: 100vh;
-      line-height: 1.55;
+        radial-gradient(circle at top left, rgba(47,138,87,0.06), transparent 28%),
+        linear-gradient(180deg, #f9fbf8 0%, #f3f7f2 100%);
+      line-height:1.55;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    input, button { font: inherit; }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    .wrap{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
       backdrop-filter: blur(14px);
-      background: rgba(255, 255, 255, 0.9);
-      border-bottom: 1px solid rgba(16, 33, 23, 0.06);
+      background:rgba(249, 251, 248, 0.86);
+      border-bottom:1px solid rgba(185, 199, 183, 0.7);
     }
 
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      min-height:74px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      letter-spacing: 0.04em;
-      min-width: 0;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      letter-spacing:.02em;
+      color:var(--accent);
+      white-space:nowrap;
     }
 
-    .brand-mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #f9fcfa, #edf5f0);
-      border: 1px solid rgba(15, 107, 69, 0.10);
-      box-shadow: var(--shadow-soft);
-      font-size: 22px;
-      color: var(--green);
-      flex-shrink: 0;
-    }
-
-    .brand-text strong {
-      display: block;
-      font-size: 0.92rem;
-      font-weight: 800;
-    }
-
-    .brand-text span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: #f4faf6;
-      border: 1px solid rgba(15, 107, 69, 0.1);
-      font-weight: 700;
-      color: var(--green);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .page {
-      padding: 34px 0 60px;
-    }
-
-    .eyebrow,
-    .section-tag,
-    .panel-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--green);
-      text-transform: uppercase;
-      font-size: 0.74rem;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-    }
-
-    .eyebrow::before,
-    .section-tag::before,
-    .panel-tag::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--green-2);
-    }
-
-    .login-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
-      gap: 22px;
-      margin-bottom: 22px;
-    }
-
-    .hero,
-    .split,
-    .grid-main {
-      display: grid;
-      gap: 22px;
-    }
-
-    .hero {
-      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-      margin-bottom: 22px;
-    }
-
-    .card,
-    .summary-card,
-    .performance-card,
-    .holdings-card,
-    .commentary-card,
-    .company-card,
-    .documents-card,
-    .access-card,
-    .metric-card,
-    .login-card,
-    .login-info {
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%);
-      border: 1px solid rgba(15, 107, 69, 0.08);
-      border-radius: var(--radius);
+    .brand-mark{
+      width:38px;
+      height:38px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:linear-gradient(135deg, #0f3b24, #1d5a38);
+      color:#fff;
       box-shadow: var(--shadow);
+      font-size:19px;
     }
 
-    .hero-card,
-    .access-card,
-    .login-card,
-    .login-info {
-      padding: 28px;
+    .brand small{
+      display:block;
+      font-weight:600;
+      font-size:11px;
+      color:var(--muted);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-top:2px;
     }
 
-    h1 {
-      margin: 16px 0 14px;
-      font-size: clamp(2.6rem, 5vw, 4.4rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-      max-width: 10.5ch;
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
-    h3 {
-      margin: 10px 0 10px;
-      font-size: 1.24rem;
-      line-height: 1.1;
+    .nav a{
+      padding:10px 14px;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+      transition:.2s ease;
     }
 
-    .hero-copy,
-    .muted {
-      color: var(--muted);
+    .nav a:hover,
+    .nav a.active{
+      background:#e7efe7;
+      color:var(--accent);
     }
 
-    .hero-copy {
-      max-width: 60ch;
-      margin-bottom: 24px;
-      font-size: 1.04rem;
+    .hero{
+      padding:42px 0 26px;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:20px;
+      align-items:stretch;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 13px 20px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-      cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
     }
 
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-primary {
-      color: #ffffff;
-      background: linear-gradient(135deg, var(--green), #1f8255);
-      box-shadow: 0 14px 30px rgba(15, 107, 69, 0.15);
+    .hero-main{
+      padding:34px 34px 30px;
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(16,59,36,0.04), rgba(175,141,75,0.05)),
+        var(--surface);
     }
 
-    .btn-secondary {
-      border-color: rgba(15, 107, 69, 0.1);
-      background: #ffffff;
-      color: var(--text);
-      box-shadow: var(--shadow-soft);
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#edf4ee;
+      color:var(--accent);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      margin-bottom:16px;
     }
 
-    .login-form {
-      display: grid;
-      gap: 16px;
-      margin-top: 18px;
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(2rem, 3vw, 3.2rem);
+      line-height:1.04;
+      letter-spacing:-.03em;
     }
 
-    .field {
-      display: grid;
-      gap: 8px;
+    .hero-main p{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:17px;
     }
 
-    .field label {
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:14px;
+      margin-top:24px;
     }
 
-    .field input {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(16, 44, 31, 0.12);
-      background: #ffffff;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    .mini{
+      padding:16px 18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--surface-2);
     }
 
-    .field input:focus {
-      border-color: rgba(15, 107, 69, 0.35);
-      box-shadow: 0 0 0 4px rgba(15, 107, 69, 0.08);
+    .mini .k{
+      display:block;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:6px;
+      font-weight:700;
     }
 
-    .form-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.92rem;
+    .mini .v{
+      font-size:15px;
+      color:var(--text);
+      font-weight:700;
     }
 
-    .login-note {
-      margin-top: 16px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: #f7faf8;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.92rem;
+    .hero-side{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:16px;
+      background:linear-gradient(180deg, #103b24 0%, #18482e 100%);
+      color:#f8fbf7;
     }
 
-    .access-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 20px;
+    .hero-side h2{
+      margin:0 0 10px;
+      font-size:1.25rem;
+      letter-spacing:-.02em;
     }
 
-    .access-item {
-      padding: 14px;
-      border-radius: 16px;
-      background: #f7faf8;
-      border: 1px solid var(--line);
+    .hero-side p{
+      margin:0;
+      color:rgba(255,255,255,.82);
+      font-size:15px;
     }
 
-    .access-item strong {
-      display: block;
-      font-size: 0.94rem;
-      margin-bottom: 4px;
+    .meta-list{
+      display:grid;
+      gap:12px;
+      margin-top:8px;
     }
 
-    .access-item span {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .meta-row{
+      display:grid;
+      grid-template-columns: 130px 1fr;
+      gap:10px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.12);
     }
 
-    .grid-main {
-      grid-template-columns: 280px minmax(0, 1fr);
-      align-items: start;
+    .meta-row:last-child{border-bottom:0}
+    .meta-row .label{
+      color:rgba(255,255,255,.68);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-weight:700;
+    }
+    .meta-row .value{
+      font-weight:600;
     }
 
-    .sidebar {
-      position: sticky;
-      top: 100px;
-      display: grid;
-      gap: 18px;
+    .section{
+      padding:18px 0 0;
     }
 
-    .sidebar-card {
-      padding: 20px;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%);
-      border: 1px solid rgba(15, 107, 69, 0.08);
-      border-radius: 22px;
-      box-shadow: var(--shadow-soft);
+    .section-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:20px;
     }
 
-    .side-nav {
-      display: grid;
-      gap: 8px;
-      margin-top: 14px;
+    .block{
+      padding:28px;
     }
 
-    .side-nav a {
-      padding: 12px 14px;
-      border-radius: 14px;
-      color: var(--muted);
-      border: 1px solid transparent;
-      transition: 0.2s ease;
+    .block-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:20px;
     }
 
-    .side-nav a:hover,
-    .side-nav a.active {
-      color: var(--text);
-      background: #f4f8f5;
-      border-color: var(--line);
+    .block-header h2,
+    .block-header h3{
+      margin:0 0 6px;
+      font-size:1.5rem;
+      letter-spacing:-.025em;
     }
 
-    .status-pill,
-    .risk-pill,
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 700;
-      border: 1px solid var(--line);
-      background: #f7faf8;
-      color: var(--text);
+    .block-header p{
+      margin:0;
+      color:var(--muted);
+      max-width:760px;
     }
 
-    .status-pill::before,
-    .risk-pill::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--good);
+    .chip-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
     }
 
-    .risk-pill.moderate::before { background: var(--warn); }
-    .risk-pill.elevated::before { background: var(--danger); }
-
-    .main-stack {
-      display: grid;
-      gap: 22px;
+    .chip{
+      padding:8px 12px;
+      border-radius:999px;
+      background:#eef4ef;
+      border:1px solid var(--line);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:var(--accent);
     }
 
-    .section-head {
-      margin-bottom: 18px;
+    .login-grid{
+      display:grid;
+      grid-template-columns: 1fr .95fr;
+      gap:20px;
     }
 
-    .section-head h2 {
-      margin: 10px 0 0;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      line-height: 1;
-      letter-spacing: -0.045em;
+    .login-box{
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(180deg, #fbfdfb, #f6faf6);
     }
 
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+    .login-box h3{
+      margin:0 0 8px;
+      font-size:1.2rem;
     }
 
-    .metric-card {
-      padding: 22px;
+    .login-box p{
+      margin:0 0 20px;
+      color:var(--muted);
     }
 
-    .metric-label {
-      color: var(--muted);
-      font-size: 0.84rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
+    .field{
+      display:grid;
+      gap:8px;
+      margin-bottom:14px;
     }
 
-    .metric-value {
-      margin-top: 10px;
-      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      font-weight: 800;
+    label{
+      font-size:13px;
+      font-weight:700;
+      color:var(--accent);
+      letter-spacing:.02em;
     }
 
-    .metric-sub {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 0.92rem;
+    input{
+      width:100%;
+      padding:14px 15px;
+      border-radius:14px;
+      border:1px solid var(--line-strong);
+      background:#fff;
+      color:var(--text);
+      font:inherit;
+      outline:none;
+      transition:.18s ease;
     }
 
-    .positive { color: var(--good); }
-    .negative { color: var(--danger); }
-
-    .split {
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    input:focus{
+      border-color:var(--accent-2);
+      box-shadow:0 0 0 4px rgba(31,107,66,.09);
     }
 
-    .performance-card,
-    .summary-card,
-    .holdings-card,
-    .commentary-card,
-    .company-card,
-    .documents-card {
-      padding: 24px;
+    .help-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:12px 0 18px;
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .chart-shell {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, #ffffff 0%, #f7fbf8 100%);
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:14px;
+      border:0;
+      cursor:pointer;
+      font:inherit;
+      font-weight:700;
+      transition:.18s ease;
     }
 
-    .chart-svg {
-      width: 100%;
-      height: auto;
-      display: block;
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#fff;
+      box-shadow:0 10px 24px rgba(16,59,36,.16);
     }
 
-    .mini-list,
-    .detail-list,
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-secondary{
+      background:#eef4ef;
+      color:var(--accent);
+      border:1px solid var(--line);
+    }
+
+    .status-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .status{
+      padding:18px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:var(--surface-2);
+    }
+
+    .status .k{
+      display:block;
+      margin-bottom:6px;
+      font-size:11px;
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .status .v{
+      font-weight:700;
+      color:var(--text);
+    }
+
+    .metrics{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+      margin-bottom:20px;
+    }
+
+    .metric{
+      padding:20px;
+      border-radius:16px;
+      background:linear-gradient(180deg, #fcfefc, #f5f9f5);
+      border:1px solid var(--line);
+    }
+
+    .metric .k{
+      display:block;
+      margin-bottom:8px;
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-weight:700;
+    }
+
+    .metric .v{
+      font-size:1.7rem;
+      line-height:1;
+      font-weight:800;
+      letter-spacing:-.03em;
+      margin-bottom:8px;
+    }
+
+    .metric .s{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .up{color:#177246}
+    .down{color:#a24343}
+
+    .performance-grid{
+      display:grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap:20px;
+      align-items:stretch;
+    }
+
+    .chart-box{
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(180deg, #fcfefc, #f6faf6);
+    }
+
+    .chart-title{
+      margin:0 0 14px;
+      font-size:1rem;
+      font-weight:800;
+      color:var(--accent);
+    }
+
+    .chart-wrap{
+      position:relative;
+      height:260px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(16,59,36,.02), rgba(16,59,36,.04)),
+        #fff;
+    }
+
+    .chart-svg{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    .alloc-grid{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:14px;
+      margin-top:8px;
+    }
+
+    .alloc{
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--surface-2);
+      text-align:left;
+    }
+
+    .alloc .pct{
+      display:block;
+      font-size:1.4rem;
+      font-weight:800;
+      letter-spacing:-.03em;
+      margin-bottom:6px;
+      color:var(--accent);
+    }
+
+    .alloc .name{
+      font-weight:700;
+      margin-bottom:5px;
+    }
+
+    .alloc .desc{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+
+    thead th{
+      text-align:left;
+      padding:14px 16px;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      background:#f2f6f2;
+      border-bottom:1px solid var(--line);
+      white-space:nowrap;
+    }
+
+    tbody td{
+      padding:16px;
+      border-bottom:1px solid #ecf1ec;
+      font-size:14px;
+      vertical-align:top;
+    }
+
+    tbody tr:last-child td{border-bottom:0}
+    tbody tr:hover{background:#fafcf9}
+
+    .company-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .company-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+      background:linear-gradient(180deg, #fdfefd, #f6faf6);
+    }
+
+    .company-card h4{
+      margin:0 0 6px;
+      font-size:1.15rem;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 11px;
+      border-radius:999px;
+      background:#eef4ef;
+      border:1px solid var(--line);
+      color:var(--accent);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:12px;
+    }
+
+    .pill{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#103b24;
+      color:#fff;
+      font-size:11px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .company-card ul,
+    .note-list,
     .doc-list,
-    .note-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
+    .framework-list{
+      margin:0;
+      padding-left:18px;
     }
 
-    .mini-list li,
-    .detail-list li,
+    .company-card li,
+    .note-list li,
     .doc-list li,
-    .note-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: var(--muted);
+    .framework-list li{
+      margin:8px 0;
+      color:var(--text);
     }
 
-    .mini-list li::before,
-    .detail-list li::before,
-    .doc-list li::before,
-    .note-list li::before {
-      content: "•";
-      color: var(--green);
-      font-weight: 900;
-      margin-top: -1px;
+    .commentary{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:20px;
     }
 
-    .allocation-stack {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
+    .commentary-box,
+    .notes-box{
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(180deg, #fcfefc, #f6faf6);
     }
 
-    .allocation-row {
-      display: grid;
-      grid-template-columns: minmax(120px, 1fr) minmax(150px, 2fr) auto;
-      gap: 12px;
-      align-items: center;
-      font-size: 0.94rem;
+    .commentary-box p,
+    .notes-box p{
+      margin:0;
+      color:var(--muted);
     }
 
-    .allocation-label { font-weight: 700; }
-    .bar {
-      height: 10px;
-      background: #edf2ef;
-      border-radius: 999px;
-      overflow: hidden;
-      position: relative;
+    .footer{
+      padding:26px 0 54px;
     }
 
-    .fill { height: 100%; border-radius: 999px; }
-    .f1 { width: 36%; background: linear-gradient(90deg, #0f6b45, #1f8255); }
-    .f2 { width: 22%; background: linear-gradient(90deg, #2d8d63, #52a97e); }
-    .f3 { width: 18%; background: linear-gradient(90deg, #4c9d74, #7bb999); }
-    .f4 { width: 14%; background: linear-gradient(90deg, #75b496, #9fd0b7); }
-    .f5 { width: 10%; background: linear-gradient(90deg, #b6ddd0, #d2ece3); }
-
-    .weight {
-      min-width: 42px;
-      text-align: right;
-      font-weight: 700;
+    .footer-card{
+      padding:24px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
     }
 
-    .table-wrap {
-      margin-top: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      background: #ffffff;
+    .footer-brand{
+      font-weight:800;
+      letter-spacing:.04em;
+      color:var(--accent);
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    .footer-sub{
+      color:var(--muted);
+      font-size:14px;
+      margin-top:4px;
     }
 
-    th,
-    td {
-      padding: 14px 16px;
-      text-align: left;
-      border-bottom: 1px solid rgba(16, 44, 31, 0.07);
-      font-size: 0.94rem;
+    @media (max-width: 1120px){
+      .hero-grid,
+      .login-grid,
+      .performance-grid,
+      .commentary{
+        grid-template-columns:1fr;
+      }
+
+      .status-grid,
+      .metrics{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .alloc-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .company-grid{
+        grid-template-columns:1fr;
+      }
     }
 
-    th {
-      background: #f6faf7;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      font-size: 0.76rem;
-      font-weight: 800;
-    }
+    @media (max-width: 760px){
+      .wrap{
+        width:min(var(--max), calc(100% - 20px));
+      }
 
-    tr:last-child td { border-bottom: none; }
+      .topbar-inner{
+        align-items:flex-start;
+        padding:12px 0;
+        flex-direction:column;
+      }
 
-    .ticker {
-      font-weight: 800;
-      color: var(--text);
-    }
+      .nav{
+        width:100%;
+        justify-content:flex-start;
+      }
 
-    .company-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 18px;
-    }
+      .hero-main,
+      .hero-side,
+      .block{
+        padding:22px;
+      }
 
-    .company-card {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+      .hero-points{
+        grid-template-columns:1fr;
+      }
 
-    .company-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .company-name {
-      font-size: 1.06rem;
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    .company-role {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .tag-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .commentary-quote {
-      margin-top: 16px;
-      padding: 18px 18px 18px 20px;
-      border-left: 4px solid var(--green);
-      border-radius: 14px;
-      background: #f7faf8;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .doc-list li,
-    .note-list li {
-      justify-content: space-between;
-      gap: 14px;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(16, 44, 31, 0.07);
-    }
-
-    .doc-list li:last-child,
-    .note-list li:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .doc-meta,
-    .note-meta {
-      color: var(--muted);
-      font-size: 0.88rem;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .footer {
-      padding: 24px 0 10px;
-      color: var(--muted);
-    }
-
-    .footer-inner {
-      border-top: 1px solid rgba(18, 34, 24, 0.08);
-      padding-top: 18px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 1200px) {
+      .status-grid,
       .metrics,
-      .company-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 1080px) {
-      .login-shell,
-      .hero,
-      .grid-main,
-      .split {
-        grid-template-columns: 1fr;
+      .alloc-grid{
+        grid-template-columns:1fr;
       }
 
-      .sidebar {
-        position: static;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        flex-wrap: wrap;
-        padding: 14px 0;
+      .block-header{
+        flex-direction:column;
+        align-items:flex-start;
       }
 
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        gap: 18px;
-        justify-content: flex-start;
-        padding-bottom: 4px;
-      }
-
-      .metrics,
-      .company-grid,
-      .access-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .btn { width: 100%; }
-
-      .table-wrap {
-        overflow-x: auto;
-      }
-
-      .allocation-row {
-        grid-template-columns: 1fr;
-      }
-
-      .weight {
-        text-align: left;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
+      table{
+        display:block;
+        overflow-x:auto;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
       <a class="brand" href="#top">
         <div class="brand-mark">♞</div>
-        <div class="brand-text">
-          <strong>LEE HOLDINGS GROUP</strong>
-          <span>Private Access Portal</span>
+        <div>
+          LEE HOLDINGS GROUP
+          <small>Private Access Portal</small>
         </div>
       </a>
 
-      <nav class="nav-links">
-        <a href="#signin">Sign In</a>
+      <nav class="nav">
+        <a href="#signin" class="active">Sign In</a>
         <a href="#overview">Overview</a>
         <a href="#holdings">Holdings</a>
         <a href="#research">Research</a>
         <a href="#documents">Documents</a>
-        <a href="#account" class="nav-cta">Account Access</a>
+        <a href="#account">Account Access</a>
       </nav>
     </div>
   </header>
 
-  <main id="top" class="page">
-    <div class="container">
-      <section id="signin" class="login-shell">
-        <article class="login-info">
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="card hero-main">
           <div class="eyebrow">Private Login • Client Visibility • Controlled Access</div>
           <h1>Secure entry for aligned client relationships.</h1>
-          <p class="hero-copy">
-            Private access begins with clarity, discretion, and trust. Approved clients enter a controlled environment built for account visibility, portfolio oversight, and ongoing manager communication.
+          <p>
+            Private access begins with clarity, discretion, and trust. This portal gives approved clients a structured view of account activity, portfolio positioning, reporting, and ongoing manager communication within a controlled environment.
           </p>
-          <div class="access-grid">
-            <div class="access-item">
-              <strong>Intended Users</strong>
-              <span>Clients, investors, and approved strategic relationships</span>
-            </div>
-            <div class="access-item">
-              <strong>Access Scope</strong>
-              <span>Balances, holdings, reporting, and commentary</span>
-            </div>
-            <div class="access-item">
-              <strong>Security Standard</strong>
-              <span>Private access with controlled permissions and structured visibility</span>
-            </div>
-            <div class="access-item">
-              <strong>Operating Model</strong>
-              <span>Disciplined reporting with manager-guided communication</span>
-            </div>
-          </div>
-        </article>
 
-        <aside class="login-card">
-          <div class="panel-tag">Client Sign In</div>
-          <h3>Enter private access credentials</h3>
-          <p class="muted">
-            Access account visibility, holdings context, performance reporting, and manager updates through a private client interface.
-          </p>
-          <form class="login-form">
-            <div class="field">
-              <label for="client-email">Email Address</label>
-              <input id="client-email" type="email" placeholder="client@domain.com" />
+          <div class="hero-points">
+            <div class="mini">
+              <span class="k">Intended Users</span>
+              <div class="v">Clients, investors, and approved strategic relationships</div>
             </div>
-            <div class="field">
-              <label for="client-password">Password</label>
-              <input id="client-password" type="password" placeholder="Enter password" />
+            <div class="mini">
+              <span class="k">Access Scope</span>
+              <div class="v">Balances, holdings, reporting, and commentary</div>
             </div>
-            <div class="form-row">
-              <span>Secure client environment</span>
-              <a href="#documents">Need access support?</a>
+            <div class="mini">
+              <span class="k">Security Standard</span>
+              <div class="v">Private access with controlled permissions and structured visibility</div>
             </div>
-            <button class="btn btn-primary" type="button">Sign In</button>
-          </form>
-          <div class="login-note">
-            Access is reserved for approved client relationships and managed through a controlled reporting environment.
-          </div>
-        </aside>
-      </section>
-
-      <section class="hero">
-        <div class="hero-card card">
-          <div class="eyebrow">Authorized Access • Capital Oversight • Structured Reporting</div>
-          <h1>Private client access. Institutional presentation.</h1>
-          <p class="hero-copy">
-            A centralized environment for monitoring capital, understanding positioning, and staying aligned with portfolio strategy. Clients have direct visibility into holdings, performance, and allocation structure, supported by disciplined reporting and manager-level insight.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#overview">Enter Dashboard</a>
-            <a class="btn btn-secondary" href="#documents">View Documents</a>
+            <div class="mini">
+              <span class="k">Operating Model</span>
+              <div class="v">Disciplined reporting with manager-guided communication</div>
+            </div>
           </div>
         </div>
 
-        <aside id="account" class="access-card card">
-          <div class="panel-tag">Portal Status</div>
-          <h3>Controlled Client Reporting Environment</h3>
-          <p class="muted">
-            Structured to support client-specific balances, holdings visibility, P&amp;L reporting, portfolio notes, and ongoing manager communication within a private access layer.
-          </p>
-          <div class="access-grid">
-            <div class="access-item">
-              <strong>Access Tier</strong>
-              <span>Private Client / Investor</span>
+        <aside class="card hero-side">
+          <div>
+            <h2>Private client access. Institutional presentation.</h2>
+            <p>
+              The portal is structured to present account-level visibility, holdings context, manager commentary, and strategic reporting in a disciplined private environment.
+            </p>
+          </div>
+
+          <div class="meta-list">
+            <div class="meta-row">
+              <div class="label">Environment</div>
+              <div class="value">Private, structured, and manager-guided</div>
             </div>
-            <div class="access-item">
-              <strong>Reporting Style</strong>
-              <span>Account + Holdings + Commentary</span>
+            <div class="meta-row">
+              <div class="label">Data Mode</div>
+              <div class="value">Controlled reporting baseline</div>
             </div>
-            <div class="access-item">
-              <strong>Data Mode</strong>
-              <span>Controlled reporting baseline</span>
+            <div class="meta-row">
+              <div class="label">Portal Status</div>
+              <div class="value">Controlled Client Reporting Environment</div>
             </div>
-            <div class="access-item">
-              <strong>Environment</strong>
-              <span>Private, structured, and manager-guided</span>
-            </div>
+          </div>
+
+          <div class="chip-row">
+            <a class="btn btn-secondary" href="#overview">Enter Dashboard</a>
+            <a class="btn btn-secondary" href="#documents">View Documents</a>
           </div>
         </aside>
-      </section>
+      </div>
+    </section>
 
-      <section class="grid-main">
-        <aside class="sidebar">
-          <div class="sidebar-card">
-            <div class="section-tag">Navigation</div>
-            <div class="side-nav">
-              <a class="active" href="#overview">Dashboard Overview</a>
-              <a href="#performance">Performance</a>
-              <a href="#holdings">Holdings</a>
-              <a href="#companies">Company Notes</a>
-              <a href="#research">Manager Commentary</a>
-              <a href="#documents">Documents</a>
+    <section class="section" id="signin">
+      <div class="wrap section-grid">
+        <div class="card block">
+          <div class="block-header">
+            <div>
+              <h2>Client Sign In</h2>
+              <p>Enter private access credentials to review account visibility, holdings context, performance reporting, and manager updates.</p>
+            </div>
+            <div class="chip-row">
+              <div class="chip">Authorized Access</div>
+              <div class="chip">Capital Oversight</div>
+              <div class="chip">Structured Reporting</div>
             </div>
           </div>
 
-          <div class="sidebar-card">
-            <div class="section-tag">Account Status</div>
-            <h3 style="margin:12px 0 14px; font-size:1.15rem;">Client Snapshot</h3>
-            <div style="display:grid; gap:10px;">
-              <span class="status-pill">Reporting Active</span>
-              <span class="risk-pill moderate">Risk Profile: Moderate</span>
-              <span class="tag">Strategy: Multi-Asset Growth</span>
+          <div class="login-grid">
+            <div class="login-box">
+              <h3>Enter private access credentials</h3>
+              <p>
+                Access account visibility, holdings context, performance reporting, and manager updates through a private client interface.
+              </p>
+
+              <form>
+                <div class="field">
+                  <label for="email">Email Address</label>
+                  <input id="email" type="email" placeholder="client@domain.com" />
+                </div>
+
+                <div class="field">
+                  <label for="password">Password</label>
+                  <input id="password" type="password" placeholder="Enter password" />
+                </div>
+
+                <div class="help-row">
+                  <span>Secure client environment</span>
+                  <a href="#documents" style="font-weight:700; color:var(--accent-2);">Need access support?</a>
+                </div>
+
+                <button type="button" class="btn btn-primary">Sign In</button>
+              </form>
+
+              <p style="margin-top:16px; color:var(--muted); font-size:14px;">
+                Access is reserved for approved client relationships and managed through a controlled reporting environment.
+              </p>
+            </div>
+
+            <div class="login-box">
+              <h3>Portal Status</h3>
+              <p>
+                Structured to support client-specific balances, holdings visibility, P&amp;L reporting, portfolio notes, and ongoing manager communication within a private access layer.
+              </p>
+
+              <div class="status-grid">
+                <div class="status">
+                  <span class="k">Access Tier</span>
+                  <div class="v">Private Client / Investor</div>
+                </div>
+                <div class="status">
+                  <span class="k">Reporting Style</span>
+                  <div class="v">Account + Holdings + Commentary</div>
+                </div>
+                <div class="status">
+                  <span class="k">Data Mode</span>
+                  <div class="v">Controlled reporting baseline</div>
+                </div>
+                <div class="status">
+                  <span class="k">Environment</span>
+                  <div class="v">Private, structured, and manager-guided</div>
+                </div>
+              </div>
+
+              <div class="chip-row" style="margin-top:18px;">
+                <a class="btn btn-secondary" href="#overview">Dashboard Overview</a>
+                <a class="btn btn-secondary" href="#performance">Performance</a>
+                <a class="btn btn-secondary" href="#holdings">Holdings</a>
+                <a class="btn btn-secondary" href="#company-notes">Company Notes</a>
+                <a class="btn btn-secondary" href="#research">Manager Commentary</a>
+                <a class="btn btn-secondary" href="#documents">Documents</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="account">
+      <div class="wrap section-grid">
+        <div class="card block">
+          <div class="block-header">
+            <div>
+              <h2>Account Status</h2>
+              <p>Client Snapshot</p>
             </div>
           </div>
 
-          <div class="sidebar-card">
-            <div class="section-tag">Notes</div>
-            <ul class="mini-list" style="margin-top:14px;">
+          <div class="status-grid">
+            <div class="status">
+              <span class="k">Reporting</span>
+              <div class="v">Active</div>
+            </div>
+            <div class="status">
+              <span class="k">Risk Profile</span>
+              <div class="v">Moderate</div>
+            </div>
+            <div class="status">
+              <span class="k">Strategy</span>
+              <div class="v">Multi-Asset Growth</div>
+            </div>
+            <div class="status">
+              <span class="k">Communication</span>
+              <div class="v">Manager-guided</div>
+            </div>
+          </div>
+
+          <div style="margin-top:18px;">
+            <ul class="note-list">
               <li>Structured reporting supports cleaner communication between capital and manager.</li>
               <li>Balances, P&amp;L, and holdings visibility are presented through a controlled client lens.</li>
               <li>Company commentary adds depth beyond raw numbers and strengthens decision transparency.</li>
             </ul>
           </div>
-        </aside>
+        </div>
+      </div>
+    </section>
 
-        <div class="main-stack">
-          <section id="overview">
-            <div class="section-head">
-              <div class="section-tag">Dashboard Overview</div>
-              <h2>Clear visibility. Controlled communication.</h2>
+    <section class="section" id="overview">
+      <div class="wrap section-grid">
+        <div class="card block">
+          <div class="block-header">
+            <div>
+              <h2>Dashboard Overview</h2>
+              <p>Clear visibility. Controlled communication.</p>
             </div>
+          </div>
 
-            <div class="metrics">
-              <article class="metric-card">
-                <div class="metric-label">Total Account Value</div>
-                <div class="metric-value">$428,640</div>
-                <div class="metric-sub">Updated 9:30 AM ET</div>
-              </article>
-
-              <article class="metric-card">
-                <div class="metric-label">Unrealized P&amp;L</div>
-                <div class="metric-value positive">+$34,920</div>
-                <div class="metric-sub">+8.87% since inception</div>
-              </article>
-
-              <article class="metric-card">
-                <div class="metric-label">Cash Allocation</div>
-                <div class="metric-value">12.4%</div>
-                <div class="metric-sub">Dry powder for staged deployment</div>
-              </article>
-
-              <article class="metric-card">
-                <div class="metric-label">Day Change</div>
-                <div class="metric-value positive">+$2,184</div>
-                <div class="metric-sub">+0.51% daily movement</div>
-              </article>
+          <div class="metrics">
+            <div class="metric">
+              <span class="k">Total Account Value</span>
+              <div class="v">$428,640</div>
+              <div class="s">Updated 9:30 AM ET</div>
             </div>
-          </section>
+            <div class="metric">
+              <span class="k">Unrealized P&amp;L</span>
+              <div class="v up">+$34,920</div>
+              <div class="s">+8.87% since inception</div>
+            </div>
+            <div class="metric">
+              <span class="k">Cash Allocation</span>
+              <div class="v">12.4%</div>
+              <div class="s">Dry powder for staged deployment</div>
+            </div>
+            <div class="metric">
+              <span class="k">Day Change</span>
+              <div class="v up">+$2,184</div>
+              <div class="s">+0.51% daily movement</div>
+            </div>
+          </div>
 
-          <section id="performance" class="split">
-            <article class="performance-card">
-              <div class="section-tag">Performance View</div>
-              <h3>Portfolio trajectory</h3>
-              <p class="muted">
-                Ongoing tracking of portfolio progression, drawdown behavior, and capital efficiency over time. Performance is evaluated within a structured framework focused on consistency, risk control, and long-term compounding.
-              </p>
+          <div class="performance-grid" id="performance">
+            <div class="chart-box">
+              <div class="chart-title">Performance View</div>
+              <div class="block-header" style="margin-bottom:14px;">
+                <div>
+                  <h3 style="font-size:1.1rem; margin-bottom:4px;">Portfolio trajectory</h3>
+                  <p>
+                    Account progression, drawdown awareness, and capital behavior are tracked through time inside a disciplined reporting framework.
+                  </p>
+                </div>
+              </div>
 
-              <div class="chart-shell">
-                <svg class="chart-svg" viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" aria-label="Portfolio performance chart">
-                  <line x1="54" y1="250" x2="720" y2="250" stroke="rgba(16,44,31,0.10)" stroke-width="2"/>
-                  <line x1="54" y1="200" x2="720" y2="200" stroke="rgba(16,44,31,0.06)" stroke-width="1"/>
-                  <line x1="54" y1="150" x2="720" y2="150" stroke="rgba(16,44,31,0.06)" stroke-width="1"/>
-                  <line x1="54" y1="100" x2="720" y2="100" stroke="rgba(16,44,31,0.06)" stroke-width="1"/>
-                  <line x1="54" y1="50" x2="720" y2="50" stroke="rgba(16,44,31,0.06)" stroke-width="1"/>
+              <div class="chart-wrap" aria-label="Portfolio trajectory chart">
+                <svg class="chart-svg" viewBox="0 0 700 260" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="fillGreen" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(47,138,87,0.30)"></stop>
+                      <stop offset="100%" stop-color="rgba(47,138,87,0.03)"></stop>
+                    </linearGradient>
+                  </defs>
 
-                  <text x="10" y="255" font-size="12" fill="#5a6b60">0%</text>
-                  <text x="2" y="205" font-size="12" fill="#5a6b60">4%</text>
-                  <text x="2" y="155" font-size="12" fill="#5a6b60">8%</text>
-                  <text x="2" y="105" font-size="12" fill="#5a6b60">12%</text>
-                  <text x="2" y="55" font-size="12" fill="#5a6b60">16%</text>
+                  <line x1="60" y1="28" x2="60" y2="220" stroke="#d9e3d8" stroke-width="1"/>
+                  <line x1="60" y1="220" x2="650" y2="220" stroke="#d9e3d8" stroke-width="1"/>
 
-                  <path d="M70 236 C130 228, 170 214, 220 202 C280 187, 320 174, 370 158 C420 142, 475 130, 530 114 C585 98, 640 86, 700 70 L700 250 L70 250 Z"
-                    fill="rgba(15,107,69,0.10)" stroke="none" />
-                  <path d="M70 236 C130 228, 170 214, 220 202 C280 187, 320 174, 370 158 C420 142, 475 130, 530 114 C585 98, 640 86, 700 70"
-                    fill="none" stroke="#0f6b45" stroke-width="4" stroke-linecap="round" />
+                  <g stroke="#e7eee6" stroke-width="1">
+                    <line x1="60" y1="180" x2="650" y2="180"/>
+                    <line x1="60" y1="140" x2="650" y2="140"/>
+                    <line x1="60" y1="100" x2="650" y2="100"/>
+                    <line x1="60" y1="60" x2="650" y2="60"/>
+                  </g>
 
-                  <circle cx="70" cy="236" r="5" fill="#0f6b45" />
-                  <circle cx="220" cy="202" r="5" fill="#0f6b45" />
-                  <circle cx="370" cy="158" r="5" fill="#0f6b45" />
-                  <circle cx="530" cy="114" r="5" fill="#0f6b45" />
-                  <circle cx="700" cy="70" r="5" fill="#0f6b45" />
+                  <path d="M60 196 L160 182 L255 160 L350 146 L445 118 L545 96 L650 72 L650 220 L60 220 Z"
+                        fill="url(#fillGreen)"></path>
 
-                  <text x="62" y="280" font-size="12" fill="#5a6b60">Q1</text>
-                  <text x="214" y="280" font-size="12" fill="#5a6b60">Q2</text>
-                  <text x="364" y="280" font-size="12" fill="#5a6b60">Q3</text>
-                  <text x="524" y="280" font-size="12" fill="#5a6b60">Q4</text>
-                  <text x="688" y="280" font-size="12" fill="#5a6b60">YTD</text>
+                  <path d="M60 196 L160 182 L255 160 L350 146 L445 118 L545 96 L650 72"
+                        fill="none" stroke="#1f6b42" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+
+                  <g fill="#103b24" font-size="12" font-weight="700">
+                    <text x="18" y="224">0%</text>
+                    <text x="18" y="184">4%</text>
+                    <text x="18" y="144">8%</text>
+                    <text x="10" y="104">12%</text>
+                    <text x="10" y="64">16%</text>
+                  </g>
+
+                  <g fill="#5f6b63" font-size="12" font-weight="700">
+                    <text x="56" y="245">Q1</text>
+                    <text x="155" y="245">Q2</text>
+                    <text x="252" y="245">Q3</text>
+                    <text x="348" y="245">Q4</text>
+                    <text x="640" y="245" text-anchor="end">YTD</text>
+                  </g>
                 </svg>
               </div>
-            </article>
-
-            <article class="summary-card">
-              <div class="section-tag">Allocation Summary</div>
-              <h3>Positioned in layers</h3>
-              <p class="muted">
-                Capital is allocated through a structured, layered approach designed to balance stability, growth, and optionality. Each layer serves a defined role within the overall portfolio architecture.
-              </p>
-
-              <div class="allocation-stack">
-                <div class="allocation-row">
-                  <div class="allocation-label">Core Equities</div>
-                  <div class="bar"><div class="fill f1"></div></div>
-                  <div class="weight">36%</div>
-                </div>
-                <div class="allocation-row">
-                  <div class="allocation-label">AI Infrastructure</div>
-                  <div class="bar"><div class="fill f2"></div></div>
-                  <div class="weight">22%</div>
-                </div>
-                <div class="allocation-row">
-                  <div class="allocation-label">Energy &amp; Cyclicals</div>
-                  <div class="bar"><div class="fill f3"></div></div>
-                  <div class="weight">18%</div>
-                </div>
-                <div class="allocation-row">
-                  <div class="allocation-label">Digital Assets</div>
-                  <div class="bar"><div class="fill f4"></div></div>
-                  <div class="weight">14%</div>
-                </div>
-                <div class="allocation-row">
-                  <div class="allocation-label">Cash Reserve</div>
-                  <div class="bar"><div class="fill f5"></div></div>
-                  <div class="weight">10%</div>
-                </div>
-              </div>
-            </article>
-          </section>
-
-          <section id="holdings">
-            <article class="holdings-card">
-              <div class="section-tag">Current Holdings</div>
-              <h3>Position-level view</h3>
-              <p class="muted">
-                Detailed visibility into current positions, including exposure, cost basis, and relative performance. Each holding reflects deliberate capital allocation within the broader portfolio strategy.
-              </p>
-
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Company</th>
-                      <th>Ticker</th>
-                      <th>Shares</th>
-                      <th>Avg Cost</th>
-                      <th>Current</th>
-                      <th>Market Value</th>
-                      <th>Unrealized P&amp;L</th>
-                      <th>Weight</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>NVIDIA Corporation</td>
-                      <td class="ticker">NVDA</td>
-                      <td>320</td>
-                      <td>$116.40</td>
-                      <td>$128.10</td>
-                      <td>$40,992</td>
-                      <td class="positive">+$3,744</td>
-                      <td>9.6%</td>
-                    </tr>
-                    <tr>
-                      <td>Microsoft Corporation</td>
-                      <td class="ticker">MSFT</td>
-                      <td>145</td>
-                      <td>$421.30</td>
-                      <td>$438.90</td>
-                      <td>$63,641</td>
-                      <td class="positive">+$2,552</td>
-                      <td>14.8%</td>
-                    </tr>
-                    <tr>
-                      <td>Constellation Energy</td>
-                      <td class="ticker">CEG</td>
-                      <td>170</td>
-                      <td>$212.80</td>
-                      <td>$226.50</td>
-                      <td>$38,505</td>
-                      <td class="positive">+$2,329</td>
-                      <td>9.0%</td>
-                    </tr>
-                    <tr>
-                      <td>Amazon.com, Inc.</td>
-                      <td class="ticker">AMZN</td>
-                      <td>210</td>
-                      <td>$181.10</td>
-                      <td>$187.90</td>
-                      <td>$39,459</td>
-                      <td class="positive">+$1,428</td>
-                      <td>9.2%</td>
-                    </tr>
-                    <tr>
-                      <td>Bitcoin Exposure</td>
-                      <td class="ticker">BTC</td>
-                      <td>0.86</td>
-                      <td>$82,420</td>
-                      <td>$89,860</td>
-                      <td>$77,280</td>
-                      <td class="positive">+$6,398</td>
-                      <td>18.0%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </article>
-          </section>
-
-          <section id="companies">
-            <div class="section-head">
-              <div class="section-tag">Company Information Area</div>
-              <h2>Why the position is held matters.</h2>
             </div>
 
-            <div class="company-grid">
-              <article class="company-card">
-                <div class="company-top">
-                  <div>
-                    <div class="company-name">NVIDIA</div>
-                    <div class="company-role">Tier I / AI Compute Leadership</div>
-                  </div>
-                  <span class="tag">Core Compounder</span>
+            <div class="chart-box">
+              <div class="chart-title">Allocation Summary</div>
+              <div class="block-header" style="margin-bottom:14px;">
+                <div>
+                  <h3 style="font-size:1.1rem; margin-bottom:4px;">Positioned in layers</h3>
+                  <p>
+                    The portfolio is organized as a staged capital model rather than a random collection of positions.
+                  </p>
                 </div>
-                <ul class="detail-list">
-                  <li><strong>Thesis:</strong> dominant compute and accelerator exposure for global AI deployment.</li>
-                  <li><strong>Role:</strong> long-duration infrastructure anchor.</li>
-                  <li><strong>Risk:</strong> valuation compression and cyclical semiconductor volatility.</li>
-                </ul>
-              </article>
-
-              <article class="company-card">
-                <div class="company-top">
-                  <div>
-                    <div class="company-name">Constellation Energy</div>
-                    <div class="company-role">Tier II / Power Infrastructure</div>
-                  </div>
-                  <span class="tag">Infrastructure</span>
-                </div>
-                <ul class="detail-list">
-                  <li><strong>Thesis:</strong> electricity demand expansion supports power-linked names.</li>
-                  <li><strong>Role:</strong> bridges AI buildout with real-world generation needs.</li>
-                  <li><strong>Risk:</strong> regulatory pressure and sentiment swings in utilities.</li>
-                </ul>
-              </article>
-
-              <article class="company-card">
-                <div class="company-top">
-                  <div>
-                    <div class="company-name">Bitcoin</div>
-                    <div class="company-role">Tier IV / Asymmetric Optionality</div>
-                  </div>
-                  <span class="tag">Digital Asset</span>
-                </div>
-                <ul class="detail-list">
-                  <li><strong>Thesis:</strong> selective exposure to scarce digital monetary infrastructure.</li>
-                  <li><strong>Role:</strong> optionality sleeve with defined portfolio sizing.</li>
-                  <li><strong>Risk:</strong> higher volatility, macro liquidity sensitivity, and sentiment shock.</li>
-                </ul>
-              </article>
-            </div>
-          </section>
-
-          <section id="research" class="split">
-            <article class="commentary-card">
-              <div class="section-tag">Manager Commentary</div>
-              <h3>Manager positioning</h3>
-              <p class="muted">
-                Direct insight into how capital is being positioned and why. Positioning reflects current market conditions, risk management priorities, and identified opportunities across core sectors.
-              </p>
-              <div class="commentary-quote">
-                Current positioning remains constructive on AI infrastructure and selective power exposure,
-                while maintaining controlled optionality in digital assets. Cash remains purposeful rather than idle,
-                providing flexibility if volatility creates more attractive entry points.
               </div>
-            </article>
 
-            <article class="documents-card">
-              <div class="section-tag">Recent Notes</div>
-              <h3>Private updates</h3>
-              <ul class="note-list">
-                <li>
-                  <span>Weekly Market Brief — Energy, rates, and cross-market risk</span>
-                  <span class="note-meta">March 2026</span>
-                </li>
-                <li>
-                  <span>AI Infrastructure Watch — compute, cloud, and power demand</span>
-                  <span class="note-meta">March 2026</span>
-                </li>
-                <li>
-                  <span>Capital Framework Update — tactical exposure and reserve management</span>
-                  <span class="note-meta">March 2026</span>
-                </li>
-              </ul>
-            </article>
-          </section>
-
-          <section id="documents" class="split">
-            <article class="documents-card">
-              <div class="section-tag">Client Documents</div>
-              <h3>Reporting and account materials</h3>
-              <ul class="doc-list">
-                <li>
-                  <span>Quarterly Performance Statement</span>
-                  <span class="doc-meta">PDF</span>
-                </li>
-                <li>
-                  <span>Account Holdings Summary</span>
-                  <span class="doc-meta">PDF</span>
-                </li>
-                <li>
-                  <span>Risk Profile &amp; Allocation Framework</span>
-                  <span class="doc-meta">PDF</span>
-                </li>
-                <li>
-                  <span>Client Communication Archive</span>
-                  <span class="doc-meta">Portal</span>
-                </li>
-              </ul>
-            </article>
-
-            <article class="documents-card">
-              <div class="section-tag">Portal Framework</div>
-              <h3>Reporting structure</h3>
-              <ul class="doc-list">
-                <li>
-                  <span>Private login and client access layer</span>
-                  <span class="doc-meta">Active</span>
-                </li>
-                <li>
-                  <span>Balances, P&amp;L, and holdings reporting structure</span>
-                  <span class="doc-meta">Active</span>
-                </li>
-                <li>
-                  <span>Manager commentary and communication framework</span>
-                  <span class="doc-meta">Active</span>
-                </li>
-                <li>
-                  <span>Document delivery and client visibility architecture</span>
-                  <span class="doc-meta">Active</span>
-                </li>
-              </ul>
-            </article>
-          </section>
+              <div class="alloc-grid">
+                <div class="alloc">
+                  <span class="pct">36%</span>
+                  <div class="name">Core Equities</div>
+                  <div class="desc">Large-cap leadership and durable earnings exposure</div>
+                </div>
+                <div class="alloc">
+                  <span class="pct">22%</span>
+                  <div class="name">AI Infrastructure</div>
+                  <div class="desc">Compute, cloud, power, and buildout layer</div>
+                </div>
+                <div class="alloc">
+                  <span class="pct">18%</span>
+                  <div class="name">Energy &amp; Cyclicals</div>
+                  <div class="desc">Macro-sensitive exposure tied to real economy demand</div>
+                </div>
+                <div class="alloc">
+                  <span class="pct">14%</span>
+                  <div class="name">Digital Assets</div>
+                  <div class="desc">Selective asymmetric optionality with defined sizing</div>
+                </div>
+                <div class="alloc">
+                  <span class="pct">10%</span>
+                  <div class="name">Cash Reserve</div>
+                  <div class="desc">Reserve capital maintained for tactical deployment</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>LEE HOLDINGS GROUP</strong><br />
-        <span>Private Access Portal — Controlled. Clear. Institutional.</span>
       </div>
-      <div>Private reporting environment for approved client relationships.</div>
-    </div>
-  </footer>
+    </section>
+
+    <section class="section" id="holdings">
+      <div class="wrap section-grid">
+        <div class="card block">
+          <div class="block-header">
+            <div>
+              <h2>Current Holdings</h2>
+              <p>Position-level view</p>
+            </div>
+          </div>
+
+          <p style="margin:0 0 18px; color:var(--muted);">
+            This screen gives clients direct visibility into exposure, cost basis, market value, and unrealized performance at the individual company level.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Ticker</th>
+                <th>Shares</th>
+                <th>Avg Cost</th>
+                <th>Current</th>
+                <th>Market Value</th>
+                <th>Unrealized P&amp;L</th>
+                <th>Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NVIDIA Corporation</td>
+                <td>NVDA</td>
+                <td>320</td>
+                <td>$116.40</td>
+                <td>$128.10</td>
+                <td>$40,992</td>
+                <td class="up">+$3,744</td>
+                <td>9.6%</td>
+              </tr>
+              <tr>
+                <td>Microsoft Corporation</td>
+                <td>MSFT</td>
+                <td>145</td>
+                <td>$421.30</td>
+                <td>$438.90</td>
+                <td>$63,641</td>
+                <td class="up">+$2,552</td>
+                <td>14.8%</td>
+              </tr>
+              <tr>
+                <td>Constellation Energy</td>
+                <td>CEG</td>
+                <td>170</td>
+                <td>$212.80</td>
+                <td>$226.50</td>
+                <td>$38,505</td>
+                <td class="up">+$2,329</td>
+                <td>9.0%</td>
+              </tr>
+              <tr>
+                <td>Amazon.com, Inc.</td>
+                <td>AMZN</td>
+                <td>210</td>
+                <td>$181.10</td>
+                <td>$187.90</td>
+                <td>$39,459</td>
+                <td class="up">+$1,428</td>
+                <td>9.2%</td>
+              </tr>
+              <tr>
+                <td>Bitcoin Exposure</td>
+                <td>BTC</td>
+                <td>0.86</td>
+                <td>$82,420</td>
+                <td>$89,860</td>
+                <td>$77,280</td>
+                <td class="up">+$6,398</td>
+                <td>18.0%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="company-notes">
+      <div class="wrap section-grid">
+        <div class="card block">
+          <div class="block-header">
+            <div>
+              <h2>Company Information Area</h2>
+              <p>Why the position is held matters.</p>
+            </div>
+          </div>
+
+          <div class="company-grid">
+            <article class="company-card">
+              <h4>NVIDIA</h4>
+              <div class="tag">Tier I / AI Compute Leadership</div>
+              <div class="pill">Core Compounder</div>
+              <ul>
+                <li><strong>Thesis:</strong> dominant compute and accelerator exposure for global AI deployment.</li>
+                <li><strong>Role:</strong> long-duration infrastructure anchor.</li>
+                <li><strong>Risk:</strong> valuation compression and cyclical semiconductor volatility.</li>
+              </ul>
+            </article>
+
+            <article class="company-card">
+              <h4>Constellation Energy</h4>
+              <div class="tag">Tier II / Power Infrastructure</div>
+              <div class="pill">Infrastructure</div>
+              <ul>
+                <li><strong>Thesis:</strong> electricity demand expansion supports power-linked names.</li>
+                <li><strong>Role:</strong> bridges AI buildout with real-world generation needs.</li>
+                <li><strong>Risk:</strong> regulatory pressure and sentiment swings in utilities.</li>
+              </ul>
+            </article>
+
+            <article class="company-card">
+              <h4>Bitcoin</h4>
+              <div class="tag">Tier IV / Asymmetric Optionality</div>
+              <div class="pill">Digital Asset</div>
+              <ul>
+                <li><strong>Thesis:</strong> selective exposure to scarce digital monetary infrastructure.</li>
+                <li><strong>Role:</strong> optionality sleeve with defined portfolio sizing.</li>
+                <li><strong>Risk:</strong> higher volatility, macro liquidity sensitivity, and sentiment shock.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="wrap section-grid">
+        <div class="card block">
+          <div class="block-header">
+            <div>
+              <h2>Manager Commentary</h2>
+              <p>Current positioning note</p>
+            </div>
+          </div>
+
+          <div class="commentary">
+            <div class="commentary-box">
+              <p style="margin-bottom:14px;">
+                Manager commentary is where portfolio visibility turns into portfolio understanding. Clients see not only what is held, but why capital is positioned the way it is.
+              </p>
+              <p>
+                Current positioning remains constructive on AI infrastructure and selective power exposure, while maintaining controlled optionality in digital assets. Cash remains purposeful rather than idle, preserving flexibility if volatility opens more attractive entry points.
+              </p>
+            </div>
+
+            <div class="notes-box">
+              <h3 style="margin:0 0 10px; font-size:1.05rem;">Recent Notes</h3>
+              <p style="margin-bottom:10px;">Private updates</p>
+              <ul class="note-list">
+                <li>Weekly Market Brief — Energy, rates, and cross-market risk March 2026</li>
+                <li>AI Infrastructure Watch — compute, cloud, and power demand March 2026</li>
+                <li>Capital Framework Update — tactical exposure and reserve management March 2026</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="documents">
+      <div class="wrap section-grid">
+        <div class="card block">
+          <div class="block-header">
+            <div>
+              <h2>Client Documents</h2>
+              <p>Reporting and account materials</p>
+            </div>
+          </div>
+
+          <ul class="doc-list">
+            <li>Quarterly Performance Statement PDF</li>
+            <li>Account Holdings Summary PDF</li>
+            <li>Risk Profile &amp; Allocation Framework PDF</li>
+            <li>Client Communication Archive Portal</li>
+          </ul>
+        </div>
+
+        <div class="card block">
+          <div class="block-header">
+            <div>
+              <h2>Portal Framework</h2>
+              <p>Reporting structure</p>
+            </div>
+          </div>
+
+          <ul class="framework-list">
+            <li>Private login and client access layer — Active</li>
+            <li>Balances, P&amp;L, and holdings reporting structure — Active</li>
+            <li>Manager commentary and communication framework — Active</li>
+            <li>Document delivery and client visibility architecture — Active</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="card footer-card">
+          <div>
+            <div class="footer-brand">LEE HOLDINGS GROUP</div>
+            <div class="footer-sub">Private Access Portal — Controlled. Clear. Institutional.</div>
+          </div>
+          <div class="footer-sub">Private reporting environment for approved client relationships.</div>
+        </div>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
