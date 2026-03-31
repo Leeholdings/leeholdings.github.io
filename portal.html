@@ -354,7 +354,8 @@
     }
 
     .btn-primary:hover,
-    .btn-secondary:hover{
+    .btn-secondary:hover,
+    .btn-secondary-dark:hover{
       transform:translateY(-1px);
     }
 
@@ -877,7 +878,7 @@
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="brand" href="#top">
+      <a class="brand" href="/">
         <div class="brand-mark" aria-label="Lee Holdings Group logo">♞</div>
         <div class="brand-text">
           <strong>LEE HOLDINGS GROUP</strong>
@@ -886,12 +887,12 @@
       </a>
 
       <nav class="nav">
-        <a href="#overview">Overview</a>
-        <a href="#holdings">Holdings</a>
-        <a href="#research">Research</a>
-        <a href="#documents">Documents</a>
-        <a href="#account">Account</a>
-        <a href="#signin" class="nav-cta">Private Access</a>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/dashboard/reports/manager">Manager Letter</a>
+        <a href="/dashboard/reports/q1-2026">Q1 Review</a>
+        <a href="/dashboard/reports/allocation">Allocation</a>
+        <a href="#signin" class="nav-cta active">Private Access</a>
       </nav>
     </div>
   </header>
@@ -951,7 +952,7 @@
           </div>
 
           <div class="hero-actions">
-            <a class="btn btn-secondary-dark" href="#overview">Enter Dashboard</a>
+            <a class="btn btn-secondary-dark" href="/dashboard">Enter Dashboard</a>
             <a class="btn btn-secondary-dark" href="#documents">View Documents</a>
           </div>
         </aside>
@@ -1030,7 +1031,7 @@
               </div>
 
               <div class="chip-row" style="margin-top:18px;">
-                <a class="btn btn-secondary" href="#overview">Dashboard Overview</a>
+                <a class="btn btn-secondary" href="/dashboard">Dashboard Overview</a>
                 <a class="btn btn-secondary" href="#performance">Performance</a>
                 <a class="btn btn-secondary" href="#holdings">Holdings</a>
                 <a class="btn btn-secondary" href="#company-notes">Company Notes</a>
