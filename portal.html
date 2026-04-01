@@ -29,9 +29,9 @@
       --accent-2:#1f6b42;
       --shadow:0 20px 50px rgba(17, 31, 22, 0.06);
       --shadow-soft:0 10px 28px rgba(17, 31, 22, 0.04);
-      --radius:24px;
-      --radius-sm:18px;
-      --max:1280px;
+      --radius:20px;
+      --radius-sm:16px;
+      --max:1160px;
     }
 
     *{box-sizing:border-box}
@@ -42,11 +42,10 @@
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top right, rgba(39, 134, 89, 0.05), transparent 22%),
-        radial-gradient(circle at top left, rgba(31,130,85,0.04), transparent 18%),
+        radial-gradient(circle at top right, rgba(15, 107, 69, 0.12) 0%, rgba(15, 107, 69, 0.08) 18%, rgba(15, 107, 69, 0.04) 36%, rgba(15, 107, 69, 0.015) 52%, rgba(15, 107, 69, 0) 72%),
         linear-gradient(180deg, #ffffff 0%, #fcfdfc 100%);
       min-height:100vh;
-      line-height:1.55;
+      line-height:1.5;
     }
 
     a{
@@ -55,7 +54,7 @@
     }
 
     .wrap{
-      width:min(calc(100% - 32px), var(--max));
+      width:min(calc(100% - 40px), var(--max));
       margin:0 auto;
     }
 
@@ -69,38 +68,38 @@
     }
 
     .topbar-inner{
-      min-height:78px;
+      min-height:68px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:24px;
+      gap:20px;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:12px;
       letter-spacing:0.04em;
       min-width:0;
     }
 
     .brand-mark{
-      width:48px;
-      height:48px;
-      border-radius:14px;
+      width:42px;
+      height:42px;
+      border-radius:12px;
       display:grid;
       place-items:center;
       background:linear-gradient(135deg, #f9fcfa, #edf5f0);
       border:1px solid rgba(15, 107, 69, 0.10);
       box-shadow:var(--shadow-soft);
-      font-size:22px;
+      font-size:19px;
       color:var(--green);
       flex-shrink:0;
     }
 
     .brand-text strong{
       display:block;
-      font-size:0.92rem;
+      font-size:0.88rem;
       font-weight:800;
       line-height:1.1;
       color:var(--text);
@@ -109,7 +108,7 @@
     .brand-text span{
       display:block;
       color:var(--muted);
-      font-size:0.72rem;
+      font-size:0.69rem;
       letter-spacing:0.08em;
       text-transform:uppercase;
       margin-top:2px;
@@ -119,16 +118,16 @@
     .nav{
       display:flex;
       align-items:center;
-      gap:26px;
+      gap:22px;
       color:var(--muted);
-      font-size:0.95rem;
+      font-size:0.88rem;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
 
     .nav a{
       color:var(--muted);
-      font-size:0.95rem;
+      font-size:0.88rem;
       font-weight:500;
       transition:color .18s ease;
     }
@@ -139,7 +138,7 @@
     }
 
     .nav .nav-cta{
-      padding:12px 18px;
+      padding:10px 16px;
       border-radius:999px;
       background:#f4faf6;
       border:1px solid rgba(15, 107, 69, 0.1);
@@ -149,25 +148,25 @@
     }
 
     .hero{
-      padding:56px 0 26px;
+      padding:40px 0 28px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:minmax(0, 1.04fr) minmax(320px, 0.96fr);
-      gap:22px;
+      grid-template-columns:minmax(0, 1.04fr) minmax(300px, 0.96fr);
+      gap:20px;
       align-items:stretch;
     }
 
     .card{
       background:linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%);
       border:1px solid rgba(15, 107, 69, 0.08);
-      border-radius:24px;
+      border-radius:20px;
       box-shadow:var(--shadow);
     }
 
     .hero-main{
-      padding:34px 34px 30px;
+      padding:26px 26px 24px;
       position:relative;
       overflow:hidden;
       background:
@@ -179,8 +178,8 @@
       content:"";
       position:absolute;
       inset:auto -80px -100px auto;
-      width:260px;
-      height:260px;
+      width:220px;
+      height:220px;
       border-radius:50%;
       background:radial-gradient(circle, rgba(31,130,85,0.08) 0%, rgba(31,130,85,0) 72%);
       pointer-events:none;
@@ -190,17 +189,17 @@
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:10px 14px;
+      padding:9px 13px;
       border-radius:999px;
       background:#f5faf7;
       border:1px solid rgba(15,107,69,0.08);
       color:var(--green);
-      font-size:0.78rem;
+      font-size:0.76rem;
       font-weight:700;
       letter-spacing:0.08em;
       text-transform:uppercase;
       width:fit-content;
-      margin-bottom:18px;
+      margin-bottom:16px;
     }
 
     .eyebrow::before{
@@ -212,10 +211,10 @@
     }
 
     h1{
-      margin:0 0 14px;
-      font-size:clamp(2.25rem, 4.2vw, 4rem);
-      line-height:0.98;
-      letter-spacing:-0.05em;
+      margin:0 0 12px;
+      font-size:clamp(2.2rem, 4.6vw, 3.8rem);
+      line-height:0.95;
+      letter-spacing:-0.045em;
       max-width:12ch;
     }
 
@@ -227,27 +226,28 @@
       margin:0;
       max-width:64ch;
       color:var(--muted);
-      font-size:1.03rem;
+      font-size:0.94rem;
+      line-height:1.5;
     }
 
     .hero-points{
       display:grid;
       grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:14px;
-      margin-top:24px;
+      gap:12px;
+      margin-top:20px;
     }
 
     .mini{
-      padding:18px;
+      padding:16px;
       border:1px solid rgba(15,107,69,0.08);
-      border-radius:18px;
+      border-radius:16px;
       background:linear-gradient(180deg, #fbfdfb, #f6faf5);
       box-shadow:var(--shadow-soft);
     }
 
     .mini .k{
       display:block;
-      font-size:0.72rem;
+      font-size:0.7rem;
       letter-spacing:.08em;
       text-transform:uppercase;
       color:var(--green);
@@ -256,36 +256,36 @@
     }
 
     .mini .v{
-      font-size:0.96rem;
+      font-size:0.9rem;
       color:var(--text);
       font-weight:700;
       line-height:1.4;
     }
 
     .hero-side{
-      padding:26px;
+      padding:22px;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      gap:18px;
+      gap:16px;
       background:linear-gradient(180deg, #103b24 0%, #18482e 65%, #1d5636 100%);
       color:#f8fbf7;
       box-shadow:0 18px 42px rgba(16,59,36,0.15);
       border:1px solid rgba(15,107,69,0.08);
-      border-radius:24px;
+      border-radius:20px;
     }
 
     .panel-tag{
       color:#b8ddc9;
       text-transform:uppercase;
-      font-size:0.73rem;
+      font-size:0.71rem;
       letter-spacing:0.08em;
       font-weight:700;
     }
 
     .hero-side h2{
-      margin:10px 0 10px;
-      font-size:1.34rem;
+      margin:8px 0 10px;
+      font-size:1.2rem;
       line-height:1.08;
       letter-spacing:-0.03em;
     }
@@ -293,20 +293,21 @@
     .hero-side p{
       margin:0;
       color:rgba(255,255,255,.82);
-      font-size:0.97rem;
+      font-size:0.92rem;
+      line-height:1.5;
     }
 
     .meta-list{
       display:grid;
-      gap:12px;
+      gap:10px;
       margin-top:8px;
     }
 
     .meta-row{
       display:grid;
-      grid-template-columns:130px 1fr;
+      grid-template-columns:120px 1fr;
       gap:10px;
-      padding:11px 0;
+      padding:10px 0;
       border-bottom:1px solid rgba(255,255,255,.12);
     }
 
@@ -314,7 +315,7 @@
 
     .meta-row .label{
       color:rgba(255,255,255,.68);
-      font-size:12px;
+      font-size:11px;
       text-transform:uppercase;
       letter-spacing:.08em;
       font-weight:800;
@@ -323,13 +324,15 @@
     .meta-row .value{
       font-weight:700;
       color:#ffffff;
+      font-size:0.9rem;
+      line-height:1.4;
     }
 
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
-      gap:12px;
-      margin-top:6px;
+      gap:10px;
+      margin-top:4px;
     }
 
     .btn{
@@ -337,13 +340,14 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      min-height:48px;
-      padding:0 18px;
+      min-height:44px;
+      padding:0 16px;
       border-radius:14px;
       border:0;
       cursor:pointer;
       font:inherit;
       font-weight:800;
+      font-size:0.88rem;
       transition:.18s ease;
     }
 
@@ -373,7 +377,7 @@
     }
 
     section.section{
-      padding:18px 0 0;
+      padding:22px 0 0;
     }
 
     .section-grid{
@@ -383,25 +387,25 @@
     }
 
     .block{
-      padding:30px;
+      padding:22px;
       background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,247,0.98));
       box-shadow:var(--shadow-soft);
       border:1px solid rgba(15,107,69,0.08);
-      border-radius:24px;
+      border-radius:20px;
     }
 
     .block-header{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap:18px;
-      margin-bottom:20px;
+      gap:16px;
+      margin-bottom:18px;
     }
 
     .block-header h2,
     .block-header h3{
       margin:0 0 6px;
-      font-size:1.5rem;
+      font-size:clamp(1.45rem, 3vw, 2.2rem);
       letter-spacing:-.03em;
       color:var(--accent);
       line-height:1.05;
@@ -411,6 +415,8 @@
       margin:0;
       color:var(--muted);
       max-width:760px;
+      font-size:0.92rem;
+      line-height:1.5;
     }
 
     .chip-row{
@@ -420,11 +426,11 @@
     }
 
     .chip{
-      padding:8px 12px;
+      padding:7px 11px;
       border-radius:999px;
       background:#eef4ef;
       border:1px solid rgba(15,107,69,0.08);
-      font-size:12px;
+      font-size:11px;
       font-weight:800;
       letter-spacing:.06em;
       text-transform:uppercase;
@@ -435,26 +441,28 @@
     .login-grid{
       display:grid;
       grid-template-columns:1fr .95fr;
-      gap:20px;
+      gap:18px;
     }
 
     .login-box{
-      padding:24px;
+      padding:20px;
       border:1px solid rgba(15,107,69,0.08);
-      border-radius:18px;
+      border-radius:16px;
       background:linear-gradient(180deg, #fcfefc, #f4f9f4);
     }
 
     .login-box h3{
       margin:0 0 8px;
-      font-size:1.2rem;
+      font-size:1.08rem;
       color:var(--accent);
       line-height:1.08;
     }
 
     .login-box p{
-      margin:0 0 20px;
+      margin:0 0 18px;
       color:var(--muted);
+      font-size:0.92rem;
+      line-height:1.5;
     }
 
     .field{
@@ -464,7 +472,7 @@
     }
 
     label{
-      font-size:13px;
+      font-size:12px;
       font-weight:800;
       color:var(--accent);
       letter-spacing:.02em;
@@ -472,12 +480,13 @@
 
     input{
       width:100%;
-      padding:14px 15px;
-      border-radius:14px;
+      padding:13px 14px;
+      border-radius:13px;
       border:1px solid var(--line-strong);
       background:#fff;
       color:var(--text);
       font:inherit;
+      font-size:0.92rem;
       outline:none;
       transition:.18s ease;
     }
@@ -493,19 +502,19 @@
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
-      margin:12px 0 18px;
+      margin:12px 0 16px;
       color:var(--muted);
-      font-size:14px;
+      font-size:13px;
     }
 
     .status-grid{
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:14px;
+      gap:12px;
     }
 
     .status{
-      padding:18px;
+      padding:16px;
       border-radius:16px;
       border:1px solid rgba(15,107,69,0.08);
       background:linear-gradient(180deg, #fbfdfb, #f4f9f4);
@@ -514,7 +523,7 @@
     .status .k{
       display:block;
       margin-bottom:6px;
-      font-size:11px;
+      font-size:10px;
       color:var(--accent-2);
       font-weight:800;
       letter-spacing:.08em;
@@ -524,6 +533,8 @@
     .status .v{
       font-weight:700;
       color:var(--text);
+      font-size:0.9rem;
+      line-height:1.4;
     }
 
     .note-list,
@@ -538,17 +549,19 @@
     .framework-list li{
       margin:8px 0;
       color:var(--text);
+      font-size:0.92rem;
+      line-height:1.5;
     }
 
     .metrics{
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:14px;
-      margin-bottom:20px;
+      gap:12px;
+      margin-bottom:18px;
     }
 
     .metric{
-      padding:20px;
+      padding:18px;
       border-radius:16px;
       background:linear-gradient(180deg, #fcfefc, #f4f9f4);
       border:1px solid rgba(15,107,69,0.08);
@@ -557,7 +570,7 @@
     .metric .k{
       display:block;
       margin-bottom:8px;
-      font-size:12px;
+      font-size:11px;
       color:var(--accent-2);
       text-transform:uppercase;
       letter-spacing:.08em;
@@ -565,7 +578,7 @@
     }
 
     .metric .v{
-      font-size:1.7rem;
+      font-size:1.45rem;
       line-height:1;
       font-weight:800;
       letter-spacing:-.03em;
@@ -574,7 +587,8 @@
 
     .metric .s{
       color:var(--muted);
-      font-size:14px;
+      font-size:13px;
+      line-height:1.5;
     }
 
     .up{color:#177246}
@@ -583,20 +597,20 @@
     .performance-grid{
       display:grid;
       grid-template-columns:.95fr 1.05fr;
-      gap:20px;
+      gap:18px;
       align-items:stretch;
     }
 
     .chart-box{
-      padding:22px;
+      padding:18px;
       border:1px solid rgba(15,107,69,0.08);
-      border-radius:18px;
+      border-radius:16px;
       background:linear-gradient(180deg, #fcfefc, #f6faf6);
     }
 
     .chart-title{
-      margin:0 0 14px;
-      font-size:1rem;
+      margin:0 0 12px;
+      font-size:0.92rem;
       font-weight:800;
       color:var(--accent);
       letter-spacing:.02em;
@@ -604,7 +618,7 @@
 
     .chart-wrap{
       position:relative;
-      height:260px;
+      height:240px;
       border-radius:16px;
       overflow:hidden;
       border:1px solid rgba(15,107,69,0.08);
@@ -622,12 +636,12 @@
     .alloc-grid{
       display:grid;
       grid-template-columns:repeat(5,minmax(0,1fr));
-      gap:14px;
+      gap:12px;
       margin-top:8px;
     }
 
     .alloc{
-      padding:18px;
+      padding:16px;
       border:1px solid rgba(15,107,69,0.08);
       border-radius:16px;
       background:linear-gradient(180deg, #fbfdfb, #f4f9f4);
@@ -636,7 +650,7 @@
 
     .alloc .pct{
       display:block;
-      font-size:1.4rem;
+      font-size:1.2rem;
       font-weight:800;
       letter-spacing:-.03em;
       margin-bottom:6px;
@@ -647,11 +661,13 @@
       font-weight:800;
       margin-bottom:5px;
       color:var(--text);
+      font-size:0.9rem;
     }
 
     .alloc .desc{
-      font-size:13px;
+      font-size:12px;
       color:var(--muted);
+      line-height:1.5;
     }
 
     table{
@@ -665,8 +681,8 @@
 
     thead th{
       text-align:left;
-      padding:14px 16px;
-      font-size:12px;
+      padding:13px 14px;
+      font-size:11px;
       letter-spacing:.08em;
       text-transform:uppercase;
       color:var(--accent);
@@ -676,10 +692,11 @@
     }
 
     tbody td{
-      padding:16px;
+      padding:14px;
       border-bottom:1px solid #ecf1ec;
-      font-size:14px;
+      font-size:13px;
       vertical-align:top;
+      line-height:1.45;
     }
 
     tbody tr:last-child td{border-bottom:0}
@@ -688,19 +705,19 @@
     .company-grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:16px;
+      gap:14px;
     }
 
     .company-card{
       border:1px solid rgba(15,107,69,0.08);
-      border-radius:18px;
-      padding:22px;
+      border-radius:16px;
+      padding:18px;
       background:linear-gradient(180deg, #fdfefd, #f4f9f4);
     }
 
     .company-card h4{
       margin:0 0 6px;
-      font-size:1.15rem;
+      font-size:1.02rem;
       color:var(--accent);
     }
 
@@ -708,12 +725,12 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:7px 11px;
+      padding:7px 10px;
       border-radius:999px;
       background:#eef4ef;
       border:1px solid rgba(15,107,69,0.08);
       color:var(--accent);
-      font-size:12px;
+      font-size:11px;
       font-weight:800;
       text-transform:uppercase;
       letter-spacing:.08em;
@@ -722,12 +739,12 @@
 
     .pill{
       display:inline-block;
-      margin-bottom:14px;
+      margin-bottom:12px;
       padding:6px 10px;
       border-radius:999px;
       background:#103b24;
       color:#fff;
-      font-size:11px;
+      font-size:10px;
       font-weight:800;
       text-transform:uppercase;
       letter-spacing:.08em;
@@ -741,19 +758,21 @@
     .company-card li{
       margin:8px 0;
       color:var(--text);
+      font-size:0.9rem;
+      line-height:1.5;
     }
 
     .commentary{
       display:grid;
       grid-template-columns:1.15fr .85fr;
-      gap:20px;
+      gap:18px;
     }
 
     .commentary-box,
     .notes-box{
-      padding:22px;
+      padding:18px;
       border:1px solid rgba(15,107,69,0.08);
-      border-radius:18px;
+      border-radius:16px;
       background:linear-gradient(180deg, #fcfefc, #f4f9f4);
     }
 
@@ -761,10 +780,12 @@
     .notes-box p{
       margin:0;
       color:var(--muted);
+      font-size:0.92rem;
+      line-height:1.5;
     }
 
     .footer{
-      padding:42px 0 60px;
+      padding:38px 0 54px;
       color:var(--muted);
     }
 
@@ -774,8 +795,8 @@
       justify-content:space-between;
       gap:20px;
       border-top:1px solid rgba(18, 34, 24, 0.08);
-      padding-top:22px;
-      font-size:0.92rem;
+      padding-top:20px;
+      font-size:0.88rem;
     }
 
     .footer-left strong{
@@ -783,10 +804,14 @@
       color:var(--text);
       letter-spacing:.04em;
       font-weight:800;
+      font-size:0.88rem;
     }
 
     .footer-left span{
       color:var(--muted);
+      font-size:0.74rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
     }
 
     @media (max-width: 1120px){
@@ -829,18 +854,18 @@
         width:100%;
         overflow-x:auto;
         padding-bottom:4px;
-        gap:18px;
+        gap:16px;
         justify-content:flex-start;
       }
 
       .hero{
-        padding-top:42px;
+        padding-top:34px;
       }
 
       .hero-main,
       .hero-side,
       .block{
-        padding:22px;
+        padding:18px;
       }
 
       .hero-points,
@@ -1000,7 +1025,7 @@
                 <button type="button" class="btn btn-primary">Sign In</button>
               </form>
 
-              <p style="margin-top:16px; color:var(--muted); font-size:14px;">
+              <p style="margin-top:16px; color:var(--muted); font-size:13px;">
                 Access is reserved for approved client relationships and managed through a controlled reporting environment.
               </p>
             </div>
@@ -1122,7 +1147,7 @@
               <div class="chart-title">Performance View</div>
               <div class="block-header" style="margin-bottom:14px;">
                 <div>
-                  <h3 style="font-size:1.1rem; margin-bottom:4px;">Portfolio trajectory</h3>
+                  <h3 style="font-size:1rem; margin-bottom:4px;">Portfolio trajectory</h3>
                   <p>
                     Account progression, drawdown awareness, and capital behavior are tracked through time inside a disciplined reporting framework.
                   </p>
@@ -1177,7 +1202,7 @@
               <div class="chart-title">Allocation Summary</div>
               <div class="block-header" style="margin-bottom:14px;">
                 <div>
-                  <h3 style="font-size:1.1rem; margin-bottom:4px;">Positioned in layers</h3>
+                  <h3 style="font-size:1rem; margin-bottom:4px;">Positioned in layers</h3>
                   <p>
                     The portfolio is organized as a staged capital model rather than a random collection of positions.
                   </p>
@@ -1227,7 +1252,7 @@
             </div>
           </div>
 
-          <p style="margin:0 0 18px; color:var(--muted);">
+          <p style="margin:0 0 18px; color:var(--muted); font-size:0.92rem; line-height:1.5;">
             This screen gives clients direct visibility into exposure, cost basis, market value, and unrealized performance at the individual company level.
           </p>
 
@@ -1370,7 +1395,7 @@
             </div>
 
             <div class="notes-box">
-              <h3 style="margin:0 0 10px; font-size:1.05rem; color:var(--accent);">Recent Notes</h3>
+              <h3 style="margin:0 0 10px; font-size:1rem; color:var(--accent);">Recent Notes</h3>
               <p style="margin-bottom:10px;">Private updates</p>
               <ul class="note-list">
                 <li>Weekly Market Brief — Energy, rates, and cross-market risk March 2026</li>
