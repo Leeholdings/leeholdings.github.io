@@ -118,7 +118,7 @@
     .nav{
       display:flex;
       align-items:center;
-      gap:22px;
+      gap:18px;
       color:var(--muted);
       font-size:0.88rem;
       flex-wrap:wrap;
@@ -128,7 +128,7 @@
     .nav a{
       color:var(--muted);
       font-size:0.88rem;
-      font-weight:500;
+      font-weight:600;
       transition:color .18s ease;
     }
 
@@ -153,7 +153,7 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:minmax(0, 1.04fr) minmax(300px, 0.96fr);
+      grid-template-columns:minmax(0, 1.08fr) minmax(320px, 0.92fr);
       gap:20px;
       align-items:stretch;
     }
@@ -166,7 +166,7 @@
     }
 
     .hero-main{
-      padding:26px 26px 24px;
+      padding:28px 28px 26px;
       position:relative;
       overflow:hidden;
       background:
@@ -211,9 +211,9 @@
     }
 
     h1{
-      margin:0 0 12px;
-      font-size:clamp(2.2rem, 4.6vw, 3.8rem);
-      line-height:0.95;
+      margin:0 0 14px;
+      font-size:clamp(2.15rem, 4.4vw, 3.65rem);
+      line-height:0.96;
       letter-spacing:-0.045em;
       max-width:12ch;
     }
@@ -224,17 +224,17 @@
 
     .hero-main p{
       margin:0;
-      max-width:64ch;
+      max-width:62ch;
       color:var(--muted);
-      font-size:0.94rem;
-      line-height:1.5;
+      font-size:0.95rem;
+      line-height:1.6;
     }
 
     .hero-points{
       display:grid;
       grid-template-columns:repeat(2, minmax(0,1fr));
       gap:12px;
-      margin-top:20px;
+      margin-top:22px;
     }
 
     .mini{
@@ -259,15 +259,14 @@
       font-size:0.9rem;
       color:var(--text);
       font-weight:700;
-      line-height:1.4;
+      line-height:1.45;
     }
 
     .hero-side{
       padding:22px;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
-      gap:16px;
+      gap:18px;
       background:linear-gradient(180deg, #103b24 0%, #18482e 65%, #1d5636 100%);
       color:#f8fbf7;
       box-shadow:0 18px 42px rgba(16,59,36,0.15);
@@ -285,22 +284,21 @@
 
     .hero-side h2{
       margin:8px 0 10px;
-      font-size:1.2rem;
-      line-height:1.08;
+      font-size:1.18rem;
+      line-height:1.12;
       letter-spacing:-0.03em;
     }
 
     .hero-side p{
       margin:0;
-      color:rgba(255,255,255,.82);
+      color:rgba(255,255,255,.84);
       font-size:0.92rem;
-      line-height:1.5;
+      line-height:1.58;
     }
 
     .meta-list{
       display:grid;
       gap:10px;
-      margin-top:8px;
     }
 
     .meta-row{
@@ -328,11 +326,43 @@
       line-height:1.4;
     }
 
+    .side-card{
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.12);
+    }
+
+    .side-card h3{
+      margin:0 0 8px;
+      font-size:0.98rem;
+      font-weight:800;
+      color:#ffffff;
+      letter-spacing:-0.02em;
+    }
+
+    .side-card p{
+      margin:0;
+      color:rgba(255,255,255,.82);
+      font-size:0.9rem;
+      line-height:1.56;
+    }
+
+    .side-notes{
+      margin:10px 0 0;
+      padding-left:18px;
+    }
+
+    .side-notes li{
+      margin:8px 0;
+      color:rgba(255,255,255,.84);
+      font-size:0.88rem;
+      line-height:1.5;
+    }
+
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top:4px;
+      margin-top:2px;
     }
 
     .btn{
@@ -405,150 +435,16 @@
     .block-header h2,
     .block-header h3{
       margin:0 0 6px;
-      font-size:clamp(1.45rem, 3vw, 2.2rem);
+      font-size:clamp(1.4rem, 3vw, 2.05rem);
       letter-spacing:-.03em;
       color:var(--accent);
-      line-height:1.05;
+      line-height:1.06;
     }
 
     .block-header p{
       margin:0;
       color:var(--muted);
       max-width:760px;
-      font-size:0.92rem;
-      line-height:1.5;
-    }
-
-    .chip-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .chip{
-      padding:7px 11px;
-      border-radius:999px;
-      background:#eef4ef;
-      border:1px solid rgba(15,107,69,0.08);
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      color:var(--accent);
-      box-shadow:var(--shadow-soft);
-    }
-
-    .login-grid{
-      display:grid;
-      grid-template-columns:1fr .95fr;
-      gap:18px;
-    }
-
-    .login-box{
-      padding:20px;
-      border:1px solid rgba(15,107,69,0.08);
-      border-radius:16px;
-      background:linear-gradient(180deg, #fcfefc, #f4f9f4);
-    }
-
-    .login-box h3{
-      margin:0 0 8px;
-      font-size:1.08rem;
-      color:var(--accent);
-      line-height:1.08;
-    }
-
-    .login-box p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:0.92rem;
-      line-height:1.5;
-    }
-
-    .field{
-      display:grid;
-      gap:8px;
-      margin-bottom:14px;
-    }
-
-    label{
-      font-size:12px;
-      font-weight:800;
-      color:var(--accent);
-      letter-spacing:.02em;
-    }
-
-    input{
-      width:100%;
-      padding:13px 14px;
-      border-radius:13px;
-      border:1px solid var(--line-strong);
-      background:#fff;
-      color:var(--text);
-      font:inherit;
-      font-size:0.92rem;
-      outline:none;
-      transition:.18s ease;
-    }
-
-    input:focus{
-      border-color:var(--accent-2);
-      box-shadow:0 0 0 4px rgba(31,107,66,.09);
-    }
-
-    .help-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin:12px 0 16px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .status-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:12px;
-    }
-
-    .status{
-      padding:16px;
-      border-radius:16px;
-      border:1px solid rgba(15,107,69,0.08);
-      background:linear-gradient(180deg, #fbfdfb, #f4f9f4);
-    }
-
-    .status .k{
-      display:block;
-      margin-bottom:6px;
-      font-size:10px;
-      color:var(--accent-2);
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    .status .v{
-      font-weight:700;
-      color:var(--text);
-      font-size:0.9rem;
-      line-height:1.4;
-    }
-
-    .note-list,
-    .doc-list,
-    .framework-list{
-      margin:0;
-      padding-left:18px;
-    }
-
-    .note-list li,
-    .doc-list li,
-    .framework-list li{
-      margin:8px 0;
-      color:var(--text);
       font-size:0.92rem;
       line-height:1.5;
     }
@@ -592,7 +488,6 @@
     }
 
     .up{color:#177246}
-    .down{color:#a24343}
 
     .performance-grid{
       display:grid;
@@ -716,38 +611,9 @@
     }
 
     .company-card h4{
-      margin:0 0 6px;
+      margin:0 0 8px;
       font-size:1.02rem;
       color:var(--accent);
-    }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      background:#eef4ef;
-      border:1px solid rgba(15,107,69,0.08);
-      color:var(--accent);
-      font-size:11px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      margin-bottom:12px;
-    }
-
-    .pill{
-      display:inline-block;
-      margin-bottom:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:#103b24;
-      color:#fff;
-      font-size:10px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
     }
 
     .company-card ul{
@@ -762,24 +628,16 @@
       line-height:1.5;
     }
 
-    .commentary{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:18px;
-    }
-
-    .commentary-box,
-    .notes-box{
-      padding:18px;
-      border:1px solid rgba(15,107,69,0.08);
-      border-radius:16px;
-      background:linear-gradient(180deg, #fcfefc, #f4f9f4);
-    }
-
-    .commentary-box p,
-    .notes-box p{
+    .doc-list,
+    .framework-list{
       margin:0;
-      color:var(--muted);
+      padding-left:18px;
+    }
+
+    .doc-list li,
+    .framework-list li{
+      margin:8px 0;
+      color:var(--text);
       font-size:0.92rem;
       line-height:1.5;
     }
@@ -816,13 +674,10 @@
 
     @media (max-width: 1120px){
       .hero-grid,
-      .login-grid,
-      .performance-grid,
-      .commentary{
+      .performance-grid{
         grid-template-columns:1fr;
       }
 
-      .status-grid,
       .metrics{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
@@ -869,7 +724,6 @@
       }
 
       .hero-points,
-      .status-grid,
       .metrics,
       .alloc-grid{
         grid-template-columns:1fr;
@@ -913,11 +767,7 @@
 
       <nav class="nav">
         <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
-        <a href="/dashboard/reports/manager">Manager Letter</a>
-        <a href="/dashboard/reports/q1-2026">Q1 Review</a>
-        <a href="/dashboard/reports/allocation">Allocation</a>
-        <a href="#signin" class="nav-cta active">Private Access</a>
+        <a href="https://leeholdings-portal.vercel.app/" class="nav-cta">Portal</a>
       </nav>
     </div>
   </header>
@@ -926,146 +776,70 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-main card">
-          <div class="eyebrow">Private Login • Client Visibility • Controlled Access</div>
-          <h1>Secure entry for <span class="accent-text">aligned client relationships.</span></h1>
+          <div class="eyebrow">Private Client Environment • Structured Visibility</div>
+          <h1>Private access for <span class="accent-text">approved client relationships.</span></h1>
           <p>
-            Private access begins with clarity, discretion, and trust. This portal gives approved clients a structured view of account activity, portfolio positioning, reporting, and ongoing manager communication within a controlled environment.
+            Lee Holdings Group provides a controlled reporting environment for select clients and counterparties. The portal is designed to communicate balances, portfolio exposure, performance context, and manager guidance through a disciplined institutional interface.
           </p>
 
           <div class="hero-points">
             <div class="mini">
-              <span class="k">Intended Users</span>
-              <div class="v">Clients, investors, and approved strategic relationships</div>
+              <span class="k">Access Tier</span>
+              <div class="v">Approved clients, investors, and authorized strategic relationships</div>
             </div>
             <div class="mini">
-              <span class="k">Access Scope</span>
-              <div class="v">Balances, holdings, reporting, and commentary</div>
+              <span class="k">Visibility Scope</span>
+              <div class="v">Portfolio value, holdings, performance review, and manager communication</div>
             </div>
             <div class="mini">
-              <span class="k">Security Standard</span>
-              <div class="v">Private access with controlled permissions and structured visibility</div>
+              <span class="k">Operating Standard</span>
+              <div class="v">Structured reporting, controlled access, and discretion in presentation</div>
             </div>
             <div class="mini">
-              <span class="k">Operating Model</span>
-              <div class="v">Disciplined reporting with manager-guided communication</div>
+              <span class="k">Portal Use</span>
+              <div class="v">Ongoing account visibility once credentials are issued and access is approved</div>
             </div>
           </div>
         </div>
 
         <aside class="hero-side">
           <div>
-            <div class="panel-tag">Private Client Environment</div>
-            <h2>Private client access. Institutional presentation.</h2>
+            <div class="panel-tag">Manager Commentary</div>
+            <h2>Current positioning remains selective, liquid, and institutionally disciplined.</h2>
             <p>
-              The portal is structured to present account-level visibility, holdings context, manager commentary, and strategic reporting in a disciplined private environment.
+              Capital is currently biased toward durable quality, infrastructure-linked exposure, and controlled optionality. The operating posture favors clarity of thesis, reserve flexibility, and measured deployment rather than indiscriminate risk extension.
             </p>
           </div>
 
           <div class="meta-list">
             <div class="meta-row">
-              <div class="label">Environment</div>
-              <div class="value">Private, structured, and manager-guided</div>
-            </div>
-            <div class="meta-row">
-              <div class="label">Data Mode</div>
-              <div class="value">Controlled reporting baseline</div>
-            </div>
-            <div class="meta-row">
               <div class="label">Portal Status</div>
-              <div class="value">Controlled Client Reporting Environment</div>
+              <div class="value">Active private client interface</div>
             </div>
+            <div class="meta-row">
+              <div class="label">Reporting Mode</div>
+              <div class="value">Structured account and holdings visibility</div>
+            </div>
+            <div class="meta-row">
+              <div class="label">Access Path</div>
+              <div class="value">Credential-based entry through the live portal</div>
+            </div>
+          </div>
+
+          <div class="side-card">
+            <h3>Recent Notes</h3>
+            <ul class="side-notes">
+              <li>Weekly Market Brief — Energy, rates, and cross-market risk review</li>
+              <li>AI Infrastructure Watch — compute, cloud, and power demand monitoring</li>
+              <li>Capital Framework Update — reserve posture and tactical deployment discipline</li>
+            </ul>
           </div>
 
           <div class="hero-actions">
-            <a class="btn btn-secondary-dark" href="/dashboard">Enter Dashboard</a>
+            <a class="btn btn-secondary-dark" href="https://leeholdings-portal.vercel.app/">Enter Portal</a>
             <a class="btn btn-secondary-dark" href="#documents">View Documents</a>
           </div>
         </aside>
-      </div>
-    </section>
-
-    <section class="section" id="signin">
-      <div class="wrap section-grid">
-        <div class="block">
-          <div class="block-header">
-            <div>
-              <h2>Client Sign In</h2>
-              <p>Enter private access credentials to review account visibility, holdings context, performance reporting, and manager updates.</p>
-            </div>
-            <div class="chip-row">
-              <div class="chip">Authorized Access</div>
-              <div class="chip">Capital Oversight</div>
-              <div class="chip">Structured Reporting</div>
-            </div>
-          </div>
-
-          <div class="login-grid">
-            <div class="login-box">
-              <h3>Enter private access credentials</h3>
-              <p>
-                Access account visibility, holdings context, performance reporting, and manager updates through a private client interface.
-              </p>
-
-              <form>
-                <div class="field">
-                  <label for="email">Email Address</label>
-                  <input id="email" type="email" placeholder="client@domain.com" />
-                </div>
-
-                <div class="field">
-                  <label for="password">Password</label>
-                  <input id="password" type="password" placeholder="Enter password" />
-                </div>
-
-                <div class="help-row">
-                  <span>Secure client environment</span>
-                  <a href="#documents" style="font-weight:800; color:var(--accent-2);">Need access support?</a>
-                </div>
-
-                <button type="button" class="btn btn-primary">Sign In</button>
-              </form>
-
-              <p style="margin-top:16px; color:var(--muted); font-size:13px;">
-                Access is reserved for approved client relationships and managed through a controlled reporting environment.
-              </p>
-            </div>
-
-            <div class="login-box">
-              <h3>Portal Status</h3>
-              <p>
-                Structured to support client-specific balances, holdings visibility, P&amp;L reporting, portfolio notes, and ongoing manager communication within a private access layer.
-              </p>
-
-              <div class="status-grid">
-                <div class="status">
-                  <span class="k">Access Tier</span>
-                  <div class="v">Private Client / Investor</div>
-                </div>
-                <div class="status">
-                  <span class="k">Reporting Style</span>
-                  <div class="v">Account + Holdings + Commentary</div>
-                </div>
-                <div class="status">
-                  <span class="k">Data Mode</span>
-                  <div class="v">Controlled reporting baseline</div>
-                </div>
-                <div class="status">
-                  <span class="k">Environment</span>
-                  <div class="v">Private, structured, and manager-guided</div>
-                </div>
-              </div>
-
-              <div class="chip-row" style="margin-top:18px;">
-                <a class="btn btn-secondary" href="/dashboard">Dashboard Overview</a>
-                <a class="btn btn-secondary" href="#performance">Performance</a>
-                <a class="btn btn-secondary" href="#holdings">Holdings</a>
-                <a class="btn btn-secondary" href="#company-notes">Company Notes</a>
-                <a class="btn btn-secondary" href="#research">Manager Commentary</a>
-                <a class="btn btn-secondary" href="#documents">Documents</a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1074,36 +848,32 @@
         <div class="block">
           <div class="block-header">
             <div>
-              <h2>Account Status</h2>
-              <p>Client Snapshot</p>
+              <h2>Portal Overview</h2>
+              <p>Clear visibility. Controlled communication. Institutional presentation.</p>
             </div>
           </div>
 
-          <div class="status-grid">
-            <div class="status">
-              <span class="k">Reporting</span>
-              <div class="v">Active</div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="k">Total Account Value</span>
+              <div class="v">$428,640</div>
+              <div class="s">Illustrative reporting view</div>
             </div>
-            <div class="status">
-              <span class="k">Risk Profile</span>
-              <div class="v">Moderate</div>
+            <div class="metric">
+              <span class="k">Unrealized P&amp;L</span>
+              <div class="v up">+$34,920</div>
+              <div class="s">Reflecting active position-level performance</div>
             </div>
-            <div class="status">
-              <span class="k">Strategy</span>
-              <div class="v">Multi-Asset Growth</div>
+            <div class="metric">
+              <span class="k">Cash Allocation</span>
+              <div class="v">12.4%</div>
+              <div class="s">Reserve capital maintained for selective deployment</div>
             </div>
-            <div class="status">
-              <span class="k">Communication</span>
-              <div class="v">Manager-guided</div>
+            <div class="metric">
+              <span class="k">Day Change</span>
+              <div class="v up">+$2,184</div>
+              <div class="s">Daily movement presented in client format</div>
             </div>
-          </div>
-
-          <div style="margin-top:18px;">
-            <ul class="note-list">
-              <li>Structured reporting supports cleaner communication between capital and manager.</li>
-              <li>Balances, P&amp;L, and holdings visibility are presented through a controlled client lens.</li>
-              <li>Company commentary adds depth beyond raw numbers and strengthens decision transparency.</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -1114,31 +884,8 @@
         <div class="block">
           <div class="block-header">
             <div>
-              <h2>Dashboard Overview</h2>
-              <p>Clear visibility. Controlled communication.</p>
-            </div>
-          </div>
-
-          <div class="metrics">
-            <div class="metric">
-              <span class="k">Total Account Value</span>
-              <div class="v">$428,640</div>
-              <div class="s">Updated 9:30 AM ET</div>
-            </div>
-            <div class="metric">
-              <span class="k">Unrealized P&amp;L</span>
-              <div class="v up">+$34,920</div>
-              <div class="s">+8.87% since inception</div>
-            </div>
-            <div class="metric">
-              <span class="k">Cash Allocation</span>
-              <div class="v">12.4%</div>
-              <div class="s">Dry powder for staged deployment</div>
-            </div>
-            <div class="metric">
-              <span class="k">Day Change</span>
-              <div class="v up">+$2,184</div>
-              <div class="s">+0.51% daily movement</div>
+              <h2>Performance & Allocation</h2>
+              <p>Structured reporting designed to show both capital behavior and portfolio construction.</p>
             </div>
           </div>
 
@@ -1149,7 +896,7 @@
                 <div>
                   <h3 style="font-size:1rem; margin-bottom:4px;">Portfolio trajectory</h3>
                   <p>
-                    Account progression, drawdown awareness, and capital behavior are tracked through time inside a disciplined reporting framework.
+                    Account progression, drawdown awareness, and performance behavior are presented through a disciplined reporting lens rather than a retail-style dashboard.
                   </p>
                 </div>
               </div>
@@ -1204,7 +951,7 @@
                 <div>
                   <h3 style="font-size:1rem; margin-bottom:4px;">Positioned in layers</h3>
                   <p>
-                    The portfolio is organized as a staged capital model rather than a random collection of positions.
+                    The portfolio is built as a staged capital framework, separating core ownership, infrastructure exposure, cyclical sensitivity, optionality, and reserve liquidity.
                   </p>
                 </div>
               </div>
@@ -1218,7 +965,7 @@
                 <div class="alloc">
                   <span class="pct">22%</span>
                   <div class="name">AI Infrastructure</div>
-                  <div class="desc">Compute, cloud, power, and buildout layer</div>
+                  <div class="desc">Compute, cloud, power, and buildout exposure</div>
                 </div>
                 <div class="alloc">
                   <span class="pct">18%</span>
@@ -1228,12 +975,12 @@
                 <div class="alloc">
                   <span class="pct">14%</span>
                   <div class="name">Digital Assets</div>
-                  <div class="desc">Selective asymmetric optionality with defined sizing</div>
+                  <div class="desc">Controlled optionality with defined portfolio sizing</div>
                 </div>
                 <div class="alloc">
                   <span class="pct">10%</span>
                   <div class="name">Cash Reserve</div>
-                  <div class="desc">Reserve capital maintained for tactical deployment</div>
+                  <div class="desc">Dry powder preserved for selective deployment</div>
                 </div>
               </div>
             </div>
@@ -1248,13 +995,9 @@
           <div class="block-header">
             <div>
               <h2>Current Holdings</h2>
-              <p>Position-level view</p>
+              <p>Position-level visibility presented in a client reporting format.</p>
             </div>
           </div>
-
-          <p style="margin:0 0 18px; color:var(--muted); font-size:0.92rem; line-height:1.5;">
-            This screen gives clients direct visibility into exposure, cost basis, market value, and unrealized performance at the individual company level.
-          </p>
 
           <table>
             <thead>
@@ -1331,78 +1074,38 @@
         <div class="block">
           <div class="block-header">
             <div>
-              <h2>Company Information Area</h2>
-              <p>Why the position is held matters.</p>
+              <h2>Company Notes</h2>
+              <p>Position rationale and role within the broader capital structure.</p>
             </div>
           </div>
 
           <div class="company-grid">
             <article class="company-card">
               <h4>NVIDIA</h4>
-              <div class="tag">Tier I / AI Compute Leadership</div>
-              <div class="pill">Core Compounder</div>
               <ul>
-                <li><strong>Thesis:</strong> dominant compute and accelerator exposure for global AI deployment.</li>
-                <li><strong>Role:</strong> long-duration infrastructure anchor.</li>
-                <li><strong>Risk:</strong> valuation compression and cyclical semiconductor volatility.</li>
+                <li><strong>Thesis:</strong> Dominant compute and accelerator exposure for global AI deployment.</li>
+                <li><strong>Role:</strong> Long-duration infrastructure anchor inside the core equity layer.</li>
+                <li><strong>Risk:</strong> Valuation compression and cyclical semiconductor volatility.</li>
               </ul>
             </article>
 
             <article class="company-card">
               <h4>Constellation Energy</h4>
-              <div class="tag">Tier II / Power Infrastructure</div>
-              <div class="pill">Infrastructure</div>
               <ul>
-                <li><strong>Thesis:</strong> electricity demand expansion supports power-linked names.</li>
-                <li><strong>Role:</strong> bridges AI buildout with real-world generation needs.</li>
-                <li><strong>Risk:</strong> regulatory pressure and sentiment swings in utilities.</li>
+                <li><strong>Thesis:</strong> Electricity demand expansion supports power-linked infrastructure exposure.</li>
+                <li><strong>Role:</strong> Connects AI buildout to real-world generation requirements.</li>
+                <li><strong>Risk:</strong> Regulatory pressure and utility-sector sentiment swings.</li>
               </ul>
             </article>
 
             <article class="company-card">
               <h4>Bitcoin</h4>
-              <div class="tag">Tier IV / Asymmetric Optionality</div>
-              <div class="pill">Digital Asset</div>
               <ul>
-                <li><strong>Thesis:</strong> selective exposure to scarce digital monetary infrastructure.</li>
-                <li><strong>Role:</strong> optionality sleeve with defined portfolio sizing.</li>
-                <li><strong>Risk:</strong> higher volatility, macro liquidity sensitivity, and sentiment shock.</li>
+                <li><strong>Thesis:</strong> Selective exposure to scarce digital monetary infrastructure.</li>
+                <li><strong>Role:</strong> Optionality sleeve with controlled sizing and asymmetric upside.</li>
+                <li><strong>Risk:</strong> Higher volatility, macro liquidity sensitivity, and sentiment shock.</li>
               </ul>
             </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="research">
-      <div class="wrap section-grid">
-        <div class="block">
-          <div class="block-header">
-            <div>
-              <h2>Manager Commentary</h2>
-              <p>Current positioning note</p>
-            </div>
-          </div>
-
-          <div class="commentary">
-            <div class="commentary-box">
-              <p style="margin-bottom:14px;">
-                Manager commentary is where portfolio visibility turns into portfolio understanding. Clients see not only what is held, but why capital is positioned the way it is.
-              </p>
-              <p>
-                Current positioning remains constructive on AI infrastructure and selective power exposure, while maintaining controlled optionality in digital assets. Cash remains purposeful rather than idle, preserving flexibility if volatility opens more attractive entry points.
-              </p>
-            </div>
-
-            <div class="notes-box">
-              <h3 style="margin:0 0 10px; font-size:1rem; color:var(--accent);">Recent Notes</h3>
-              <p style="margin-bottom:10px;">Private updates</p>
-              <ul class="note-list">
-                <li>Weekly Market Brief — Energy, rates, and cross-market risk March 2026</li>
-                <li>AI Infrastructure Watch — compute, cloud, and power demand March 2026</li>
-                <li>Capital Framework Update — tactical exposure and reserve management March 2026</li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -1414,7 +1117,7 @@
           <div class="block-header">
             <div>
               <h2>Client Documents</h2>
-              <p>Reporting and account materials</p>
+              <p>Reporting materials and communication architecture.</p>
             </div>
           </div>
 
@@ -1430,13 +1133,13 @@
           <div class="block-header">
             <div>
               <h2>Portal Framework</h2>
-              <p>Reporting structure</p>
+              <p>Operating structure of the private reporting environment.</p>
             </div>
           </div>
 
           <ul class="framework-list">
-            <li>Private login and client access layer — Active</li>
-            <li>Balances, P&amp;L, and holdings reporting structure — Active</li>
+            <li>Credential-based private access layer — Active</li>
+            <li>Balances, P&amp;L, and holdings reporting — Active</li>
             <li>Manager commentary and communication framework — Active</li>
             <li>Document delivery and client visibility architecture — Active</li>
           </ul>
