@@ -6,7 +6,7 @@
   <title>Lee Holdings Group — Private Access Portal</title>
   <meta
     name="description"
-    content="Lee Holdings Group — Private Access Portal. Secure client visibility across balances, holdings, reporting, and manager commentary."
+    content="Lee Holdings Group — Private Access Portal. Secure client visibility across balances, reporting architecture, strategic positioning, and manager commentary."
   />
 
   <style>
@@ -541,61 +541,202 @@
       border-radius:16px;
       background:linear-gradient(180deg, #fbfdfb, #f4f9f4);
       text-align:left;
+      position:relative;
+    }
+
+    .alloc-tag{
+      position:absolute;
+      top:14px;
+      right:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:28px;
+      padding:0 11px;
+      border-radius:999px;
+      border:1px solid rgba(15,107,69,0.08);
+      background:#eef6f1;
+      color:var(--green);
+      font-size:0.77rem;
+      font-weight:800;
     }
 
     .alloc .pct{
       display:block;
-      font-size:1.2rem;
+      font-size:1.85rem;
       font-weight:800;
       letter-spacing:-.03em;
-      margin-bottom:6px;
+      margin:28px 0 10px;
       color:var(--accent);
     }
 
     .alloc .name{
       font-weight:800;
-      margin-bottom:5px;
+      margin-bottom:9px;
       color:var(--text);
       font-size:0.9rem;
+      max-width:70%;
+      line-height:1.2;
     }
 
     .alloc .desc{
       font-size:12px;
       color:var(--muted);
-      line-height:1.5;
+      line-height:1.62;
     }
 
-    table{
-      width:100%;
-      border-collapse:collapse;
-      overflow:hidden;
-      border-radius:16px;
-      border:1px solid rgba(15,107,69,0.08);
-      background:#fff;
+    .allocation-footnote{
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid rgba(15,107,69,0.08);
+      color:var(--muted);
+      font-size:0.92rem;
+      line-height:1.58;
     }
 
-    thead th{
-      text-align:left;
-      padding:13px 14px;
-      font-size:11px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--accent);
-      background:#f2f6f2;
-      border-bottom:1px solid rgba(15,107,69,0.08);
-      white-space:nowrap;
+    .exposure-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:18px;
+      align-items:start;
     }
 
-    tbody td{
-      padding:14px;
+    .position-stack{
+      display:grid;
+      gap:12px;
+    }
+
+    .position-row{
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:18px;
+      padding:16px 0;
       border-bottom:1px solid #ecf1ec;
-      font-size:13px;
-      vertical-align:top;
-      line-height:1.45;
     }
 
-    tbody tr:last-child td{border-bottom:0}
-    tbody tr:hover{background:#fafcf9}
+    .position-row:first-child{
+      padding-top:0;
+    }
+
+    .position-row:last-child{
+      border-bottom:0;
+      padding-bottom:0;
+    }
+
+    .position-ticker{
+      font-size:1.25rem;
+      font-weight:800;
+      color:var(--green);
+      letter-spacing:-0.03em;
+    }
+
+    .position-company{
+      font-size:1rem;
+      font-weight:800;
+      color:var(--accent);
+      margin-bottom:5px;
+      line-height:1.2;
+    }
+
+    .position-copy{
+      color:var(--muted);
+      font-size:0.92rem;
+      line-height:1.62;
+      margin:0;
+    }
+
+    .register-card{
+      padding:20px;
+      border:1px solid rgba(15,107,69,0.08);
+      border-radius:16px;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f5faf7 100%);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .register-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#f3faf6;
+      border:1px solid rgba(15,107,69,0.08);
+      color:var(--green);
+      font-size:0.75rem;
+      font-weight:800;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .register-title{
+      margin:0 0 10px;
+      font-size:1.35rem;
+      line-height:1.08;
+      letter-spacing:-0.03em;
+      color:var(--accent);
+    }
+
+    .register-copy{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:0.92rem;
+      line-height:1.62;
+    }
+
+    .register-form{
+      display:grid;
+      gap:12px;
+    }
+
+    .field{
+      display:grid;
+      gap:6px;
+    }
+
+    .field label{
+      font-size:0.74rem;
+      font-weight:800;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      color:var(--accent-2);
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+      width:100%;
+      min-height:46px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(15,107,69,0.10);
+      background:#ffffff;
+      color:var(--text);
+      font:inherit;
+      outline:none;
+      transition:border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus{
+      border-color:rgba(15,107,69,0.28);
+      box-shadow:0 0 0 4px rgba(15,107,69,0.06);
+    }
+
+    .register-note{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size:0.82rem;
+      line-height:1.55;
+    }
+
+    .research-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
 
     .company-grid{
       display:grid;
@@ -614,6 +755,13 @@
       margin:0 0 8px;
       font-size:1.02rem;
       color:var(--accent);
+    }
+
+    .company-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:0.9rem;
+      line-height:1.6;
     }
 
     .company-card ul{
@@ -674,7 +822,8 @@
 
     @media (max-width: 1120px){
       .hero-grid,
-      .performance-grid{
+      .performance-grid,
+      .exposure-grid{
         grid-template-columns:1fr;
       }
 
@@ -686,7 +835,8 @@
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
-      .company-grid{
+      .company-grid,
+      .research-grid{
         grid-template-columns:1fr;
       }
 
@@ -734,9 +884,13 @@
         align-items:flex-start;
       }
 
-      table{
-        display:block;
-        overflow-x:auto;
+      .position-row{
+        grid-template-columns:1fr;
+        gap:8px;
+      }
+
+      .alloc .name{
+        max-width:100%;
       }
 
       .footer-inner{
@@ -779,25 +933,25 @@
           <div class="eyebrow">Private Client Environment • Structured Visibility</div>
           <h1>Private access for <span class="accent-text">approved client relationships.</span></h1>
           <p>
-            Lee Holdings Group provides a controlled reporting environment for select clients and counterparties. The portal is designed to communicate balances, portfolio exposure, performance context, and manager guidance through a disciplined institutional interface.
+            Lee Holdings Group maintains a controlled reporting environment for select clients, counterparties, and aligned relationships. The portal is designed to communicate portfolio architecture, capital posture, strategic context, and manager guidance through a restrained institutional interface built for serious readers.
           </p>
 
           <div class="hero-points">
             <div class="mini">
               <span class="k">Access Tier</span>
-              <div class="v">Approved clients, investors, and authorized strategic relationships</div>
+              <div class="v">Approved clients, strategic counterparties, and management-reviewed investor relationships</div>
             </div>
             <div class="mini">
               <span class="k">Visibility Scope</span>
-              <div class="v">Portfolio value, holdings, performance review, and manager communication</div>
+              <div class="v">Capital architecture, selected positioning, reporting cadence, and manager communication</div>
             </div>
             <div class="mini">
               <span class="k">Operating Standard</span>
-              <div class="v">Structured reporting, controlled access, and discretion in presentation</div>
+              <div class="v">Selective access, disciplined presentation, and controlled disclosure rather than retail-style broadcasting</div>
             </div>
             <div class="mini">
               <span class="k">Portal Use</span>
-              <div class="v">Ongoing account visibility once credentials are issued and access is approved</div>
+              <div class="v">Ongoing visibility once credentials are issued and the relationship has advanced beyond introductory review</div>
             </div>
           </div>
         </div>
@@ -805,9 +959,9 @@
         <aside class="hero-side">
           <div>
             <div class="panel-tag">Manager Commentary</div>
-            <h2>Current positioning remains selective, liquid, and institutionally disciplined.</h2>
+            <h2>Current posture remains selective, liquid, and biased toward durable strategic control points.</h2>
             <p>
-              Capital is currently biased toward durable quality, infrastructure-linked exposure, and controlled optionality. The operating posture favors clarity of thesis, reserve flexibility, and measured deployment rather than indiscriminate risk extension.
+              Capital is being expressed through infrastructure-linked demand, power and buildout relevance, controlled digital optionality, and reserve capacity preserved for higher-quality deployment. The operating standard favors clarity of thesis, pricing discipline, and flexibility over indiscriminate exposure.
             </p>
           </div>
 
@@ -817,27 +971,27 @@
               <div class="value">Active private client interface</div>
             </div>
             <div class="meta-row">
-              <div class="label">Reporting Mode</div>
-              <div class="value">Structured account and holdings visibility</div>
+              <div class="label">Review Standard</div>
+              <div class="value">Selective admission based on fit, alignment, and relationship stage</div>
             </div>
             <div class="meta-row">
               <div class="label">Access Path</div>
-              <div class="value">Credential-based entry through the live portal</div>
+              <div class="value">Credential-based entry through the live portal following management review</div>
             </div>
           </div>
 
           <div class="side-card">
             <h3>Recent Notes</h3>
             <ul class="side-notes">
-              <li>Weekly Market Brief — Energy, rates, and cross-market risk review</li>
-              <li>AI Infrastructure Watch — compute, cloud, and power demand monitoring</li>
-              <li>Capital Framework Update — reserve posture and tactical deployment discipline</li>
+              <li>Infrastructure remains central where compute demand translates into physical power, cooling, grid, and industrial execution requirements</li>
+              <li>Digital assets are maintained as optionality, not as the foundation of the book</li>
+              <li>Reserve capacity is treated as strategic firepower rather than idle capital</li>
             </ul>
           </div>
 
           <div class="hero-actions">
             <a class="btn btn-secondary-dark" href="https://leeholdings-portal.vercel.app/">Enter Portal</a>
-            <a class="btn btn-secondary-dark" href="#documents">View Documents</a>
+            <a class="btn btn-secondary-dark" href="#request-access">Request Access</a>
           </div>
         </aside>
       </div>
@@ -857,12 +1011,12 @@
             <div class="metric">
               <span class="k">Total Account Value</span>
               <div class="v">$428,640</div>
-              <div class="s">Illustrative reporting view</div>
+              <div class="s">Illustrative reporting view for presentation structure</div>
             </div>
             <div class="metric">
               <span class="k">Unrealized P&amp;L</span>
               <div class="v up">+$34,920</div>
-              <div class="s">Reflecting active position-level performance</div>
+              <div class="s">Shown in client format once access is approved</div>
             </div>
             <div class="metric">
               <span class="k">Cash Allocation</span>
@@ -870,9 +1024,9 @@
               <div class="s">Reserve capital maintained for selective deployment</div>
             </div>
             <div class="metric">
-              <span class="k">Day Change</span>
-              <div class="v up">+$2,184</div>
-              <div class="s">Daily movement presented in client format</div>
+              <span class="k">Reporting Mode</span>
+              <div class="v">Private</div>
+              <div class="s">Structured visibility, not public broadcast</div>
             </div>
           </div>
         </div>
@@ -884,8 +1038,8 @@
         <div class="block">
           <div class="block-header">
             <div>
-              <h2>Performance & Allocation</h2>
-              <p>Structured reporting designed to show both capital behavior and portfolio construction.</p>
+              <h2>Capital Architecture</h2>
+              <p>Structured reporting designed to show how capital is distributed across strategic layers rather than presented as a retail watchlist.</p>
             </div>
           </div>
 
@@ -896,7 +1050,7 @@
                 <div>
                   <h3 style="font-size:1rem; margin-bottom:4px;">Portfolio trajectory</h3>
                   <p>
-                    Account progression, drawdown awareness, and performance behavior are presented through a disciplined reporting lens rather than a retail-style dashboard.
+                    Progression, drawdown awareness, and behavior under changing conditions are presented through a disciplined reporting lens rather than a promotional dashboard format.
                   </p>
                 </div>
               </div>
@@ -949,38 +1103,155 @@
               <div class="chart-title">Allocation Summary</div>
               <div class="block-header" style="margin-bottom:14px;">
                 <div>
-                  <h3 style="font-size:1rem; margin-bottom:4px;">Positioned in layers</h3>
+                  <h3 style="font-size:1rem; margin-bottom:4px;">Strategic capital distribution</h3>
                   <p>
-                    The portfolio is built as a staged capital framework, separating core ownership, infrastructure exposure, cyclical sensitivity, optionality, and reserve liquidity.
+                    The portfolio is framed through durable demand, physical buildout, macro sensitivity, selective optionality, and reserve capacity rather than broad undifferentiated exposure.
                   </p>
                 </div>
               </div>
 
               <div class="alloc-grid">
                 <div class="alloc">
-                  <span class="pct">36%</span>
-                  <div class="name">Core Equities</div>
-                  <div class="desc">Large-cap leadership and durable earnings exposure</div>
+                  <div class="alloc-tag">Core</div>
+                  <div class="name">Artificial Intelligence</div>
+                  <span class="pct">25%</span>
+                  <div class="desc">Primary growth engine built around dominant compute, cloud, memory, and platform-linked exposure.</div>
                 </div>
                 <div class="alloc">
-                  <span class="pct">22%</span>
-                  <div class="name">AI Infrastructure</div>
-                  <div class="desc">Compute, cloud, power, and buildout exposure</div>
+                  <div class="alloc-tag">Core</div>
+                  <div class="name">Infrastructure</div>
+                  <span class="pct">25%</span>
+                  <div class="desc">Physical buildout layer tied to power, cooling, grid support, and industrial execution.</div>
                 </div>
                 <div class="alloc">
-                  <span class="pct">18%</span>
-                  <div class="name">Energy &amp; Cyclicals</div>
-                  <div class="desc">Macro-sensitive exposure tied to real economy demand</div>
+                  <div class="alloc-tag">Tactical</div>
+                  <div class="name">Energy</div>
+                  <span class="pct">12%</span>
+                  <div class="desc">Macro-sensitive exposure monitored through inflation, supply pressure, and risk transmission.</div>
                 </div>
                 <div class="alloc">
-                  <span class="pct">14%</span>
+                  <div class="alloc-tag">Optionality</div>
                   <div class="name">Digital Assets</div>
-                  <div class="desc">Controlled optionality with defined portfolio sizing</div>
+                  <span class="pct">8%</span>
+                  <div class="desc">Secondary asymmetry sleeve maintained for upside participation without portfolio dependence.</div>
                 </div>
                 <div class="alloc">
-                  <span class="pct">10%</span>
-                  <div class="name">Cash Reserve</div>
-                  <div class="desc">Dry powder preserved for selective deployment</div>
+                  <div class="alloc-tag">Reserve</div>
+                  <div class="name">Cash &amp; Reserves</div>
+                  <span class="pct">30%</span>
+                  <div class="desc">Strategic reserve capacity preserved for patience, defense, and higher-quality deployment.</div>
+                </div>
+              </div>
+
+              <div class="allocation-footnote">
+                Allocation levels reflect a disciplined balance between growth exposure, tactical positioning, and reserve capacity, designed to adapt as market conditions evolve.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="request-access">
+      <div class="wrap section-grid">
+        <div class="block">
+          <div class="block-header">
+            <div>
+              <h2>Private Access Review</h2>
+              <p>Access is reviewed directly by management and granted selectively based on fit, alignment, and relationship quality.</p>
+            </div>
+          </div>
+
+          <div class="exposure-grid">
+            <div class="register-card">
+              <div class="register-tag">Request Private Access</div>
+              <h3 class="register-title">Submit your details for management review.</h3>
+              <p class="register-copy">
+                This is not an open registration funnel. Requests are reviewed manually. Approved entrants may be granted credentialed access to the live portal, reporting materials, and manager communication environment.
+              </p>
+
+              <form
+                class="register-form"
+                action="https://formsubmit.co/justine@leeholdingsgroup.com"
+                method="POST"
+              >
+                <input type="hidden" name="_subject" value="New Private Access Request — Lee Holdings Group" />
+                <input type="hidden" name="_captcha" value="false" />
+
+                <div class="field">
+                  <label for="full-name">Full Name</label>
+                  <input id="full-name" name="Full Name" type="text" placeholder="Enter full legal name" required />
+                </div>
+
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="Email" type="email" placeholder="name@example.com" required />
+                </div>
+
+                <div class="field">
+                  <label for="location">Location</label>
+                  <input id="location" name="Location" type="text" placeholder="City, State / Region" required />
+                </div>
+
+                <div class="field">
+                  <label for="investor-profile">Investor Profile</label>
+                  <select id="investor-profile" name="Investor Profile" required>
+                    <option value="">Select profile</option>
+                    <option>Private Investor</option>
+                    <option>Family Office</option>
+                    <option>Strategic Partner</option>
+                    <option>Allocator / Advisor</option>
+                    <option>Operator / Entrepreneur</option>
+                    <option>Other Qualified Relationship</option>
+                  </select>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Submit Access Request</button>
+              </form>
+
+              <p class="register-note">
+                Requests are submitted directly for management review without relying on the visitor’s local email application.
+              </p>
+            </div>
+
+            <div class="register-card">
+              <div class="register-tag">Access Standards</div>
+              <h3 class="register-title">Who this environment is built for.</h3>
+              <p class="register-copy">
+                The portal is intended for individuals who understand that capital presentation should communicate process, discipline, and structure — not noise. The goal is controlled visibility for serious relationships, not mass-market enrollment.
+              </p>
+
+              <div class="position-stack">
+                <div class="position-row">
+                  <div class="position-ticker">01</div>
+                  <div>
+                    <div class="position-company">Selective admission</div>
+                    <p class="position-copy">Access is relationship-based, not open enrollment. Fit matters as much as interest.</p>
+                  </div>
+                </div>
+
+                <div class="position-row">
+                  <div class="position-ticker">02</div>
+                  <div>
+                    <div class="position-company">Institutional presentation</div>
+                    <p class="position-copy">Materials prioritize positioning logic, risk structure, and reporting quality over promotional framing.</p>
+                  </div>
+                </div>
+
+                <div class="position-row">
+                  <div class="position-ticker">03</div>
+                  <div>
+                    <div class="position-company">Managed communication</div>
+                    <p class="position-copy">Visibility, cadence, and disclosure depth are controlled directly by management.</p>
+                  </div>
+                </div>
+
+                <div class="position-row">
+                  <div class="position-ticker">04</div>
+                  <div>
+                    <div class="position-company">Long-horizon orientation</div>
+                    <p class="position-copy">The emphasis is on framework, patience, optionality, and durable capital deployment — not short-term spectacle.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -989,82 +1260,117 @@
       </div>
     </section>
 
-    <section class="section" id="holdings">
+    <section class="section" id="selected-positioning">
       <div class="wrap section-grid">
         <div class="block">
           <div class="block-header">
             <div>
-              <h2>Current Holdings</h2>
-              <p>Position-level visibility presented in a client reporting format.</p>
+              <h2>Selected Positioning</h2>
+              <p>Representative strategic exposures are shown here as business-quality expressions of capital, not as a public transaction ledger.</p>
             </div>
           </div>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Company</th>
-                <th>Ticker</th>
-                <th>Shares</th>
-                <th>Avg Cost</th>
-                <th>Current</th>
-                <th>Market Value</th>
-                <th>Unrealized P&amp;L</th>
-                <th>Weight</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>NVIDIA Corporation</td>
-                <td>NVDA</td>
-                <td>320</td>
-                <td>$116.40</td>
-                <td>$128.10</td>
-                <td>$40,992</td>
-                <td class="up">+$3,744</td>
-                <td>9.6%</td>
-              </tr>
-              <tr>
-                <td>Microsoft Corporation</td>
-                <td>MSFT</td>
-                <td>145</td>
-                <td>$421.30</td>
-                <td>$438.90</td>
-                <td>$63,641</td>
-                <td class="up">+$2,552</td>
-                <td>14.8%</td>
-              </tr>
-              <tr>
-                <td>Constellation Energy</td>
-                <td>CEG</td>
-                <td>170</td>
-                <td>$212.80</td>
-                <td>$226.50</td>
-                <td>$38,505</td>
-                <td class="up">+$2,329</td>
-                <td>9.0%</td>
-              </tr>
-              <tr>
-                <td>Amazon.com, Inc.</td>
-                <td>AMZN</td>
-                <td>210</td>
-                <td>$181.10</td>
-                <td>$187.90</td>
-                <td>$39,459</td>
-                <td class="up">+$1,428</td>
-                <td>9.2%</td>
-              </tr>
-              <tr>
-                <td>Bitcoin Exposure</td>
-                <td>BTC</td>
-                <td>0.86</td>
-                <td>$82,420</td>
-                <td>$89,860</td>
-                <td>$77,280</td>
-                <td class="up">+$6,398</td>
-                <td>18.0%</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="exposure-grid">
+            <div class="position-stack">
+              <div class="position-row">
+                <div class="position-ticker">AVGO</div>
+                <div>
+                  <div class="position-company">Broadcom</div>
+                  <p class="position-copy">AI networking and custom silicon exposure tied to scale-out compute architecture, connectivity, and differentiated infrastructure control points.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">MU</div>
+                <div>
+                  <div class="position-company">Micron Technology</div>
+                  <p class="position-copy">Memory and HBM-linked exposure supporting AI servers, data center scaling, and the throughput demands of next-generation workloads.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">LRCX</div>
+                <div>
+                  <div class="position-company">Lam Research</div>
+                  <p class="position-copy">Semiconductor fabrication equipment exposure tied to wafer processing, manufacturing depth, and the physical enabling layer behind advanced chips.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">ETN</div>
+                <div>
+                  <div class="position-company">Eaton</div>
+                  <p class="position-copy">Electrical systems, grid modernization, and intelligent power management exposure positioned where digital demand meets physical energy infrastructure.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">SBGSY</div>
+                <div>
+                  <div class="position-company">Schneider Electric</div>
+                  <p class="position-copy">Energy management and automation exposure linked to resilient facilities, efficiency layers, and the control architecture surrounding power-intensive environments.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">SND</div>
+                <div>
+                  <div class="position-company">Smart Sand</div>
+                  <p class="position-copy">Targeted energy-cycle exposure through proppant supply and real-economy demand sensitivity rather than broad commodity speculation.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="position-stack">
+              <div class="position-row">
+                <div class="position-ticker">VRT</div>
+                <div>
+                  <div class="position-company">Vertiv</div>
+                  <p class="position-copy">Power and cooling infrastructure exposure aligned with rising compute density, uptime requirements, and mission-critical digital facilities.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">FIX</div>
+                <div>
+                  <div class="position-company">Comfort Systems USA</div>
+                  <p class="position-copy">Industrial and mechanical buildout exposure tied to data center construction, systems execution, and the labor-constrained delivery side of infrastructure demand.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">EME</div>
+                <div>
+                  <div class="position-company">EMCOR Group</div>
+                  <p class="position-copy">Mechanical and electrical construction exposure positioned where institutional capital must eventually convert into physical installed capacity.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">BTC</div>
+                <div>
+                  <div class="position-company">Bitcoin</div>
+                  <p class="position-copy">Scarce digital reserve exposure maintained as a controlled optionality sleeve rather than the foundation of the portfolio.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">ETH</div>
+                <div>
+                  <div class="position-company">Ethereum</div>
+                  <p class="position-copy">Programmable digital infrastructure exposure reflecting selective participation in application-layer and settlement-network optionality.</p>
+                </div>
+              </div>
+
+              <div class="position-row">
+                <div class="position-ticker">WTI</div>
+                <div>
+                  <div class="position-company">Macro Energy Monitor</div>
+                  <p class="position-copy">Oil is monitored as a regime-sensitive macro input influencing inflation pressure, industrial demand, and tactical transmission across the book.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1074,37 +1380,70 @@
         <div class="block">
           <div class="block-header">
             <div>
-              <h2>Company Notes</h2>
-              <p>Position rationale and role within the broader capital structure.</p>
+              <h2>Strategic Research Notes</h2>
+              <p>Short institutional reads on representative business exposures across the current architecture.</p>
+            </div>
+          </div>
+
+          <div class="research-grid">
+            <article class="company-card">
+              <h4>Artificial Intelligence</h4>
+              <p>
+                The AI sleeve is not built around narrative alone. It is centered on the hardware, memory, networking, and fabrication layers that must exist before higher-level monetization can scale.
+              </p>
+            </article>
+
+            <article class="company-card">
+              <h4>Infrastructure</h4>
+              <p>
+                Infrastructure remains essential because digital demand eventually collides with physical constraints: power delivery, cooling, electrical systems, facility readiness, and real-world installation capacity.
+              </p>
+            </article>
+
+            <article class="company-card">
+              <h4>Energy</h4>
+              <p>
+                Energy exposure is treated tactically, with attention to transmission effects across inflation, industrial demand, supply pressure, and broader market risk behavior.
+              </p>
+            </article>
+
+            <article class="company-card">
+              <h4>Digital Assets</h4>
+              <p>
+                Digital assets are sized as optionality rather than dependency. The posture is measured participation with strict respect for volatility, liquidity cycles, and macro sensitivity.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <div>
+              <h2>Representative Company Notes</h2>
+              <p>Position rationale shown at the business level rather than through public ledger disclosure.</p>
             </div>
           </div>
 
           <div class="company-grid">
             <article class="company-card">
-              <h4>NVIDIA</h4>
-              <ul>
-                <li><strong>Thesis:</strong> Dominant compute and accelerator exposure for global AI deployment.</li>
-                <li><strong>Role:</strong> Long-duration infrastructure anchor inside the core equity layer.</li>
-                <li><strong>Risk:</strong> Valuation compression and cyclical semiconductor volatility.</li>
-              </ul>
+              <h4>Broadcom / Micron / Lam</h4>
+              <p>
+                This cluster expresses the semiconductor backbone of the AI era: custom silicon, memory bandwidth, and fabrication depth. The emphasis is on necessity, not excitement.
+              </p>
             </article>
 
             <article class="company-card">
-              <h4>Constellation Energy</h4>
-              <ul>
-                <li><strong>Thesis:</strong> Electricity demand expansion supports power-linked infrastructure exposure.</li>
-                <li><strong>Role:</strong> Connects AI buildout to real-world generation requirements.</li>
-                <li><strong>Risk:</strong> Regulatory pressure and utility-sector sentiment swings.</li>
-              </ul>
+              <h4>Eaton / Schneider / Vertiv</h4>
+              <p>
+                This group anchors the power-management side of digital expansion, where uptime, efficiency, and grid relevance become increasingly valuable as compute intensity rises.
+              </p>
             </article>
 
             <article class="company-card">
-              <h4>Bitcoin</h4>
-              <ul>
-                <li><strong>Thesis:</strong> Selective exposure to scarce digital monetary infrastructure.</li>
-                <li><strong>Role:</strong> Optionality sleeve with controlled sizing and asymmetric upside.</li>
-                <li><strong>Risk:</strong> Higher volatility, macro liquidity sensitivity, and sentiment shock.</li>
-              </ul>
+              <h4>FIX / EMCOR</h4>
+              <p>
+                These exposures reflect a simple institutional truth: capital commitments ultimately require mechanical, electrical, and physical execution in the field.
+              </p>
             </article>
           </div>
         </div>
@@ -1123,9 +1462,9 @@
 
           <ul class="doc-list">
             <li>Quarterly Performance Statement PDF</li>
-            <li>Account Holdings Summary PDF</li>
-            <li>Risk Profile &amp; Allocation Framework PDF</li>
-            <li>Client Communication Archive Portal</li>
+            <li>Client Allocation Summary PDF</li>
+            <li>Manager Letter &amp; Forward Positioning Note</li>
+            <li>Risk Architecture &amp; Reserve Framework</li>
           </ul>
         </div>
 
@@ -1139,9 +1478,9 @@
 
           <ul class="framework-list">
             <li>Credential-based private access layer — Active</li>
-            <li>Balances, P&amp;L, and holdings reporting — Active</li>
-            <li>Manager commentary and communication framework — Active</li>
-            <li>Document delivery and client visibility architecture — Active</li>
+            <li>Reporting architecture for balances, positioning, and commentary — Active</li>
+            <li>Manager-guided communication cadence — Active</li>
+            <li>Selective onboarding and controlled disclosure workflow — Active</li>
           </ul>
         </div>
       </div>
