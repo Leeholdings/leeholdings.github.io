@@ -200,7 +200,23 @@
       color: var(--muted);
       font-size: 1.08rem;
       max-width: 61ch;
+      margin: 0 0 18px;
+    }
+
+    .hero-positioning {
       margin: 0 0 26px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fbfdfb 0%, #f5faf7 100%);
+      border: 1px solid rgba(15, 107, 69, 0.08);
+      box-shadow: var(--shadow-soft);
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 64ch;
+    }
+
+    .hero-positioning strong {
+      color: var(--text);
     }
 
     .hero-actions {
@@ -424,6 +440,52 @@
       margin-top: -2px;
     }
 
+    .access-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .access-form .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .access-form label {
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .access-form input,
+    .access-form select {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(15, 107, 69, 0.10);
+      background: #ffffff;
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .access-form input:focus,
+    .access-form select:focus {
+      border-color: rgba(15, 107, 69, 0.28);
+      box-shadow: 0 0 0 4px rgba(15, 107, 69, 0.06);
+    }
+
+    .form-note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
     section {
       padding: 34px 0;
     }
@@ -577,9 +639,7 @@
         <a href="#markets">Markets</a>
         <a href="#research">Research</a>
         <a href="#about">About</a>
-<a href="/portal.html" class="nav-cta">
-  Private Access
-</a>
+        <a href="/portal.html" class="nav-cta">Private Access</a>
       </nav>
     </div>
   </header>
@@ -632,8 +692,14 @@
             metals, and digital markets.
           </p>
 
+          <div class="hero-positioning">
+            <strong>Current Positioning:</strong> Energy remains a primary macro transmission channel,
+            AI capital continues to consolidate into compute, power, cooling, and infrastructure layers,
+            and liquidity conditions remain the governing variable across risk assets and digital markets.
+          </div>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Request Investor Access</a>
+            <a class="btn btn-primary" href="#contact">Submit for Access Review</a>
             <a class="btn btn-secondary" href="#research">Explore Research</a>
           </div>
 
@@ -641,8 +707,8 @@
             <div class="allocation-title">Capital Allocation Framework</div>
             <h3>Process before performance.</h3>
             <p class="allocation-intro">
-              Long-term capital is not deployed randomly. It is staged through a tiered framework
-              designed to balance durability, opportunity, education, and risk-defined execution.
+              Long-duration capital is not deployed reactively. It is staged through a tiered framework
+              designed to balance durability, opportunity, research depth, and risk-defined execution.
             </p>
 
             <div class="allocation-row">
@@ -671,12 +737,27 @@
 
             <div class="allocation-note">
               Capital is allocated through a repeatable system prioritizing macro alignment,
-              strategic patience, and disciplined exposure rather than reactive decision-making.
+              strategic patience, and disciplined exposure over reactive decision-making.
             </div>
           </div>
         </div>
 
         <div class="hero-right">
+          <aside class="hero-panel">
+            <div class="panel-tag">AI Infrastructure Focus</div>
+            <h3>The AI buildout is bigger than software.</h3>
+            <p>
+              Real AI exposure sits across compute, cloud distribution, grid capacity,
+              cooling systems, and physical industrial support — not simply application-layer headlines.
+            </p>
+            <ul class="micro-list">
+              <li><strong>Compute:</strong> semiconductor and accelerator leadership</li>
+              <li><strong>Cloud:</strong> hyperscale platforms monetizing deployment</li>
+              <li><strong>Power:</strong> grid modernization and electricity demand expansion</li>
+              <li><strong>Cooling:</strong> mechanical and thermal systems supporting data center growth</li>
+            </ul>
+          </aside>
+
           <div class="strategy-graph">
             <div class="panel-tag">Capital Architecture</div>
             <h3>Tiered allocation model</h3>
@@ -735,7 +816,6 @@
                 <rect x="405" y="174" width="150" height="60" rx="12" fill="url(#tierFill2)" stroke="rgba(15,107,69,0.14)"/>
                 <rect x="570" y="88" width="110" height="70" rx="12" fill="url(#tierFill1)" stroke="rgba(15,107,69,0.18)"/>
 
-                <!-- Labels moved above the green line -->
                 <text x="165" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#102117">Tier I</text>
                 <text x="165" y="266" text-anchor="middle" font-size="12" fill="#4d6256">Core Compounders</text>
 
@@ -789,21 +869,6 @@
               </div>
             </div>
           </div>
-
-          <aside class="hero-panel">
-            <div class="panel-tag">AI Infrastructure Focus</div>
-            <h3>The AI buildout is bigger than software.</h3>
-            <p>
-              Real AI exposure sits across compute, cloud distribution, grid capacity,
-              cooling systems, and physical industrial support — not just application-layer headlines.
-            </p>
-            <ul class="micro-list">
-              <li><strong>Compute:</strong> semiconductor and accelerator leadership</li>
-              <li><strong>Cloud:</strong> hyperscale platforms monetizing deployment</li>
-              <li><strong>Power:</strong> grid modernization and electricity demand expansion</li>
-              <li><strong>Cooling:</strong> mechanical and thermal systems supporting data center growth</li>
-            </ul>
-          </aside>
         </div>
       </div>
     </section>
@@ -812,16 +877,16 @@
       <div class="container">
         <div class="section-head">
           <div class="section-tag">Market Architecture</div>
-          <h2>Core market exposure</h2>
+          <h2>Active market positioning</h2>
         </div>
 
         <div class="feature-grid">
           <article class="feature-card">
             <div class="section-tag">Energy</div>
-            <h3>WTI as a macro signal</h3>
+            <h3>WTI as a macro transmission signal</h3>
             <p>
-              Oil remains a lead signal for inflation pressure, geopolitical stress,
-              and broad repricing across risk assets.
+              Oil remains a lead variable for inflation pressure, geopolitical stress,
+              transport costs, and broad repricing across risk assets.
             </p>
             <ul class="list">
               <li>WTIUSD structural monitoring</li>
@@ -832,24 +897,24 @@
 
           <article class="feature-card">
             <div class="section-tag">Artificial Intelligence</div>
-            <h3>AI as an ecosystem, not a headline</h3>
+            <h3>AI as a capital cycle, not a headline</h3>
             <p>
               Positioning centers on infrastructure, monetization, dominant platforms,
-              and durable system-level winners rather than narrative heat.
+              and durable system-level winners rather than application-layer excitement.
             </p>
             <ul class="list">
               <li>Compute and semiconductor leadership</li>
               <li>Platform dominance and distribution</li>
-              <li>Real enterprise value over hype</li>
+              <li>Real enterprise value over narrative heat</li>
             </ul>
           </article>
 
           <article class="feature-card">
             <div class="section-tag">Digital Assets</div>
-            <h3>Selective asymmetric opportunities</h3>
+            <h3>Selective asymmetric participation</h3>
             <p>
               Digital markets are approached with discipline, defined risk,
-              and a preference for timing over impulse.
+              and a clear preference for liquidity awareness over impulse.
             </p>
             <ul class="list">
               <li>Structured participation</li>
@@ -887,7 +952,7 @@
             <div class="section-tag">Allocation Framework</div>
             <h3>Capital is deployed in layers</h3>
             <p>
-              Exposure is earned through clarity, not rushed through emotion.
+              Exposure is earned through clarity, not accelerated through emotion.
               The system is designed to scale with conviction.
             </p>
             <div class="tag-row">
@@ -938,7 +1003,7 @@
 
           <article class="research-card">
             <div class="section-tag">AI Market Thesis</div>
-            <h3>AI winners will be concentrated</h3>
+            <h3>AI winners will remain concentrated</h3>
             <p>
               AI is approached as a capital cycle where infrastructure,
               distribution, and monetization create outsized long-term value.
@@ -1027,15 +1092,55 @@
 
         <div class="contact-grid">
           <article class="contact-card">
-            <div class="section-tag">Contact</div>
-            <h3>Start the conversation</h3>
+            <div class="section-tag">Access Review</div>
+            <h3>Submit for review</h3>
             <p>
-              Reach out directly for investor inquiries, strategic discussions,
-              or partnership conversations.
+              Access requests are reviewed directly by management. This is a controlled intake
+              for aligned investor, strategic, and relationship-based conversations — not an open retail funnel.
             </p>
-            <p><strong>Email:</strong> <a href="mailto:justine@leeholdingsgroup.com">justine@leeholdingsgroup.com</a></p>
-            <p><strong>Suggested subject:</strong> Investor Access Inquiry</p>
-            <a class="btn btn-primary" href="mailto:justine@leeholdingsgroup.com?subject=Investor%20Access%20Inquiry">Request Access</a>
+
+            <form
+              class="access-form"
+              action="https://formsubmit.co/justine@leeholdingsgroup.com"
+              method="POST"
+            >
+              <input type="hidden" name="_subject" value="New Investor Access Request — Lee Holdings Group" />
+              <input type="hidden" name="_captcha" value="false" />
+
+              <div class="field">
+                <label for="full-name">Full Name</label>
+                <input id="full-name" name="Full Name" type="text" placeholder="Enter full name" required />
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="Email" type="email" placeholder="name@example.com" required />
+              </div>
+
+              <div class="field">
+                <label for="location">Location</label>
+                <input id="location" name="Location" type="text" placeholder="City, State / Region" required />
+              </div>
+
+              <div class="field">
+                <label for="investor-profile">Investor Profile</label>
+                <select id="investor-profile" name="Investor Profile" required>
+                  <option value="">Select profile</option>
+                  <option>Private Investor</option>
+                  <option>Family Office</option>
+                  <option>Strategic Partner</option>
+                  <option>Allocator / Advisor</option>
+                  <option>Operator / Entrepreneur</option>
+                  <option>Other Qualified Relationship</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Submit Access Request</button>
+            </form>
+
+            <p class="form-note">
+              Requests are delivered directly for management review without relying on the visitor’s local email application.
+            </p>
           </article>
 
           <article class="contact-card">
