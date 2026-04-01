@@ -542,6 +542,9 @@
       background:linear-gradient(180deg, #fbfdfb, #f4f9f4);
       text-align:left;
       position:relative;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
     }
 
     .alloc-tag{
@@ -559,15 +562,8 @@
       color:var(--green);
       font-size:0.77rem;
       font-weight:800;
-    }
-
-    .alloc .pct{
-      display:block;
-      font-size:1.85rem;
-      font-weight:800;
-      letter-spacing:-.03em;
-      margin:28px 0 10px;
-      color:var(--accent);
+      white-space:nowrap;
+      z-index:2;
     }
 
     .alloc .name{
@@ -575,14 +571,26 @@
       margin-bottom:9px;
       color:var(--text);
       font-size:0.9rem;
-      max-width:70%;
       line-height:1.2;
+      max-width:100%;
+      padding-right:126px;
+      min-height:2.5em;
+    }
+
+    .alloc .pct{
+      display:block;
+      font-size:1.85rem;
+      font-weight:800;
+      letter-spacing:-.03em;
+      margin:16px 0 10px;
+      color:var(--accent);
     }
 
     .alloc .desc{
       font-size:12px;
       color:var(--muted);
       line-height:1.62;
+      margin-top:auto;
     }
 
     .allocation-footnote{
@@ -891,6 +899,8 @@
 
       .alloc .name{
         max-width:100%;
+        padding-right:118px;
+        min-height:auto;
       }
 
       .footer-inner{
